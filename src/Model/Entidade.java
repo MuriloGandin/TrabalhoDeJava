@@ -1,6 +1,6 @@
 package Model;
 
-public class Entidade {
+public abstract class Entidade {
 
     private int pontosDeVida;
     boolean estaVivo;
@@ -16,4 +16,6 @@ public class Entidade {
             System.out.println("Inimigo Derrotado");
         }
     }
+
+    abstract public void atacar(Entidade alvo);
 }
