@@ -2,8 +2,8 @@ package Model;
 
 public class Inimigo extends Entidade {
 
-    public Inimigo(int pontosDeVida, boolean estaVivo) {
-        super(pontosDeVida, estaVivo);
+    public Inimigo(String nome, int pontosDeVida, int dano) {
+        super(nome, pontosDeVida, dano);
     }
 
     public void atacar(Entidade alvo){

@@ -8,13 +8,9 @@ public class Sistema {
         mostrarMenuInicial();
         InputHelper.scan.nextLine();
 
-        Inimigo creeper = new Inimigo(12, true);
-        creeper.setDano(5);
-        creeper.setNome("Creeper");
+        Inimigo creeper = new Inimigo("Creeper", 12, 6);
 
-        Personagem steve = new Personagem(20, true);
-        steve.setDano(6);
-        steve.setNome("Steve");
+        Personagem steve = new Personagem("Steve", 20, 6);
 
         System.out.println("Vida do creeper: " + creeper.getPontosDeVida());
         System.out.println("Pressione enter para atacar");

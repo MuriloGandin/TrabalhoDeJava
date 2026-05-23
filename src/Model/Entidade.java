@@ -7,14 +7,15 @@ public abstract class Entidade {
     boolean estaVivo;
     private int dano;
 
-    public Entidade(int pontosDeVida, boolean estaVivo) {
+    public Entidade(String nome, int pontosDeVida, int dano) {
+        this.nome = nome;
         this.pontosDeVida = pontosDeVida;
-        this.estaVivo = estaVivo;
+        this.dano = dano;
     }
 
     public void receberDano(int dano){
         pontosDeVida -= dano;
-        if (pontosDeVida < 1){
+        if (pontosDeVida < 1) {
             estaVivo = false;
         }
     }
@@ -53,6 +54,6 @@ public abstract class Entidade {
         System.out.println("Nome: " + nome);
         System.out.println("Pontos de Vida: " + pontosDeVida);
         System.out.println("Dano: " + dano);
-        System.out.println("Está Vivo: " + estaVivo);
+        System.out.println(estaVivo ? "Estado: Vivo" : "Estado: Morto");
     }
 }

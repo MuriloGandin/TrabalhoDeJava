@@ -5,8 +5,8 @@ public class Personagem extends Entidade {
     private int pocoes;
     private boolean defendendo;
 
-    public Personagem(int pontosDeVida, boolean estaVivo) {
-        super(pontosDeVida, estaVivo);
+    public Personagem(String nome, int pontosDeVida, int dano) {
+        super(nome, pontosDeVida, dano);
     }
 
     @Override
