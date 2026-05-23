@@ -6,6 +6,8 @@ public class Inimigo extends Entidade {
         super(pontosDeVida, estaVivo);
     }
 
-    public void atacar(Entidade alvo){}
+    public void atacar(Entidade alvo){
+        alvo.receberDano(10);
+    }
 
 }
