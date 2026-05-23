@@ -48,4 +48,11 @@ public abstract class Entidade {
     public void setNome(String nome) {
         this.nome = nome;
     }
+
+    public void exibirInfo() {
+        System.out.println("Nome: " + nome);
+        System.out.println("Pontos de Vida: " + pontosDeVida);
+        System.out.println("Dano: " + dano);
+        System.out.println("Está Vivo: " + estaVivo);
+    }
 }
