@@ -11,7 +11,8 @@ public class Personagem extends Entidade {
 
     @Override
     public void atacar(Entidade alvo) {
-        System.out.println(alvo.receberDano(2));
+        System.out.println("Atacando o alvo " + alvo.getNome());
+        alvo.receberDano(this.getDano());
     }
 
 
