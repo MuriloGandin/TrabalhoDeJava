@@ -10,7 +10,8 @@ public class Sistema {
 
         Inimigo creeper = new Inimigo("Creeper", 12, 6);
 
-        Personagem steve = new Personagem("Steve", 20, 6);
+        String nomePersonagem = InputHelper.lerTexto("Digite o nome do seu personagem:");
+        Personagem steve = new Personagem(nomePersonagem, 20, 6);
         Ondas();
 
         System.out.println("Vida do creeper: " + creeper.getPontosDeVida());
