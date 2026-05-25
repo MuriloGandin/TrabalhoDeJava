@@ -16,8 +16,6 @@ public class Personagem extends Entidade {
         alvo.receberDano(this.getDano());
     }
 
-
-
     private final String nomeGolpeSimples  = "Espadada Rápida";
 
     public int getPocoes() {

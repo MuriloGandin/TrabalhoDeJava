@@ -23,8 +23,28 @@ public class Sistema {
     }
 
     public static void mostrarMenuInicial() {
-        System.out.println("----- NullPointer Quest -----");
-        System.out.println("-- Pressione ENTER para jogar --");
+        limparTela();
+
+        System.out.println("""
+            ███  ██ ██  ██ ██     ██     █████▄ ▄████▄ ██ ███  ██ ██████ ██████ █████▄ \s
+            ██ ▀▄██ ██  ██ ██     ██     ██▄▄█▀ ██  ██ ██ ██ ▀▄██   ██   ██▄▄   ██▄▄██▄\s
+            ██   ██ ▀████▀ ██████ ██████ ██     ▀████▀ ██ ██   ██   ██   ██▄▄▄▄ ██   ██\s
+            
+        
+                               ▄█████▄ ██  ██ ██████ ▄█████ ██████          \s
+                               ██ ▄ ██ ██  ██ ██▄▄   ▀▀▀▄▄▄   ██            \s
+                               ▀█████▀ ▀████▀ ██▄▄▄▄ █████▀   ██            \s
+                                    ▀▀                                      \s
+                                     NULLPOINTER QUEST
+        
+                                Pressione ENTER para jogar
+        """);
+    }
+
+    public static void limparTela() {
+        for (int i = 0; i < 50; i++) {
+            System.out.println();
+        }
     }
 
     public static void Ondas(){
