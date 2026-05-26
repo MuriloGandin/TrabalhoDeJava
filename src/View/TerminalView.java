@@ -2,12 +2,14 @@ package View;
 
 public class TerminalView {
 
+    // Limpa as ultimas 50 linhas do terminal para uma exibição mais limpa
     public static void limparTela() {
         for (int i = 0; i < 50; i++) {
             System.out.println();
         }
     }
 
+    // Exibe o texto recebido gradualmente para um efeito de "suavidade"
     public static void printGradual(String texto) throws InterruptedException {
         for (char c : texto.toCharArray()) {
             System.out.print(c);
@@ -15,6 +17,7 @@ public class TerminalView {
         }
     }
 
+    // Funciona como o metodo anterior, mas pode receber as cores vermelho, verde ou amarelo para colorir o texto.
     public static void printGradual(String texto, String cor) throws InterruptedException {
         for (char c : texto.toCharArray()) {
             printColorido(Character.toString(c), cor);
@@ -22,7 +25,8 @@ public class TerminalView {
         }
     }
 
-
+    // Exibe o texto informado no terminal com uma cor recebida (vermelho, azul, verde)
+    // Exemplo: TerminalView.printColorido("Olá", "vermelho"); - Resultado: "Olá" pintado em vermelho no terminal
     public static void printColorido(String texto, String cor) {
         String codigoCor;
 
@@ -38,6 +42,8 @@ public class TerminalView {
         System.out.print(codigoCor + texto + "\u001B[0m");
     }
 
+    // Retorna uma String Colorida para uso externo. Pode ser visualizada somente no terminal.
+    // Exemplo: System.out.println(TerminalView.colorirTexto("Olá", "Vermelho")) - funcionará como o exemplo do metodo "printColorido"
     public static String colorirTexto(String texto, String cor) {
         String codigoCor;
 
