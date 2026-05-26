@@ -77,14 +77,6 @@ public class Sistema {
 
                 InputHelper.lerTexto("\nPressione ENTER para continuar...");
             }
-
-            if (jogador.EstaVivo()) {
-                System.out.println("\nVoce venceu a onda " + onda + "!");
-            } else {
-                System.out.println("\nVoce foi derrotado...");
-                break;
-            }
-
             System.out.println("----------------");
         }
     }
