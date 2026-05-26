@@ -4,7 +4,7 @@ public abstract class Entidade {
 
     private String nome;
     private int pontosDeVida;
-    boolean estaVivo;
+    boolean estaVivo = true;
     private int dano;
 
     public Entidade(String nome, int pontosDeVida, int dano) {

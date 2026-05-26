@@ -16,12 +16,6 @@ public class Sistema {
         Personagem steve = new Personagem(nomePersonagem, 20, 6);
         Ondas(steve, creeper);
 
-        System.out.println("Vida do creeper: " + creeper.getPontosDeVida());
-        System.out.println("Pressione enter para atacar");
-        InputHelper.scan.nextLine();
-        steve.atacar(creeper);
-        System.out.println("Vida do creeper: " + creeper.getPontosDeVida());
-
     }
 
     public static void mostrarMenuInicial() {

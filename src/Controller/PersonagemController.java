@@ -28,6 +28,10 @@ public class PersonagemController {
                     System.out.println("\nSem poções disponíveis!");
                 }
                 break;
+
+            case ATACAR:
+                jogador.atacar(inimigo);
+                System.out.println("O jogador " + jogador.getNome() + " atacou " + inimigo.getNome() + " e causou " + jogador.getDano() + " de dano!");
         }
     }
 
