@@ -23,9 +23,9 @@ public class Sistema {
     }
 
     public static void mostrarMenuInicial() {
-        limparTela();
+        TerminalView.limparTela();
 
-        System.out.println("""
+        String titulo = """
             ███  ██ ██  ██ ██     ██     █████▄ ▄████▄ ██ ███  ██ ██████ ██████ █████▄ \s
             ██ ▀▄██ ██  ██ ██     ██     ██▄▄█▀ ██  ██ ██ ██ ▀▄██   ██   ██▄▄   ██▄▄██▄\s
             ██   ██ ▀████▀ ██████ ██████ ██     ▀████▀ ██ ██   ██   ██   ██▄▄▄▄ ██   ██\s
@@ -38,12 +38,12 @@ public class Sistema {
                                      NULLPOINTER QUEST
         
                                 Pressione ENTER para jogar
-        """);
-    }
+        """;
 
-    public static void limparTela() {
-        for (int i = 0; i < 50; i++) {
-            System.out.println();
+        try {
+            TerminalView.printGradual(titulo, "amarelo");
+        } catch (InterruptedException e) {
+            return;
         }
     }
 

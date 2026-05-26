@@ -74,19 +74,4 @@ public class InputHelper {
         return resultado;
     }
 
-    public static void printColorido(String texto, String cor) {
-        String codigoCor;
-
-        if (cor.equalsIgnoreCase("vermelho"))
-            codigoCor = "\u001B[31m";
-        else if (cor.equalsIgnoreCase("verde"))
-            codigoCor = "\u001B[32m";
-        else if (cor.equalsIgnoreCase("amarelo"))
-            codigoCor = "\u001B[33m";
-        else
-            throw new RuntimeException("Cor inválida para string (apenas vermelho, verde ou amarelo)");
-
-        System.out.println(codigoCor + texto + "\u001B[0m");
-    }
-
 }
