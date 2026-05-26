@@ -7,11 +7,11 @@ Tema: RPG de aventura
 - como o jogador interage com o jogo?
 - o que o jogador pode fazer?
 
-#### A fazer:
-1. Adicionar lógica de turnos
-2. Menus (interatividade)
-3. Adicionar lógica de ondas
-4. Adicionar telas (Apresentação do jogo, Fim de jogo, Tela de vitória)
-5. Adicionar Tipos de ataque
-6. Adicionar lógica de níveis
-7. Adicionar progressão de jogador
+#### A fazer: (Marcar ❌✅)
+1. Adicionar lógica de turnos ❌
+2. Menus (interatividade) ❌
+3. Adicionar lógica de ondas ❌
+4. Adicionar telas (Apresentação do jogo, Fim de jogo, Tela de vitória) ❌
+5. Adicionar Tipos de ataque ❌
+6. Adicionar lógica de níveis ❌
+7. Adicionar progressão de jogador ❌
