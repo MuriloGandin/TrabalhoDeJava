@@ -12,7 +12,6 @@ public class TerminalView {
         for (char c : texto.toCharArray()) {
             System.out.print(c);
             Thread.sleep(3);
-
         }
     }
 
