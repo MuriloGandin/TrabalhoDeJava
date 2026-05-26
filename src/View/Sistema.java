@@ -1,5 +1,7 @@
 package View;
 
+import Controller.InimigoController;
+import Controller.PersonagemController;
 import Model.Inimigo;
 import Model.Personagem;
 
@@ -12,7 +14,7 @@ public class Sistema {
 
         String nomePersonagem = InputHelper.lerTexto("Digite o nome do seu personagem:");
         Personagem steve = new Personagem(nomePersonagem, 20, 6);
-        Ondas();
+        Ondas(steve, creeper);
 
         System.out.println("Vida do creeper: " + creeper.getPontosDeVida());
         System.out.println("Pressione enter para atacar");
@@ -47,22 +49,49 @@ public class Sistema {
         }
     }
 
-    public static void Ondas(){
-        for (int onda = 1; onda <= 1 ; onda++) {
+    public static void mostrarMenuCombate(Personagem jogador, Inimigo inimigo) {
+        System.out.println("\n--- TURNO ---");
+        System.out.println(jogador.getNome() + "  HP: " + jogador.getPontosDeVida());
+        System.out.println(inimigo.getNome()  + "  HP: " + inimigo.getPontosDeVida());
+        System.out.println("-------------");
+        System.out.println("1. Atacar");
+        System.out.println("2. Defender");
+        System.out.println("3. Usar Item  [pocoes: " + jogador.getPocoes() + "]");
+        System.out.println("-------------");
+    }
 
-            System.out.println("Onda " + onda);
+    public static void Ondas(Personagem jogador, Inimigo inimigo) {
+        for (int onda = 1; onda <= 1; onda++) {
+            System.out.println("\n=== Onda " + onda + " ===");
+            System.out.println("Um " + inimigo.getNome() + " apareceu!");
 
-            int quantidadeDeInimigos = onda * 1; // define quantos enimigos tem por onda //
-            for (int inimigos = 0; inimigos < quantidadeDeInimigos ; inimigos++) {
+            while (jogador.EstaVivo() && inimigo.EstaVivo()) {
+                mostrarMenuCombate(jogador, inimigo);
 
-//                Inimigo crepper = new Inimigo("Crepper", 12, 6);
+                int opcao = InputHelper.lerNumero("Escolha uma ação (1-3):");
 
-                System.out.println("Inimigo " + (inimigos + 1) + " " +
-                        "Apareceu");
+                if (opcao < 1 || opcao > 3) {
+                    System.out.println("Opção inválida! Escolha entre 1 e 3.");
+                    continue;
+                }
+
+                PersonagemController.executarAcao(opcao, jogador, inimigo); // ← chama o controller
+
+                if (inimigo.EstaVivo()) {
+                    InimigoController.executarTurnoInimigo(inimigo, jogador); // ← chama o controller
+                }
+
+                InputHelper.lerTexto("\nPressione ENTER para continuar...");
             }
+
+            if (jogador.EstaVivo()) {
+                System.out.println("\nVoce venceu a onda " + onda + "!");
+            } else {
+                System.out.println("\nVoce foi derrotado...");
+                break;
+            }
+
             System.out.println("----------------");
         }
-
-
     }
 }
