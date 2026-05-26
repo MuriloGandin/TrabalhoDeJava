@@ -8,7 +8,7 @@ Tema: RPG de aventura
 - o que o jogador pode fazer?
 
 #### A fazer: (Marcar ❌✅)
-1. Adicionar lógica de turnos ❌
+1. Adicionar lógica de turnos ✅
 2. Menus (interatividade) ❌
 3. Adicionar lógica de ondas ❌
 4. Adicionar telas (Apresentação do jogo, Fim de jogo, Tela de vitória) ❌
