@@ -56,8 +56,18 @@ public class Sistema {
 
     public static void Ondas(Personagem jogador, Inimigo inimigo) {
         for (int onda = 1; onda <= 1; onda++) {
-            System.out.println("\n=== Onda " + onda + " ===");
-            System.out.println("Um " + inimigo.getNome() + " apareceu!");
+          String iniciou =
+                    "┌──────────────────────┐\n" +
+                            "│       INICIOU        │\n" +
+                            "│    === Onda " + onda + " ===    │\n" +
+                            "└──────────────────────┘";
+            try {
+                TerminalView.printGradual(iniciou, "verde");
+            } catch (InterruptedException e) {
+                return;
+            }
+
+            System.out.println("\nUm " + inimigo.getNome() + " apareceu!");
 
             while (jogador.EstaVivo() && inimigo.EstaVivo()) {
                 mostrarMenuCombate(jogador, inimigo);
