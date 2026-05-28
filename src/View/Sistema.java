@@ -56,11 +56,14 @@ public class Sistema {
 
     public static void Ondas(Personagem jogador, Inimigo inimigo) {
         for (int onda = 1; onda <= 1; onda++) {
-          String iniciou =
-                    "┌──────────────────────┐\n" +
-                            "│       INICIOU        │\n" +
-                            "│    === Onda " + onda + " ===    │\n" +
-                            "└──────────────────────┘";
+          String iniciou = """
+                  ┌──────────────────────┐
+                  │       INICIOU        │
+                  │    === Onda """ +
+                  onda + """
+                   ===     │
+                  └──────────────────────┘
+                  """;
             try {
                 TerminalView.printGradual(iniciou, "verde");
             } catch (InterruptedException e) {

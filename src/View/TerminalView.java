@@ -9,11 +9,19 @@ public class TerminalView {
         }
     }
 
-    // Exibe o texto recebido gradualmente para um efeito de "suavidade"
+    // Exibe o texto recebido gradualmente para um efeito de "suavidade", com um intervalo de 3 milessegundos entre os prints
     public static void printGradual(String texto) throws InterruptedException {
         for (char c : texto.toCharArray()) {
             System.out.print(c);
             Thread.sleep(3);
+        }
+    }
+
+    // Funciona como a função anterior, mas permite que a velocidade de impressão do texto seja especificada (ms)
+    public static void printGradual(String texto, int velocidade) throws InterruptedException {
+        for (char c : texto.toCharArray()) {
+            System.out.print(c);
+            Thread.sleep(velocidade);
         }
     }
 

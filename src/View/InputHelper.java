@@ -6,17 +6,18 @@ public class InputHelper {
 
     public static Scanner scan = new Scanner(System.in);
 
-// mostra uma mensagem na tela e le um texto digitado pelo usuario
+    // Mostra uma mensagem no terminal e retorna o texto digitado pelo usuario
     public static String lerTexto(String texto) {
         System.out.println(texto);
         return scan.nextLine();
     }
-// le um texto digitado sem mostrar a mensagem antes
+    // Retorna o texto digitado sem exibir texto
     public static String lerTexto() {
         return scan.nextLine();
     }
 
-// mostra uma mensagem e le o que o usuário digitou e tenta transformar em número inteiro, se ele errar pede de novo até estar correto.
+    // Mostra uma mensagem e lê o conteúdo digitado no terminal, em seguida, tenta transformar o texto em um número inteiro.
+    // Caso o usuário digite um valor inválido, o terminal repetirá a operação
     public static int lerNumero(String texto) {
         int resultado;
         while (true) {
@@ -31,7 +32,7 @@ public class InputHelper {
 
         return resultado;
     }
-    // faz o mesmo que o de cima porem não mostra a mensagem antes
+    // Funciona como a função anterior, mas sem exibir qualquer mensagem
     public static int lerNumero() {
         int resultado;
         while (true) {
@@ -46,7 +47,8 @@ public class InputHelper {
 
         return resultado;
     }
-    // mostra uma mensagem e le um número decimal (tipo 2.5) e valida, se digitar errado ele repete até acertar.
+    // Exibe uma mensagem, lê e retorna um número decimal (ex: 2.5).
+    // Tipos inválidos farão a operção se repetir
     public static float lerFloat(String texto) {
         float resultado;
         while (true) {
@@ -61,7 +63,7 @@ public class InputHelper {
 
         return resultado;
     }
-// faz o mesmo que o de cima porem não mostra a mensagem antes.
+    // Funciona como a função anterior, mas não exibe qualquer texto
     public static float lerFloat() {
         float resultado;
         while (true) {
