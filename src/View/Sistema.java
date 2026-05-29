@@ -3,14 +3,28 @@ package View;
 import Controller.InimigoController;
 import Controller.PersonagemController;
 import Model.Inimigo;
+import Model.Onda;
 import Model.Personagem;
 
 public class Sistema {
     public static void executar(){
+
+        Inimigo creeper = new Inimigo("Creeper", 6, 7);
+        Inimigo ender = new Inimigo("Ender", 15, 5);
+        Inimigo zumbi = new Inimigo("Zumbi", 10, 3);
+        Inimigo guardiao = new Inimigo("Guardiao", 20, 3);
+        Inimigo[] onda1 = {creeper, ender};
+        Inimigo[] onda2 = {zumbi, guardiao};
+
+        Onda[] ondas = new Onda[2];
+        ondas[0] = new Onda(onda1);
+        ondas[1] = new Onda(onda2);
+
+
         mostrarMenuInicial();
         InputHelper.scan.nextLine();
 
-        Inimigo creeper = new Inimigo("Creeper", 12, 6);
+
 
         String nomePersonagem = InputHelper.lerTexto("Digite o nome do seu personagem:");
         Personagem steve = new Personagem(nomePersonagem, 20, 6);
@@ -52,13 +66,13 @@ public class Sistema {
     }
 
     public static void Ondas(Personagem jogador, Inimigo inimigo) {
-        for (int onda = 1; onda <= 1; onda++) {
+        for (int onda = 1; onda <= 3; onda++) {
           String iniciou = """
                   ┌──────────────────────┐
                   │       INICIOU        │
-                  │    === Onda """ +
+                  │    === Onda\s""" +
                   onda + """
-                   ===     │
+                   ===    │
                   └──────────────────────┘
                   """;
 
@@ -66,7 +80,7 @@ public class Sistema {
 
           TerminalView.printGradual("\nUm " + inimigo.getNome() + " apareceu!");
 
-          while (jogador.EstaVivo() && inimigo.EstaVivo()) {
+            while (jogador.EstaVivo() && inimigo.EstaVivo()) {
                 mostrarMenuCombate(jogador, inimigo);
 
                 int opcao = InputHelper.lerNumero("Escolha uma ação (1-3):");
@@ -97,6 +111,7 @@ public class Sistema {
                             """, "vermelho");
             } else {
                 TerminalView.printGradual(inimigo.getNome() + " foi derrotado!");
+                continue;
             }
             TerminalView.printGradual("----------------");
         }

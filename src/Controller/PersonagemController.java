@@ -2,6 +2,7 @@ package Controller;
 
 import Model.Inimigo;
 import Model.Personagem;
+import View.TerminalView;
 
 public class PersonagemController {
 
@@ -32,6 +33,7 @@ public class PersonagemController {
             case ATACAR:
                 jogador.atacar(inimigo);
                 System.out.println("O jogador " + jogador.getNome() + " atacou " + inimigo.getNome() + " e causou " + jogador.getDano() + " de dano!");
+                TerminalView.printGradual(inimigo.getNome() + " ficou com " + inimigo.getPontosDeVida() + " pontos de vida!\n", "amarelo");
         }
     }
 
