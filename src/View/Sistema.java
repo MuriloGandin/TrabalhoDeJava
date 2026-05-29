@@ -36,22 +36,19 @@ public class Sistema {
                                 Pressione ENTER para jogar
         """;
 
-        try {
             TerminalView.printGradual(titulo, "amarelo");
-        } catch (InterruptedException e) {
-            return;
-        }
+
     }
 
     public static void mostrarMenuCombate(Personagem jogador, Inimigo inimigo) {
-        System.out.println("\n--- TURNO ---");
-        System.out.println(jogador.getNome() + "  HP: " + jogador.getPontosDeVida());
-        System.out.println(inimigo.getNome()  + "  HP: " + inimigo.getPontosDeVida());
-        System.out.println("-------------");
-        System.out.println("1. Atacar");
-        System.out.println("2. Defender");
-        System.out.println("3. Usar Item  [pocoes: " + jogador.getPocoes() + "]");
-        System.out.println("-------------");
+        TerminalView.printGradual("\n--- TURNO ---\n");
+        TerminalView.printGradual(jogador.getNome() + "  HP: " + jogador.getPontosDeVida() + "\n");
+        TerminalView.printGradual(inimigo.getNome()  + "  HP: " + inimigo.getPontosDeVida() + "\n");
+        TerminalView.printGradual("-------------" + "\n");
+        TerminalView.printGradual("1. Atacar" + "\n");
+        TerminalView.printGradual("2. Defender" + "\n");
+        TerminalView.printGradual("3. Usar Item  [pocoes: " + jogador.getPocoes() + "]" + "\n");
+        TerminalView.printGradual("-------------" + "\n");
     }
 
     public static void Ondas(Personagem jogador, Inimigo inimigo) {
@@ -64,21 +61,18 @@ public class Sistema {
                    ===     │
                   └──────────────────────┘
                   """;
-            try {
-                TerminalView.printGradual(iniciou, "verde");
-            } catch (InterruptedException e) {
-                return;
-            }
 
-            System.out.println("\nUm " + inimigo.getNome() + " apareceu!");
+          TerminalView.printGradual(iniciou, "verde");
 
-            while (jogador.EstaVivo() && inimigo.EstaVivo()) {
+          TerminalView.printGradual("\nUm " + inimigo.getNome() + " apareceu!");
+
+          while (jogador.EstaVivo() && inimigo.EstaVivo()) {
                 mostrarMenuCombate(jogador, inimigo);
 
                 int opcao = InputHelper.lerNumero("Escolha uma ação (1-3):");
 
                 if (opcao < 1 || opcao > 3) {
-                    System.out.println("Opção inválida! Escolha entre 1 e 3.");
+                    TerminalView.printGradual("Opção inválida! Escolha entre 1 e 3.");
                     continue;
                 }
 
@@ -90,7 +84,21 @@ public class Sistema {
 
                 InputHelper.lerTexto("\nPressione ENTER para continuar...");
             }
-            System.out.println("----------------");
+
+            if (!jogador.EstaVivo()) {
+                TerminalView.printGradual(jogador.getNome() + " foi derrotado...");
+                    TerminalView.printGradual("""
+                        
+                            
+                             ▄████  ▄████▄ ██▄  ▄██ ██████   ▄████▄ ██  ██ ██████ █████▄ \s
+                            ██  ▄▄▄ ██▄▄██ ██ ▀▀ ██ ██▄▄     ██  ██ ██▄▄██ ██▄▄   ██▄▄██▄\s
+                             ▀███▀  ██  ██ ██    ██ ██▄▄▄▄   ▀████▀  ▀██▀  ██▄▄▄▄ ██   ██\s
+                            
+                            """, "vermelho");
+            } else {
+                TerminalView.printGradual(inimigo.getNome() + " foi derrotado!");
+            }
+            TerminalView.printGradual("----------------");
         }
     }
 }

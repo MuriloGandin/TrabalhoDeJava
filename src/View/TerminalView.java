@@ -10,10 +10,14 @@ public class TerminalView {
     }
 
     // Exibe o texto recebido gradualmente para um efeito de "suavidade", com um intervalo de 3 milessegundos entre os prints
-    public static void printGradual(String texto) throws InterruptedException {
+    public static void printGradual(String texto) {
         for (char c : texto.toCharArray()) {
-            System.out.print(c);
-            Thread.sleep(3);
+            try {
+                System.out.print(c);
+                Thread.sleep(3);
+            } catch (InterruptedException e) {
+                return;
+            }
         }
     }
 
@@ -26,10 +30,15 @@ public class TerminalView {
     }
 
     // Funciona como o metodo anterior, mas pode receber as cores vermelho, verde ou amarelo para colorir o texto.
-    public static void printGradual(String texto, String cor) throws InterruptedException {
+    public static void printGradual(String texto, String cor) {
         for (char c : texto.toCharArray()) {
-            printColorido(Character.toString(c), cor);
-            Thread.sleep(3);
+            try {
+                printColorido(Character.toString(c), cor);
+                Thread.sleep(3);
+
+            }  catch (InterruptedException e) {
+                return;
+            }
         }
     }
 

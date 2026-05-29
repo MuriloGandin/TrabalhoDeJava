@@ -17,6 +17,7 @@ public abstract class Entidade {
         pontosDeVida -= dano;
         if (pontosDeVida < 1) {
             estaVivo = false;
+            pontosDeVida = 0;
         }
     }
 
