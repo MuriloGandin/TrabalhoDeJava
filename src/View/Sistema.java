@@ -13,6 +13,7 @@ public class Sistema {
         Inimigo ender = new Inimigo("Ender", 15, 5);
         Inimigo zumbi = new Inimigo("Zumbi", 10, 3);
         Inimigo guardiao = new Inimigo("Guardiao", 20, 3);
+
         Inimigo[] onda1 = {creeper, ender};
         Inimigo[] onda2 = {zumbi, guardiao};
 
@@ -24,10 +25,10 @@ public class Sistema {
         InputHelper.scan.nextLine();
 
 
-
         String nomePersonagem = InputHelper.lerTexto("Digite o nome do seu personagem:");
-        Personagem steve = new Personagem(nomePersonagem, 20, 6);
-        Ondas(steve, creeper);
+        Personagem jogador = new Personagem(nomePersonagem, 20, 6);
+
+        iniciarOndas(jogador, 3, onda1);
 
     }
 
@@ -53,10 +54,35 @@ public class Sistema {
 
     }
 
-    public static void mostrarMenuCombate(Personagem jogador, Inimigo inimigo) {
+    public static Inimigo selecionarAlvo(Inimigo[] alvos) {
+
+        while (true) {
+            TerminalView.printGradual("Selecione o alvo: \n");
+
+            for (int i = 0; i < alvos.length; i++) {
+                TerminalView.printGradual((i + 1) + "- " + alvos[i].getNome() + "\n", "amarelo");
+            }
+            int op;
+
+            op = InputHelper.lerNumero();
+            if (op <= 0 || op > alvos.length) {
+                TerminalView.printGradual("Alvo inválido");
+
+            } else {
+                return alvos[op - 1];
+            }
+        }
+
+
+    }
+
+    public static void mostrarMenuCombate(Personagem jogador, Inimigo[] inimigos) {
         TerminalView.printGradual("\n--- TURNO ---\n");
         TerminalView.printGradual(jogador.getNome() + "  ❤️: " + jogador.getPontosDeVida() + "\n");
-        TerminalView.printGradual(inimigo.getNome()  + "  ❤️: " + inimigo.getPontosDeVida() + "\n");
+
+        for (Inimigo inimigo : inimigos) {
+            TerminalView.printGradual(inimigo.getNome()  + "  ❤️: " + inimigo.getPontosDeVida() + "\n");
+        }
         TerminalView.printGradual("-------------" + "\n");
         TerminalView.printGradual("1. Atacar" + "\n");
         TerminalView.printGradual("2. Defender" + "\n");
@@ -64,9 +90,11 @@ public class Sistema {
         TerminalView.printGradual("-------------" + "\n");
     }
 
-    public static void Ondas(Personagem jogador, Inimigo inimigo) {
-        for (int onda = 1; onda <= 3; onda++) {
-          String iniciou = """
+    public static void iniciarOndas(Personagem jogador, int numOndas, Inimigo[] inimigos) {
+
+        for (int onda = 0; onda < numOndas; onda++) {
+
+            String iniciouOnda = """
                   ┌──────────────────────┐
                   │       INICIOU        │
                   │    === Onda\s""" +
@@ -75,45 +103,61 @@ public class Sistema {
                   └──────────────────────┘
                   """;
 
-          TerminalView.printGradual(iniciou, "verde");
+            TerminalView.printGradual(iniciouOnda, "verde");
 
-          TerminalView.printGradual("\nUm " + inimigo.getNome() + " apareceu!" , "vermelho");
+            for (Inimigo inimigo : inimigos) {
+                TerminalView.printGradual("\nUm " + inimigo.getNome() + " apareceu!" , "vermelho");
 
+            }
 
-            while (jogador.EstaVivo() && inimigo.EstaVivo()) {
-                mostrarMenuCombate(jogador, inimigo);
+            int opcao;
+            while (true) {
 
-                int opcao = InputHelper.lerNumero("Escolha uma ação (1-3):");
+                mostrarMenuCombate(jogador, inimigos);
+
+                opcao = InputHelper.lerNumero("Escolha uma ação (1-3):");
 
                 if (opcao < 1 || opcao > 3) {
                     TerminalView.printGradual("Opção inválida! Escolha entre 1 e 3.");
                     continue;
                 }
-
-                PersonagemController.executarAcao(opcao, jogador, inimigo); // ← chama o controller
-
-                if (inimigo.EstaVivo()) {
-                    InimigoController.executarTurnoInimigo(inimigo, jogador); // ← chama o controller
-                }
-
-                InputHelper.lerTexto("\nPressione ENTER para continuar...");
+                break;
             }
 
-            if (!jogador.EstaVivo()) {
-                TerminalView.printGradual(jogador.getNome() + " foi derrotado...");
-                    TerminalView.printGradual("""
-                        
-                            
-                             ▄████  ▄████▄ ██▄  ▄██ ██████   ▄████▄ ██  ██ ██████ █████▄ \s
-                            ██  ▄▄▄ ██▄▄██ ██ ▀▀ ██ ██▄▄     ██  ██ ██▄▄██ ██▄▄   ██▄▄██▄\s
-                             ▀███▀  ██  ██ ██    ██ ██▄▄▄▄   ▀████▀  ▀██▀  ██▄▄▄▄ ██   ██\s
-                            
-                            """, "vermelho");
-            } else {
-                TerminalView.printGradual(inimigo.getNome() + " foi derrotado!");
-                continue;
-            }
-            TerminalView.printGradual("----------------");
+            PersonagemController.executarAcao(opcao, jogador, inimigos);
+
+
+
+
+
+//
+//
+//        while (jogador.EstaVivo() && inimigo.EstaVivo()) {
+
+//
+
+//            if (inimigo.EstaVivo()) {
+//                InimigoController.executarTurnoInimigo(inimigo, jogador); // ← chama o controller
+//            }
+//
+//            InputHelper.lerTexto("\nPressione ENTER para continuar...");
         }
+
+//            if (!jogador.EstaVivo()) {
+//                TerminalView.printGradual(jogador.getNome() + " foi derrotado...");
+//                    TerminalView.printGradual("""
+//
+//
+//                             ▄████  ▄████▄ ██▄  ▄██ ██████   ▄████▄ ██  ██ ██████ █████▄ \s
+//                            ██  ▄▄▄ ██▄▄██ ██ ▀▀ ██ ██▄▄     ██  ██ ██▄▄██ ██▄▄   ██▄▄██▄\s
+//                             ▀███▀  ██  ██ ██    ██ ██▄▄▄▄   ▀████▀  ▀██▀  ██▄▄▄▄ ██   ██\s
+//
+//                            """, "vermelho");
+//            } else {
+//                TerminalView.printGradual(inimigo.getNome() + " foi derrotado!");
+//                continue;
+//            }
+//            TerminalView.printGradual("----------------");
+//        }
     }
 }

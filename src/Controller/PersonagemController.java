@@ -2,6 +2,7 @@ package Controller;
 
 import Model.Inimigo;
 import Model.Personagem;
+import View.Sistema;
 import View.TerminalView;
 
 public class PersonagemController {
@@ -10,7 +11,7 @@ public class PersonagemController {
     public static final int DEFENDER = 2;
     public static final int ITEM     = 3;
 
-    public static void executarAcao(int opcao, Personagem jogador, Inimigo inimigo) {
+    public static void executarAcao(int opcao, Personagem jogador, Inimigo[] inimigos) {
         switch (opcao) {
             case DEFENDER:
                 jogador.setDefendendo(true);
@@ -31,9 +32,10 @@ public class PersonagemController {
                 break;
 
             case ATACAR:
-                jogador.atacar(inimigo);
-                System.out.println("O jogador " + jogador.getNome() + " atacou " + inimigo.getNome() + " e causou " + jogador.getDano() + " de dano!");
-                TerminalView.printGradual(inimigo.getNome() + " ficou com " + inimigo.getPontosDeVida() + " pontos de vida!\n", "amarelo");
+                Inimigo alvo = Sistema.selecionarAlvo(inimigos);
+                jogador.atacar(alvo);
+                System.out.println("O jogador " + jogador.getNome() + " atacou " + alvo.getNome() + " e causou " + jogador.getDano() + " de dano!");
+                TerminalView.printGradual(alvo.getNome() + " ficou com " + alvo.getPontosDeVida() + " pontos de vida!\n", "amarelo");
         }
     }
 
