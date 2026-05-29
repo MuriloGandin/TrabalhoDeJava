@@ -18,7 +18,6 @@ public class Sistema {
 
         Onda[] ondas = new Onda[2];
         ondas[0] = new Onda(onda1);
-        ondas[1] = new Onda(onda2);
 
 
         mostrarMenuInicial();
@@ -56,8 +55,8 @@ public class Sistema {
 
     public static void mostrarMenuCombate(Personagem jogador, Inimigo inimigo) {
         TerminalView.printGradual("\n--- TURNO ---\n");
-        TerminalView.printGradual(jogador.getNome() + "  HP: " + jogador.getPontosDeVida() + "\n");
-        TerminalView.printGradual(inimigo.getNome()  + "  HP: " + inimigo.getPontosDeVida() + "\n");
+        TerminalView.printGradual(jogador.getNome() + "  ❤️: " + jogador.getPontosDeVida() + "\n");
+        TerminalView.printGradual(inimigo.getNome()  + "  ❤️: " + inimigo.getPontosDeVida() + "\n");
         TerminalView.printGradual("-------------" + "\n");
         TerminalView.printGradual("1. Atacar" + "\n");
         TerminalView.printGradual("2. Defender" + "\n");
@@ -78,7 +77,8 @@ public class Sistema {
 
           TerminalView.printGradual(iniciou, "verde");
 
-          TerminalView.printGradual("\nUm " + inimigo.getNome() + " apareceu!");
+          TerminalView.printGradual("\nUm " + inimigo.getNome() + " apareceu!" , "vermelho");
+
 
             while (jogador.EstaVivo() && inimigo.EstaVivo()) {
                 mostrarMenuCombate(jogador, inimigo);
