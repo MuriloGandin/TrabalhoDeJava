@@ -5,13 +5,15 @@ import Model.Personagem;
 import View.Sistema;
 import View.TerminalView;
 
+import java.util.List;
+
 public class PersonagemController {
 
     public static final int ATACAR   = 1;
     public static final int DEFENDER = 2;
     public static final int ITEM     = 3;
 
-    public static void executarAcao(int opcao, Personagem jogador, Inimigo[] inimigos) {
+    public static void executarAcao(int opcao, Personagem jogador, List<Inimigo> inimigos) {
         switch (opcao) {
             case DEFENDER:
                 jogador.setDefendendo(true);

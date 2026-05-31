@@ -15,6 +15,8 @@ Tema: RPG de aventura
 - Adicionar telas (Apresentação do jogo, Fim de jogo, Tela de vitória) ❌
 - Tipos de ataque / equipamentos ❌
 - Inventário ❌
+- Separar MVC corretamente ❌
+- Modularizar métodos e funções ❌
 - Modos de obter itens ❌
 - Lógica de níveis ❌
 - Progressão de jogador ❌
