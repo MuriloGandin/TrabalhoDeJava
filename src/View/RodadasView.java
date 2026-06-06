@@ -13,12 +13,7 @@ public class RodadasView {
 
     public static List<Inimigo> inimigosEmCombate = new ArrayList<>();
 
-    public static void executarRodada(Personagem jogador) {
-
-        if (inimigosEmCombate.isEmpty()) {
-            return;
-        }
-
+    public static int menuRodada(Personagem jogador) {
         int opcao;
         while (true) {
 
@@ -32,13 +27,22 @@ public class RodadasView {
                 TerminalView.printGradual("Opção inválida! Escolha entre 1 e 3.");
                 continue;
             }
-            break;
+            return opcao;
         }
+    }
+
+    public static void executarRodada(Personagem jogador) {
+
+        if (inimigosEmCombate.isEmpty()) {
+            return;
+        }
+
+        // Turno do personagem
+        int opcao = menuRodada(jogador);
 
         PersonagemController.executarAcao(opcao, jogador, inimigosEmCombate);
 
-        // Ação do inimigo
-
+        // Ação do inimigo + menu inimigo derrotado
 
         if (!inimigosEmCombate.isEmpty()) {
 
@@ -48,7 +52,7 @@ public class RodadasView {
                 Inimigo i = it.next();
 
                 if (!i.EstaVivo()) {
-                    TerminalView.printGradual("O inimigo " + i.getNome() + " foi derrotado!");
+                    TerminalView.printGradual( "O inimigo " + i.getNome() + " foi derrotado!");
                     it.remove();
                 }
             }
@@ -61,10 +65,6 @@ public class RodadasView {
         InputHelper.lerTexto("\nPressione ENTER para continuar...");
     }
 
-    public static void iniciarCombate(Inimigo[] inimigos) {
-        for (Inimigo i : inimigos) {
-            inimigosEmCombate.add(i);
-        }
-    }
+
 
 }

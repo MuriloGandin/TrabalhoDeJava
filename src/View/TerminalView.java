@@ -14,7 +14,7 @@ public class TerminalView {
         for (char c : texto.toCharArray()) {
             try {
                 System.out.print(c);
-                Thread.sleep(3);
+                Thread.sleep(10);
             } catch (InterruptedException e) {
                 return;
             }
@@ -22,28 +22,37 @@ public class TerminalView {
     }
 
     // Funciona como a função anterior, mas permite que a velocidade de impressão do texto seja especificada (ms)
-    public static void printGradual(String texto, int velocidade) throws InterruptedException {
+    public static void printGradual(String texto, int velocidade) {
         for (char c : texto.toCharArray()) {
-            System.out.print(c);
-            Thread.sleep(velocidade);
+            try {
+                System.out.print(c);
+                Thread.sleep(velocidade);
+
+            } catch (Exception e) {
+                return;
+            }
         }
     }
 
     // Funciona como o metodo anterior, mas pode receber as cores vermelho, verde ou amarelo para colorir o texto.
     public static void printGradual(String texto, String cor) {
         for (char c : texto.toCharArray()) {
-            try {
-                printColorido(Character.toString(c), cor);
-                Thread.sleep(3);
+            if (c != ' ') {
+                try {
+                    printColorido(Character.toString(c), cor);
+                    Thread.sleep(10);
 
-            }  catch (InterruptedException e) {
-                return;
-            }
+                }  catch (InterruptedException e) {
+                    return;
+                }
+            } else printColorido(Character.toString(c), cor);
+
         }
     }
 
     // Exibe o texto informado no terminal com uma cor recebida (vermelho, azul, verde)
     // Exemplo: TerminalView.printColorido("Olá", "vermelho"); - Resultado: "Olá" pintado em vermelho no terminal
+
     public static void printColorido(String texto, String cor) {
         String codigoCor;
 
@@ -57,6 +66,21 @@ public class TerminalView {
             throw new RuntimeException("Cor inválida para string (apenas vermelho, verde ou amarelo)");
 
         System.out.print(codigoCor + texto + "\u001B[0m");
+    }
+
+    public static void printlnColorido(String texto, String cor) {
+        String codigoCor;
+
+        if (cor.equalsIgnoreCase("vermelho"))
+            codigoCor = "\u001B[31m";
+        else if (cor.equalsIgnoreCase("verde"))
+            codigoCor = "\u001B[32m";
+        else if (cor.equalsIgnoreCase("amarelo"))
+            codigoCor = "\u001B[33m";
+        else
+            throw new RuntimeException("Cor inválida para string (apenas vermelho, verde ou amarelo)");
+
+        System.out.println(codigoCor + texto + "\u001B[0m");
     }
 
     // Retorna uma String Colorida para uso externo. Pode ser visualizada somente no terminal.

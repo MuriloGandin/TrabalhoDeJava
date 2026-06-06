@@ -1,5 +1,6 @@
 package View;
 
+import Controller.RodadasController;
 import Model.Inimigo;
 import Model.Onda;
 import Model.Personagem;
@@ -7,6 +8,7 @@ import Model.Personagem;
 import java.util.List;
 
 public class Sistema {
+
     public static void executar() {
 
         Inimigo creeper = new Inimigo("Creeper", 6, 7);
@@ -21,10 +23,8 @@ public class Sistema {
         ondas[0] = new Onda(onda1);
 
         mostrarMenuInicial();
-        InputHelper.scan.nextLine();
 
-
-        String nomePersonagem = InputHelper.lerTexto("Digite o nome do seu personagem:");
+        String nomePersonagem = InputHelper.lerTexto("Digite o nome do seu personagem: ", 30);
         Personagem jogador = new Personagem(nomePersonagem, 20, 6);
 
         iniciarOnda(jogador, 1, onda1);
@@ -34,7 +34,7 @@ public class Sistema {
     public static void mostrarMenuInicial() {
         TerminalView.limparTela();
 
-        String titulo = """
+        String titulo = TerminalView.colorirTexto("""
                     ███  ██ ██  ██ ██     ██     █████▄ ▄████▄ ██ ███  ██ ██████ ██████ █████▄ \s
                     ██ ▀▄██ ██  ██ ██     ██     ██▄▄█▀ ██  ██ ██ ██ ▀▄██   ██   ██▄▄   ██▄▄██▄\s
                     ██   ██ ▀████▀ ██████ ██████ ██     ▀████▀ ██ ██   ██   ██   ██▄▄▄▄ ██   ██\s
@@ -46,12 +46,28 @@ public class Sistema {
                                             ▀▀                                      \s
                                              NULLPOINTER QUEST
                 
-                                        Pressione ENTER para jogar
-                """;
+                                              1 - Jogar
+                                              2 - Sair
+                """, "amarelo");
 
-        TerminalView.printGradual(titulo, "amarelo");
+        TerminalView.printGradual(titulo, 3);
+        int op;
+        do {
+            op = InputHelper.lerNumero();
+
+            switch (op) {
+                case 1:
+                    break;
+                case 2:
+                    System.exit(0);
+                default:
+                    TerminalView.printlnColorido("Operação inválida!", "vermelho");
+            }
+        } while (op < 1 || op > 2);
+
 
     }
+
 
     public static Inimigo selecionarAlvo(List<Inimigo> alvos) {
 
@@ -109,7 +125,7 @@ public class Sistema {
             TerminalView.printGradual("\nUm " + inimigo.getNome() + " apareceu!", "vermelho");
         }
 
-        RodadasView.iniciarCombate(inimigos);
+        RodadasController.iniciarCombate(inimigos);
 
         do {
             ondaEncerrada = true;
@@ -123,19 +139,47 @@ public class Sistema {
 
         } while (!ondaEncerrada && jogador.EstaVivo());
 
+        RodadasController.encerrarCombate(inimigos);
+
         if (jogador.EstaVivo()) {
-            TerminalView.printColorido("Vitória! A onda " + numOnda + " foi derrotada!", "verde");
+            TerminalView.printlnColorido("Vitória! A onda " + numOnda + " foi derrotada!", "verde");
         } else {
             TerminalView.printGradual(jogador.getNome() + " foi derrotado...");
-                    TerminalView.printGradual("""
+            mostrarFimDeJogo();
+        }
+    }
+
+    public static void mostrarFimDeJogo() {
+        TerminalView.printGradual("""
 
 
                              ▄████  ▄████▄ ██▄  ▄██ ██████   ▄████▄ ██  ██ ██████ █████▄ \s
                             ██  ▄▄▄ ██▄▄██ ██ ▀▀ ██ ██▄▄     ██  ██ ██▄▄██ ██▄▄   ██▄▄██▄\s
                              ▀███▀  ██  ██ ██    ██ ██▄▄▄▄   ▀████▀  ▀██▀  ██▄▄▄▄ ██   ██\s
 
+                                                   1 - Jogar novamente
+                                                        2 - Sair
                             """, "vermelho");
-        }
+        int op;
+
+        do {
+            op = InputHelper.lerNumero();
+
+            switch (op) {
+                case 1:
+                    break;
+
+                case 2:
+                    System.exit(0);
+
+                default:
+                    TerminalView.printlnColorido("Operação inválida!", "vermelho");
+                    break;
+            }
+
+        } while (op > 2 || op < 1);
+
+        executar();
     }
 
 }

@@ -15,8 +15,6 @@ public class Personagem extends Entidade {
         alvo.receberDano(this.getDano());
     }
 
-    private final String nomeGolpeSimples  = "Espadada Rápida";
-
     public int getPocoes() {
         return pocoes;
     }
@@ -36,7 +34,6 @@ public class Personagem extends Entidade {
     public int getNivel() {
         return nivel;
     }
-
 
     public void setNivel(int nivel) {
         if (nivel > 0) {

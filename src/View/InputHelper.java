@@ -8,9 +8,16 @@ public class InputHelper {
 
     // Mostra uma mensagem no terminal e retorna o texto digitado pelo usuario
     public static String lerTexto(String texto) {
-        System.out.println(texto);
+        TerminalView.printGradual(texto, 20);
         return scan.nextLine();
     }
+
+    public static String lerTexto(String texto, int velocidadePrint) {
+        TerminalView.printGradual(texto, velocidadePrint);
+        return scan.nextLine();
+    }
+
+
     // Retorna o texto digitado sem exibir texto
     public static String lerTexto() {
         return scan.nextLine();
@@ -26,7 +33,7 @@ public class InputHelper {
                 break;
 
             } catch (Exception e) {
-                System.out.println("Tipo de dado inválido. Insira um número inteiro");
+                TerminalView.printGradual("Tipo de dado inválido. Insira um número inteiro", 20);
             }
         }
 
@@ -34,6 +41,7 @@ public class InputHelper {
     }
     // Funciona como a função anterior, mas sem exibir qualquer mensagem
     public static int lerNumero() {
+
         int resultado;
         while (true) {
             try {
@@ -41,7 +49,7 @@ public class InputHelper {
                 break;
 
             } catch (Exception e) {
-                System.out.println("Tipo de dado inválido. Insira um número inteiro");
+                TerminalView.printGradual("Tipo de dado inválido. Insira um número inteiro");
             }
         }
 
@@ -57,7 +65,7 @@ public class InputHelper {
                 break;
 
             } catch (Exception e) {
-                System.out.println("Tipo de dado inválido. Insira um número decimal");
+                TerminalView.printGradual("Tipo de dado inválido. Insira um número decimal");
             }
         }
 
@@ -72,7 +80,7 @@ public class InputHelper {
                 break;
 
             } catch (Exception e) {
-                System.out.println("Tipo de dado inválido. Insira um número decimal");
+                TerminalView.printGradual("Tipo de dado inválido. Insira um número decimal");
             }
         }
 
