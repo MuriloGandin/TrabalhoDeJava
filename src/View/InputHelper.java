@@ -33,7 +33,7 @@ public class InputHelper {
                 break;
 
             } catch (Exception e) {
-                TerminalView.printGradual("Tipo de dado inválido. Insira um número inteiro", 20);
+                TerminalView.printGradual("Tipo de dado inválido. Insira um número inteiro\n", 20);
             }
         }
 
@@ -49,7 +49,7 @@ public class InputHelper {
                 break;
 
             } catch (Exception e) {
-                TerminalView.printGradual("Tipo de dado inválido. Insira um número inteiro");
+                TerminalView.printGradual("Tipo de dado inválido. Insira um número inteiro\n");
             }
         }
 
@@ -65,7 +65,7 @@ public class InputHelper {
                 break;
 
             } catch (Exception e) {
-                TerminalView.printGradual("Tipo de dado inválido. Insira um número decimal");
+                TerminalView.printGradual("Tipo de dado inválido. Insira um número decimal\n");
             }
         }
 
@@ -80,7 +80,7 @@ public class InputHelper {
                 break;
 
             } catch (Exception e) {
-                TerminalView.printGradual("Tipo de dado inválido. Insira um número decimal");
+                TerminalView.printGradual("Tipo de dado inválido. Insira um número decimal\n");
             }
         }
 

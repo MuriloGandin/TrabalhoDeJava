@@ -19,10 +19,6 @@ public class Sistema {
         Inimigo ender = inimigos.get(0);
         Inimigo creeper = inimigos.get(1);
 
-        for (Inimigo i : inimigos) {
-            i.exibirInfo();
-        }
-
         Inimigo[] onda1 = {creeper, ender};
 
         Onda[] ondas = new Onda[2];
@@ -100,7 +96,7 @@ public class Sistema {
     }
 
     public static void mostrarMenuCombate(Personagem jogador, List<Inimigo> inimigos) {
-        TerminalView.printGradual("\n--- TURNO ---\n");
+        TerminalView.printGradual("\n--- TURNO " + RodadasController.rodada + " ---\n");
         TerminalView.printGradual(jogador.getNome() + "  ❤️: " + jogador.getPontosDeVida() + "\n");
 
         for (Inimigo inimigo : inimigos) {

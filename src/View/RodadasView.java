@@ -2,6 +2,7 @@ package View;
 
 import Controller.InimigoController;
 import Controller.PersonagemController;
+import Controller.RodadasController;
 import Model.Inimigo;
 import Model.Personagem;
 
@@ -32,6 +33,8 @@ public class RodadasView {
     }
 
     public static void executarRodada(Personagem jogador) {
+
+        RodadasController.rodada++;
 
         if (inimigosEmCombate.isEmpty()) {
             return;
