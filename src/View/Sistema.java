@@ -1,6 +1,7 @@
 package View;
 
 import Controller.RodadasController;
+import Log.Log;
 import Model.Inimigo;
 import Model.InimigoCRUD;
 import Model.Onda;
@@ -21,11 +22,6 @@ public class Sistema {
         for (Inimigo i : inimigos) {
             i.exibirInfo();
         }
-
-        Inimigo creeper = new Inimigo("Creeper", 6, 7);
-        Inimigo ender = new Inimigo("Ender", 15, 5);
-        Inimigo zumbi = new Inimigo("Zumbi", 10, 3);
-        Inimigo guardiao = new Inimigo("Guardiao", 20, 3);
 
         Inimigo[] onda1 = {creeper, ender};
 
@@ -70,6 +66,7 @@ public class Sistema {
                 case 1:
                     break;
                 case 2:
+                    Log.Registrar("Programa encerrado.");
                     System.exit(0);
                 default:
                     TerminalView.printlnColorido("Operação inválida!", "vermelho");
@@ -181,6 +178,7 @@ public class Sistema {
                     break;
 
                 case 2:
+                    Log.Registrar("Programa encerrado.");
                     System.exit(0);
 
                 default:

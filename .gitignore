@@ -1,3 +1,7 @@
+
+### Logs do programa ###
+src/Log/log.txt
+
 ### IntelliJ IDEA ###
 out/
 !**/src/main/**/out/
