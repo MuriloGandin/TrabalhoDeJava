@@ -20,11 +20,12 @@ Tema: RPG de aventura
 - Modos de obter itens ❌
 - Lógica de níveis ❌
 - Progressão de jogador ❌
+- Remover Comentários ❌
 
 #### Requisitos a fazer: 
  - CRUD
  - Log
- - Serialização
+ - Serialização - salvar progresso de um único jogador, criar um txt novo para salvar isso.
 
 # Informações gerais sobre o projeto
 # Informações sobre as classes e suas relações

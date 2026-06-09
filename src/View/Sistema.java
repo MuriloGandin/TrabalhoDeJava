@@ -2,19 +2,29 @@ package View;
 
 import Controller.RodadasController;
 import Model.Inimigo;
+import Model.InimigoCRUD;
 import Model.Onda;
 import Model.Personagem;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Sistema {
 
     public static void executar() {
 
-        Inimigo creeper = new Inimigo("Creeper", 6, 7);
-        Inimigo ender = new Inimigo("Ender", 15, 5);
+
+        List<Inimigo> inimigos = InimigoCRUD.listarInimigos();
+
+        Inimigo ender = inimigos.get(0);
+        Inimigo creeper = inimigos.get(1);
         Inimigo zumbi = new Inimigo("Zumbi", 10, 3);
         Inimigo guardiao = new Inimigo("Guardiao", 20, 3);
+
+
+        for (Inimigo i : inimigos) {
+            i.exibirInfo();
+        }
 
         Inimigo[] onda1 = {creeper, ender};
         Inimigo[] onda2 = {zumbi, guardiao};
