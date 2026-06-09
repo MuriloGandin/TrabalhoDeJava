@@ -20,3 +20,15 @@ Tema: RPG de aventura
 - Modos de obter itens ❌
 - Lógica de níveis ❌
 - Progressão de jogador ❌
+
+#### Requisitos a fazer: 
+ - Interface
+ - CRUD
+ - Log
+ - Serialização
+
+# Informações gerais sobre o projeto
+# Informações sobre as classes e suas relações
+# Como executar o projeto
+# Uso de IA
+# Referências
