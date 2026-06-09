@@ -11,7 +11,7 @@ public class InimigoCRUD {
     public static void createInimigo(Inimigo inimigo) {
         try (FileWriter fw = new FileWriter(pathInimigos, true)) {
 
-            fw.write(inimigo.getNome() + "," +
+            fw.write("\n" + inimigo.getNome() + "," +
                         inimigo.getPontosDeVida() + "," +
                         inimigo.getDano() + "\n"
                     );
