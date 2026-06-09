@@ -6,7 +6,7 @@ import java.time.format.DateTimeFormatter;
 
 public class Log {
 
-private static final String ARQUIVO = "log.txt";
+private static final String ARQUIVO = "src/Log/log.txt";
 
 public static void Registrar(String mensagem){
     try{

@@ -1,0 +1,4 @@
+Ender,15,5
+Creeper,6,7
+Zumbi,10,3
+Guardiao,20,3

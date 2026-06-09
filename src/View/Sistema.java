@@ -2,15 +2,25 @@ package View;
 
 import Controller.RodadasController;
 import Model.Inimigo;
+import Model.InimigoCRUD;
 import Model.Onda;
 import Model.Personagem;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Sistema {
 
     public static void executar() {
 
+        List<Inimigo> inimigos = InimigoCRUD.listarInimigos();
+
+        Inimigo ender = inimigos.get(0);
+        Inimigo creeper = inimigos.get(1);
+
+        for (Inimigo i : inimigos) {
+            i.exibirInfo();
+        }
 
         Inimigo creeper = new Inimigo("Creeper", 6, 7);
         Inimigo ender = new Inimigo("Ender", 15, 5);
@@ -18,7 +28,6 @@ public class Sistema {
         Inimigo guardiao = new Inimigo("Guardiao", 20, 3);
 
         Inimigo[] onda1 = {creeper, ender};
-        Inimigo[] onda2 = {zumbi, guardiao};
 
         Onda[] ondas = new Onda[2];
         ondas[0] = new Onda(onda1);
