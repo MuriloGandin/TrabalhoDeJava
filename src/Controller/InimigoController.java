@@ -2,7 +2,7 @@ package Controller;
 
 import Model.Inimigo;
 import Model.Personagem;
-
+import Log.Log;
 import java.util.List;
 
 public class InimigoController {
@@ -20,7 +20,14 @@ public class InimigoController {
             }
 
             jogador.receberDano(dano);
-
+            Log.Registrar(
+                    inimigo.getNome() +
+                            " atacou " +
+                            jogador.getNome() +
+                            " causando " +
+                            dano +
+                            " de dano."
+            );
 
         }
         System.out.println(jogador.getNome() + " ficou com " + jogador.getPontosDeVida() + " HP.");

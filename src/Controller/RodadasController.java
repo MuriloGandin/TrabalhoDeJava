@@ -1,5 +1,6 @@
 package Controller;
 
+import Log.Log;
 import Model.Inimigo;
 import View.RodadasView;
 
@@ -9,9 +10,11 @@ public class RodadasController {
         for (Inimigo i : inimigos) {
             RodadasView.inimigosEmCombate.add(i);
         }
+        Log.Registrar("Combate Iniciado");
     }
 
     public static void encerrarCombate(Inimigo[] inimigos) {
         RodadasView.inimigosEmCombate.clear();
+        Log.Registrar("Combate Encerrado");
     }
 }

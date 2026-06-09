@@ -23,7 +23,7 @@ Tema: RPG de aventura
 
 #### Requisitos a fazer: 
  - CRUD
- - Log
+ - Log.Log
  - Serialização
 
 # Informações gerais sobre o projeto

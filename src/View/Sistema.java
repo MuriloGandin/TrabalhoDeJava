@@ -11,6 +11,7 @@ public class Sistema {
 
     public static void executar() {
 
+
         Inimigo creeper = new Inimigo("Creeper", 6, 7);
         Inimigo ender = new Inimigo("Ender", 15, 5);
         Inimigo zumbi = new Inimigo("Zumbi", 10, 3);
@@ -26,6 +27,7 @@ public class Sistema {
 
         String nomePersonagem = InputHelper.lerTexto("Digite o nome do seu personagem: ", 30);
         Personagem jogador = new Personagem(nomePersonagem, 20, 6);
+
 
         iniciarOnda(jogador, 1, onda1);
 

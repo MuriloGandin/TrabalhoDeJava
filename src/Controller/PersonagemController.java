@@ -1,5 +1,6 @@
 package Controller;
 
+import Log.Log;
 import Model.Inimigo;
 import Model.Personagem;
 import View.Sistema;
@@ -17,6 +18,7 @@ public class PersonagemController {
         switch (opcao) {
             case DEFENDER:
                 jogador.setDefendendo(true);
+                Log.Registrar(jogador.getNome() + "entrou em modo defesa.");
                 System.out.println("\n" + jogador.getNome() + " está se defendendo!");
                 break;
 
@@ -28,8 +30,10 @@ public class PersonagemController {
                     System.out.println("\n" + jogador.getNome() + " usou uma poção! (+30 HP)");
                     System.out.println("HP atual: " + jogador.getPontosDeVida());
                     System.out.println("Poções restantes: " + jogador.getPocoes());
+                    Log.Registrar(jogador.getNome() + "usou uma pocao.");
                 } else {
                     System.out.println("\nSem poções disponíveis!");
+                    Log.Registrar(jogador.getNome() + "tentou usar pocao sem possuir nenhuma.");
                 }
                 break;
 
@@ -37,6 +41,14 @@ public class PersonagemController {
                 Inimigo alvo = Sistema.selecionarAlvo(inimigos);
                 jogador.atacar(alvo);
                 System.out.println("O jogador " + jogador.getNome() + " atacou " + alvo.getNome() + " e causou " + jogador.getDano() + " de dano!");
+                Log.Registrar(
+                        jogador.getNome() +
+                                " atacou " +
+                                alvo.getNome() +
+                                " causando " +
+                                jogador.getDano() +
+                                " de dano."
+                );
                 TerminalView.printGradual(alvo.getNome() + " ficou com " + alvo.getPontosDeVida() + " pontos de vida!\n", "amarelo");
         }
     }
