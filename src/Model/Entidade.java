@@ -1,6 +1,6 @@
 package Model;
 
-public abstract class Entidade {
+public abstract class Entidade implements Combatente {
 
     private String nome;
     private int pontosDeVida;
@@ -20,8 +20,6 @@ public abstract class Entidade {
             pontosDeVida = 0;
         }
     }
-
-    abstract public void atacar(Entidade alvo);
 
     public int getPontosDeVida() {
         return pontosDeVida;
@@ -51,6 +49,7 @@ public abstract class Entidade {
         this.nome = nome;
     }
 
+    @Override
     public void exibirInfo() {
         System.out.println("Nome: " + nome);
         System.out.println("Pontos de Vida: " + pontosDeVida);

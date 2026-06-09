@@ -6,8 +6,14 @@ public class Inimigo extends Entidade {
         super(nome, pontosDeVida, dano);
     }
 
+    @Override
     public void atacar(Entidade alvo){
         alvo.receberDano(10);
+    }
+
+    @Override
+    public void recuperarVida(int quantidade) {
+        this.setPontosDeVida(getPontosDeVida() + quantidade);
     }
 
 }

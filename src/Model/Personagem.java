@@ -15,6 +15,12 @@ public class Personagem extends Entidade {
         alvo.receberDano(this.getDano());
     }
 
+    @Override
+    public void recuperarVida(int quantidade) {
+        int novoHp = getPontosDeVida() + quantidade;
+        setPontosDeVida(novoHp);
+    }
+
     public int getPocoes() {
         return pocoes;
     }
@@ -39,11 +45,6 @@ public class Personagem extends Entidade {
         if (nivel > 0) {
             this.nivel = nivel;
         }
-    }
-
-    public void recuperarVida(int quantidade) {
-        int novoHp = getPontosDeVida() + quantidade;
-        setPontosDeVida(novoHp);
     }
 
 

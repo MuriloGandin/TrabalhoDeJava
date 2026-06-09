@@ -22,7 +22,6 @@ Tema: RPG de aventura
 - Progressão de jogador ❌
 
 #### Requisitos a fazer: 
- - Interface
  - CRUD
  - Log
  - Serialização
