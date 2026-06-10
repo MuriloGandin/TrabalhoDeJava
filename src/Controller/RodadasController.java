@@ -1,6 +1,5 @@
 package Controller;
 
-import Log.Log;
 import Model.Inimigo;
 import View.RodadasView;
 

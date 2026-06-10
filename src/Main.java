@@ -1,4 +1,4 @@
-import Log.Log;
+import Controller.Log;
 import View.Sistema;
 
 public class Main {

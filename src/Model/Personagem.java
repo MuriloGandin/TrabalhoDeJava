@@ -7,6 +7,7 @@ public class Personagem extends Entidade {
     private boolean defendendo;
     private int nivel = 1;
     private List<Item> inventario;
+    private int diamante;
 
     public Personagem(String nome, int pontosDeVida, int dano) {
         super(nome, pontosDeVida, dano);

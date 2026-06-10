@@ -1,4 +1,4 @@
-package Log;
+package Controller;
 
 import java.io.FileWriter;
 import java.time.LocalDateTime;
@@ -6,7 +6,7 @@ import java.time.format.DateTimeFormatter;
 
 public class Log {
 
-private static final String ARQUIVO = "src/Log/log.txt";
+private static final String ARQUIVO = "data/log.txt";
 
 public static void Registrar(String mensagem){
     try{

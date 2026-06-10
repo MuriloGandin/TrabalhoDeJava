@@ -27,6 +27,7 @@ Tema: RPG de aventura
  - Log
  - Serialização - salvar progresso de um único jogador, criar um txt novo para salvar isso.
 
+
 # Informações gerais sobre o projeto
 
 # Informações sobre as classes e suas relações

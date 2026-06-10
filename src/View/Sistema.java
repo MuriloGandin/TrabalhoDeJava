@@ -2,18 +2,16 @@ package View;
 
 import Controller.InimigoController;
 import Controller.RodadasController;
-import Log.Log;
+import Controller.Log;
 import Model.*;
 
-import java.security.Key;
-import java.util.HashMap;
 import java.util.List;
 
 public class Sistema {
 
     public static void executar() {
 
-        List<Inimigo> inimigos = InimigoCRUD.listarInimigos();
+        List<Inimigo> inimigos = InimigoController.listarInimigos();
 
         Inimigo ender = InimigoController.buscarInimigo("ender",  inimigos);
         Inimigo creeper = InimigoController.buscarInimigo("creeper",  inimigos);
@@ -34,8 +32,6 @@ public class Sistema {
         loja1.adicionarAoEstoque(espada, 10f);
 
         LojaView.menuLoja(loja1);
-
-
 
         String nomePersonagem = InputHelper.lerTexto("Digite o nome do seu personagem: ", 30);
         Personagem jogador = new Personagem(nomePersonagem, 20, 6);
