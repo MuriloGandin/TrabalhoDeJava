@@ -28,7 +28,7 @@ public class InimigoController {
 
                 if (jogador.isDefendendo()) {
                     dano = dano / 2;
-                    System.out.println("Defesa ativada! Dano do ataque especial reduzido em 50%.");
+                    System.out.println("Defesa ativada! Dano do Ataque Especial reduzido em 50%.");
                 }
 
                 jogador.receberDano(dano);
@@ -54,8 +54,8 @@ public class InimigoController {
 
             int dano = inimigo.getDano();
             if (jogador.isDefendendo()) {
-                dano = dano / 4;
-                System.out.println("Defesa ativada! Dano reduzido em 75%.");
+                dano = dano / 2;
+                System.out.println("Defesa ativada! Dano reduzido em 50%.");
             }
 
             jogador.receberDano(dano);
@@ -111,7 +111,8 @@ public class InimigoController {
 
             fw.write("\n" + inimigo.getNome() + "," +
                     inimigo.getPontosDeVida() + "," +
-                    inimigo.getDano() + "\n"
+                    inimigo.getDano() + "," +
+                    inimigo.getAtaquesParaEspecial() + "\n"
             );
             System.out.println("Inimigo" + inimigo.getNome() + "criado com sucesso");
 
