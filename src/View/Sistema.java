@@ -7,7 +7,6 @@ import Model.InimigoCRUD;
 import Model.Onda;
 import Model.Personagem;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Sistema {
@@ -35,9 +34,9 @@ public class Sistema {
     }
 
     public static void mostrarMenuInicial() {
-        TerminalView.limparTela();
+        OutputHelper.limparTela();
 
-        String titulo = TerminalView.colorirTexto("""
+        String titulo = OutputHelper.colorirTexto("""
                     ███  ██ ██  ██ ██     ██     █████▄ ▄████▄ ██ ███  ██ ██████ ██████ █████▄ \s
                     ██ ▀▄██ ██  ██ ██     ██     ██▄▄█▀ ██  ██ ██ ██ ▀▄██   ██   ██▄▄   ██▄▄██▄\s
                     ██   ██ ▀████▀ ██████ ██████ ██     ▀████▀ ██ ██   ██   ██   ██▄▄▄▄ ██   ██\s
@@ -53,7 +52,7 @@ public class Sistema {
                                               2 - Sair
                 """, "amarelo");
 
-        TerminalView.printGradual(titulo, 3);
+        OutputHelper.printGradual(titulo, 3);
         int op;
         do {
             op = InputHelper.lerNumero();
@@ -65,7 +64,7 @@ public class Sistema {
                     Log.Registrar("Programa encerrado.");
                     System.exit(0);
                 default:
-                    TerminalView.printlnColorido("Operação inválida!", "vermelho");
+                    OutputHelper.printlnColorido("Operação inválida!", "vermelho");
             }
         } while (op < 1 || op > 2);
 
@@ -74,18 +73,17 @@ public class Sistema {
 
 
     public static Inimigo selecionarAlvo(List<Inimigo> alvos) {
-
         while (true) {
-            TerminalView.printGradual("Selecione o alvo: \n");
+            OutputHelper.printGradual("Selecione o alvo: \n");
 
             for (int i = 0; i < alvos.size(); i++) {
-                TerminalView.printGradual((i + 1) + "- " + alvos.get(i).getNome() + "\n", "amarelo");
+                OutputHelper.printGradual((i + 1) + "- " + alvos.get(i).getNome() + "\n", "amarelo");
             }
             int op;
 
             op = InputHelper.lerNumero();
             if (op <= 0 || op > alvos.size()) {
-                TerminalView.printGradual("Alvo inválido");
+                OutputHelper.printGradual("Alvo inválido");
 
             } else {
                 return alvos.get(op - 1);
@@ -96,17 +94,17 @@ public class Sistema {
     }
 
     public static void mostrarMenuCombate(Personagem jogador, List<Inimigo> inimigos) {
-        TerminalView.printGradual("\n--- TURNO " + RodadasController.rodada + " ---\n");
-        TerminalView.printGradual(jogador.getNome() + "  ❤️: " + jogador.getPontosDeVida() + "\n");
+        OutputHelper.printGradual("\n--- TURNO " + RodadasController.rodada + " ---\n");
+        OutputHelper.printGradual(jogador.getNome() + "  ❤️: " + jogador.getPontosDeVida() + "\n");
 
         for (Inimigo inimigo : inimigos) {
-            TerminalView.printGradual(inimigo.getNome() + "  ❤️: " + inimigo.getPontosDeVida() + "\n");
+            OutputHelper.printGradual(inimigo.getNome() + "  ❤️: " + inimigo.getPontosDeVida() + "\n");
         }
-        TerminalView.printGradual("-------------" + "\n");
-        TerminalView.printGradual("1. Atacar" + "\n");
-        TerminalView.printGradual("2. Defender" + "\n");
-        TerminalView.printGradual("3. Usar Item  [pocoes: " + jogador.getPocoes() + "]" + "\n");
-        TerminalView.printGradual("-------------" + "\n");
+        OutputHelper.printGradual("-------------" + "\n");
+        OutputHelper.printGradual("1. Atacar" + "\n");
+        OutputHelper.printGradual("2. Defender" + "\n");
+        OutputHelper.printGradual("3. Usar Item  [pocoes: " + jogador.getPocoes() + "]" + "\n");
+        OutputHelper.printGradual("-------------" + "\n");
     }
 
     public static void iniciarOnda(Personagem jogador, int numOnda, Inimigo[] inimigos) {
@@ -123,10 +121,10 @@ public class Sistema {
                 └──────────────────────┘
                 """;
 
-        TerminalView.printGradual(iniciouOnda, "verde");
+        OutputHelper.printGradual(iniciouOnda, "verde");
 
         for (Inimigo inimigo : inimigos) {
-            TerminalView.printGradual("\nUm " + inimigo.getNome() + " apareceu!", "vermelho");
+            OutputHelper.printGradual("\nUm " + inimigo.getNome() + " apareceu!", "vermelho");
         }
 
         RodadasController.iniciarCombate(inimigos);
@@ -146,15 +144,15 @@ public class Sistema {
         RodadasController.encerrarCombate(inimigos);
 
         if (jogador.EstaVivo()) {
-            TerminalView.printlnColorido("Vitória! A onda " + numOnda + " foi derrotada!", "verde");
+            OutputHelper.printlnColorido("Vitória! A onda " + numOnda + " foi derrotada!", "verde");
         } else {
-            TerminalView.printGradual(jogador.getNome() + " foi derrotado...");
+            OutputHelper.printGradual(jogador.getNome() + " foi derrotado...");
             mostrarFimDeJogo();
         }
     }
 
     public static void mostrarFimDeJogo() {
-        TerminalView.printGradual("""
+        OutputHelper.printGradual("""
 
 
                              ▄████  ▄████▄ ██▄  ▄██ ██████   ▄████▄ ██  ██ ██████ █████▄ \s
@@ -178,7 +176,7 @@ public class Sistema {
                     System.exit(0);
 
                 default:
-                    TerminalView.printlnColorido("Operação inválida!", "vermelho");
+                    OutputHelper.printlnColorido("Operação inválida!", "vermelho");
                     break;
             }
 

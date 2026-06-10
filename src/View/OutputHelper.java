@@ -1,6 +1,6 @@
 package View;
 
-public class TerminalView {
+public class OutputHelper {
 
     // Limpa as ultimas 50 linhas do terminal para uma exibição mais limpa
     public static void limparTela() {

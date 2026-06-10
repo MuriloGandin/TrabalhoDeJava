@@ -28,7 +28,44 @@ Tema: RPG de aventura
  - Serialização - salvar progresso de um único jogador, criar um txt novo para salvar isso.
 
 # Informações gerais sobre o projeto
+
 # Informações sobre as classes e suas relações
+
+## Camada Model
+> Responsável pela definição estrutural das classes e seus métodos e atributos principais
+
+* ### Interface Combatente
+...
+* ### Classe Abstrata Entidade
+...
+* ### Classe Inimigo
+...
+* ### Classe Item
+...
+* ### Classe Onda
+...
+* ### Classe Personagem
+...
+* ### inimigos.txt + inimigoCRUD
+...
+
+
+## Camada View
+> Camada responsável pelos feedbacks visuais e interações diretas com o usuário (Como prints no terminal)
+* ### Classe Sistema
+* ### Classe InputHelper
+* ### Classe RodadasView
+* ### Classe OutputHelper
+
+## Camada Controller
+
+## Módulo Log
+
+
 # Como executar o projeto
+
 # Uso de IA
+As IAs Claude, Gemini e ChatGPT foram utilizadas para fornecer ideias de estruturas de classes, tema e relações entre as camadas MVC, além de terem tirado dúvidas sobre a utilização de ferramentas como Git e bibliotecas como Iterator.
+
 # Referências
+Site para criação de ASCII arts a partir de texto: https://patorjk.com/software/taag/

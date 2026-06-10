@@ -4,7 +4,7 @@ import Log.Log;
 import Model.Inimigo;
 import Model.Personagem;
 import View.Sistema;
-import View.TerminalView;
+import View.OutputHelper;
 
 import java.util.List;
 
@@ -49,7 +49,7 @@ public class PersonagemController {
                                 jogador.getDano() +
                                 " de dano."
                 );
-                TerminalView.printGradual(alvo.getNome() + " ficou com " + alvo.getPontosDeVida() + " pontos de vida!\n", "amarelo");
+                OutputHelper.printGradual(alvo.getNome() + " ficou com " + alvo.getPontosDeVida() + " pontos de vida!\n", "amarelo");
         }
     }
 

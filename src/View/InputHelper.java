@@ -8,12 +8,12 @@ public class InputHelper {
 
     // Mostra uma mensagem no terminal e retorna o texto digitado pelo usuario
     public static String lerTexto(String texto) {
-        TerminalView.printGradual(texto, 20);
+        OutputHelper.printGradual(texto, 20);
         return scan.nextLine();
     }
 
     public static String lerTexto(String texto, int velocidadePrint) {
-        TerminalView.printGradual(texto, velocidadePrint);
+        OutputHelper.printGradual(texto, velocidadePrint);
         return scan.nextLine();
     }
 
@@ -33,7 +33,7 @@ public class InputHelper {
                 break;
 
             } catch (Exception e) {
-                TerminalView.printGradual("Tipo de dado inválido. Insira um número inteiro\n", 20);
+                OutputHelper.printGradual("Tipo de dado inválido. Insira um número inteiro\n", 20);
             }
         }
 
@@ -49,7 +49,7 @@ public class InputHelper {
                 break;
 
             } catch (Exception e) {
-                TerminalView.printGradual("Tipo de dado inválido. Insira um número inteiro\n");
+                OutputHelper.printGradual("Tipo de dado inválido. Insira um número inteiro\n");
             }
         }
 
@@ -65,7 +65,7 @@ public class InputHelper {
                 break;
 
             } catch (Exception e) {
-                TerminalView.printGradual("Tipo de dado inválido. Insira um número decimal\n");
+                OutputHelper.printGradual("Tipo de dado inválido. Insira um número decimal\n");
             }
         }
 
@@ -80,7 +80,7 @@ public class InputHelper {
                 break;
 
             } catch (Exception e) {
-                TerminalView.printGradual("Tipo de dado inválido. Insira um número decimal\n");
+                OutputHelper.printGradual("Tipo de dado inválido. Insira um número decimal\n");
             }
         }
 

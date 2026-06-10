@@ -25,7 +25,7 @@ public class RodadasView {
             opcao = InputHelper.lerNumero("Escolha uma ação (1-3): ");
 
             if (opcao < 1 || opcao > 3) {
-                TerminalView.printGradual("Opção inválida! Escolha entre 1 e 3.");
+                OutputHelper.printGradual("Opção inválida! Escolha entre 1 e 3.");
                 continue;
             }
             return opcao;
@@ -55,7 +55,7 @@ public class RodadasView {
                 Inimigo i = it.next();
 
                 if (!i.EstaVivo()) {
-                    TerminalView.printGradual( "O inimigo " + i.getNome() + " foi derrotado!");
+                    OutputHelper.printGradual( "O inimigo " + i.getNome() + " foi derrotado!");
                     it.remove();
                 }
             }
