@@ -2,6 +2,7 @@ package Controller;
 
 import Model.Inimigo;
 import Model.Personagem;
+import View.OutputHelper;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -12,17 +13,67 @@ public class InimigoController {
     final static String pathInimigos = "data/inimigos.txt";
 
     public static void executarTurnoInimigos(List<Inimigo> inimigos, Personagem jogador) {
-
+        String avisos = "";
         for (Inimigo inimigo : inimigos) {
+
+
+            if (inimigo.isPreparandoAtaqueEspecial()) {
+
+                int dano = inimigo.getDano() * 3;
+
+                OutputHelper.printGradual(
+                        inimigo.getNome() +
+                                " usou um ATAQUE ESPECIAL!\n","vermelho"
+                );
+
+                if (jogador.isDefendendo()) {
+                    dano = dano / 2;
+                    System.out.println("Defesa ativada! Dano do ataque especial reduzido em 50%.");
+                }
+
+                jogador.receberDano(dano);
+
+
+                Log.Registrar(
+                        inimigo.getNome() +
+                                " usou ataque especial em " +
+                                jogador.getNome() +
+                                " causando " +
+                                dano +
+                                " de dano."
+                );
+
+                inimigo.setPreparandoAtaqueEspecial(false);
+                inimigo.setContadorAtaques(0);
+
+                continue;
+            }
+
+
             System.out.println("\n" + inimigo.getNome() + " atacou " + jogador.getNome() + "!");
 
             int dano = inimigo.getDano();
             if (jogador.isDefendendo()) {
-                dano = dano / 2;
-                System.out.println("Defesa ativada! Dano reduzido pela metade.");
+                dano = dano / 4;
+                System.out.println("Defesa ativada! Dano reduzido em 75%.");
             }
 
             jogador.receberDano(dano);
+
+            inimigo.setContadorAtaques(
+                    inimigo.getContadorAtaques() + 1
+            );
+
+            if (inimigo.getContadorAtaques()
+                    >= inimigo.getAtaquesParaEspecial()) {
+
+                avisos += "⚠️⚠️" + inimigo.getNome()
+                        + " está preparando um ataque especial!\n";
+
+                inimigo.setPreparandoAtaqueEspecial(true);
+            }
+
+
             Log.Registrar(
                     inimigo.getNome() +
                             " atacou " +
@@ -33,7 +84,17 @@ public class InimigoController {
             );
 
         }
-        System.out.println(jogador.getNome() + " ficou com " + jogador.getPontosDeVida() + " HP.");
+        System.out.println(
+                jogador.getNome() +
+                        " ficou com " +
+                        jogador.getPontosDeVida() +
+                        " HP."
+        );
+
+        if (!avisos.isEmpty()) {
+            OutputHelper.printGradual(avisos, "vermelho");
+        }
+        jogador.setDefendendo(false);
     }
 
     public static Inimigo buscarInimigo(String nomeInimigo, List<Inimigo> listaInimigos) {
@@ -83,11 +144,16 @@ public class InimigoController {
     // Converte uma linha de texto para inimigo no formato: "nome, hp, dano"
     public static Inimigo converterStringParaInimigo(String linha) {
         String[] partes = linha.split(",");
-        if (partes.length == 3) {
+        if (partes.length == 4) {
             String nome = partes[0];
-            int hp     = Integer.parseInt(partes[1]);
-            int dano   = Integer.parseInt(partes[2]);
-            return new Inimigo(nome, hp, dano);
+            int hp = Integer.parseInt(partes[1]);
+            int dano = Integer.parseInt(partes[2]);
+            int ataquesParaEspecial = Integer.parseInt(partes[3]);
+            Inimigo inimigo = new Inimigo(nome, hp, dano);
+
+            inimigo.setAtaquesParaEspecial(ataquesParaEspecial);
+            return inimigo;
+
         } else return null;
     }
 

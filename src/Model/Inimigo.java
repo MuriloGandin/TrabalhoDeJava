@@ -1,6 +1,52 @@
 package Model;
 
 public class Inimigo extends Entidade {
+    private boolean preparandoAtaqueEspecial;
+    private int contadorTurnos;
+    private int contadorAtaques;
+    private int ataquesParaEspecial;
+
+    public int getAtaquesParaEspecial() {
+        return ataquesParaEspecial;
+    }
+
+    public void setAtaquesParaEspecial(int ataquesParaEspecial) {
+        this.ataquesParaEspecial = ataquesParaEspecial;
+    }
+
+    public int getContadorAtaques() {
+        return contadorAtaques;
+    }
+
+    public void setContadorAtaques(int contadorAtaques) {
+        this.contadorAtaques = contadorAtaques;
+    }
+
+    public int getMultiplicadorEspecial() {
+        return multiplicadorEspecial;
+    }
+
+    public void setMultiplicadorEspecial(int multiplicadorEspecial) {
+        this.multiplicadorEspecial = multiplicadorEspecial;
+    }
+
+    private int multiplicadorEspecial;
+
+    public boolean isPreparandoAtaqueEspecial() {
+        return preparandoAtaqueEspecial;
+    }
+
+    public void setPreparandoAtaqueEspecial(boolean preparandoAtaqueEspecial) {
+        this.preparandoAtaqueEspecial = preparandoAtaqueEspecial;
+    }
+
+    public int getContadorTurnos() {
+        return contadorTurnos;
+    }
+
+    public void setContadorTurnos(int contadorTurnos) {
+        this.contadorTurnos = contadorTurnos;
+    }
 
     public Inimigo(String nome, int pontosDeVida, int dano) {
         super(nome, pontosDeVida, dano);
@@ -8,7 +54,7 @@ public class Inimigo extends Entidade {
 
     @Override
     public void atacar(Entidade alvo){
-        alvo.receberDano(10);
+        alvo.receberDano(getDano());
     }
 
     @Override

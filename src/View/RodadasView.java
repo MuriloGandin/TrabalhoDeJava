@@ -55,7 +55,7 @@ public class RodadasView {
                 Inimigo i = it.next();
 
                 if (!i.EstaVivo()) {
-                    OutputHelper.printGradual( "O inimigo " + i.getNome() + " foi derrotado!");
+                    OutputHelper.printGradual( "O inimigo " + i.getNome() + " foi derrotado!","amarelo");
                     it.remove();
                 }
             }
