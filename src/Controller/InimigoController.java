@@ -32,4 +32,13 @@ public class InimigoController {
         }
         System.out.println(jogador.getNome() + " ficou com " + jogador.getPontosDeVida() + " HP.");
     }
+
+    public static Inimigo buscarInimigo(String nomeInimigo, List<Inimigo> listaInimigos) {
+        for (Inimigo i :  listaInimigos) {
+            if (i.getNome().equals(nomeInimigo)) {
+                return i;
+            }
+        }
+        return null;
+    }
 }
