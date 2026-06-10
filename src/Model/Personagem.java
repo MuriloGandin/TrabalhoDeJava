@@ -4,7 +4,6 @@ import java.util.List;
 
 public class Personagem extends Entidade {
 
-    private int pocoes;
     private boolean defendendo;
     private int nivel = 1;
     private List<Item> inventario;
@@ -24,12 +23,12 @@ public class Personagem extends Entidade {
         setPontosDeVida(novoHp);
     }
 
-    public int getPocoes() {
-        return pocoes;
+    public List<Item> getInventario() {
+        return inventario;
     }
 
-    public void setPocoes(int pocoes) {
-        this.pocoes = pocoes;
+    public void adicionarItem(Item item) {
+        inventario.add(item);
     }
 
     public boolean isDefendendo() {

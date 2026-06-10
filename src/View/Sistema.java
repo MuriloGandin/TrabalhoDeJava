@@ -1,12 +1,12 @@
 package View;
 
+import Controller.InimigoController;
 import Controller.RodadasController;
 import Log.Log;
-import Model.Inimigo;
-import Model.InimigoCRUD;
-import Model.Onda;
-import Model.Personagem;
+import Model.*;
 
+import java.security.Key;
+import java.util.HashMap;
 import java.util.List;
 
 public class Sistema {
@@ -15,8 +15,8 @@ public class Sistema {
 
         List<Inimigo> inimigos = InimigoCRUD.listarInimigos();
 
-        Inimigo ender = inimigos.get(0);
-        Inimigo creeper = inimigos.get(1);
+        Inimigo ender = InimigoController.buscarInimigo("ender",  inimigos);
+        Inimigo creeper = InimigoController.buscarInimigo("creeper",  inimigos);
 
         Inimigo[] onda1 = {creeper, ender};
 
@@ -25,9 +25,20 @@ public class Sistema {
 
         mostrarMenuInicial();
 
+        Item pocao = new Item("Pocao de cura", Item.tipo.CONSUMIVEL);
+        Item espada = new Item("Espada", Item.tipo.EQUIPAVEL);
+
+        Loja loja1 = new Loja();
+
+        loja1.adicionarAoEstoque(pocao, 5f);
+        loja1.adicionarAoEstoque(espada, 10f);
+
+        LojaView.menuLoja(loja1);
+
+
+
         String nomePersonagem = InputHelper.lerTexto("Digite o nome do seu personagem: ", 30);
         Personagem jogador = new Personagem(nomePersonagem, 20, 6);
-
 
         iniciarOnda(jogador, 1, onda1);
 
@@ -103,7 +114,7 @@ public class Sistema {
         OutputHelper.printGradual("-------------" + "\n");
         OutputHelper.printGradual("1. Atacar" + "\n");
         OutputHelper.printGradual("2. Defender" + "\n");
-        OutputHelper.printGradual("3. Usar Item  [pocoes: " + jogador.getPocoes() + "]" + "\n");
+        OutputHelper.printGradual("3. Usar Item  [pocoes: " + "]" + "\n");
         OutputHelper.printGradual("-------------" + "\n");
     }
 

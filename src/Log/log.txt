@@ -1,0 +1,12 @@
+[10/06/2026 09:05:22] Sistema iniciando.
+[10/06/2026 09:05:35] Combate Iniciado
+[10/06/2026 09:05:39] Josiano atacou Ender causando 6 de dano.
+[10/06/2026 09:05:39] Creeper atacou Josiano causando 7 de dano.
+[10/06/2026 09:05:39] Ender atacou Josiano causando 5 de dano.
+[10/06/2026 09:37:55] Sistema iniciando.
+[10/06/2026 09:40:40] Sistema iniciando.
+[10/06/2026 09:50:38] Sistema iniciando.
+[10/06/2026 09:51:04] Sistema iniciando.
+[10/06/2026 09:51:57] Sistema iniciando.
+[10/06/2026 09:52:04] Combate Iniciado
+[10/06/2026 09:55:59] Sistema iniciando.

@@ -22,20 +22,20 @@ public class PersonagemController {
                 System.out.println("\n" + jogador.getNome() + " está se defendendo!");
                 break;
 
-            case ITEM:
-                jogador.setDefendendo(false);
-                if (jogador.getPocoes() > 0) {
-                    jogador.recuperarVida(30);
-                    jogador.setPocoes(jogador.getPocoes() - 1);
-                    System.out.println("\n" + jogador.getNome() + " usou uma poção! (+30 HP)");
-                    System.out.println("HP atual: " + jogador.getPontosDeVida());
-                    System.out.println("Poções restantes: " + jogador.getPocoes());
-                    Log.Registrar(jogador.getNome() + " usou uma pocao.");
-                } else {
-                    System.out.println("\nSem poções disponíveis!");
-                    Log.Registrar(jogador.getNome() + " tentou usar pocao sem possuir nenhuma.");
-                }
-                break;
+//            case ITEM:
+//                jogador.setDefendendo(false);
+//                if (jogador.getPocoes() > 0) {
+//                    jogador.recuperarVida(30);
+//                    jogador.setPocoes(jogador.getPocoes() - 1);
+//                    System.out.println("\n" + jogador.getNome() + " usou uma poção! (+30 HP)");
+//                    System.out.println("HP atual: " + jogador.getPontosDeVida());
+//                    System.out.println("Poções restantes: " + jogador.getPocoes());
+//                    Log.Registrar(jogador.getNome() + " usou uma pocao.");
+//                } else {
+//                    System.out.println("\nSem poções disponíveis!");
+//                    Log.Registrar(jogador.getNome() + " tentou usar pocao sem possuir nenhuma.");
+//                }
+//                break;
 
             case ATACAR:
                 Inimigo alvo = Sistema.selecionarAlvo(inimigos);

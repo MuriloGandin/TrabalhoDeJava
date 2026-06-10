@@ -35,7 +35,7 @@ public class InimigoController {
 
     public static Inimigo buscarInimigo(String nomeInimigo, List<Inimigo> listaInimigos) {
         for (Inimigo i :  listaInimigos) {
-            if (i.getNome().equals(nomeInimigo)) {
+            if (i.getNome().equalsIgnoreCase(nomeInimigo)) {
                 return i;
             }
         }
