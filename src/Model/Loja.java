@@ -1,19 +1,20 @@
 package Model;
 
+import java.util.ArrayList;
 import java.util.Dictionary;
 import java.util.HashMap;
 import java.util.List;
 
 public class Loja {
 
-    HashMap<Item, Float> estoque = new HashMap<>();
+    List<Item> estoque = new ArrayList<>();
 
-    public HashMap<Item, Float> getEstoque() {
+    public List<Item> getEstoque() {
         return estoque;
     }
 
-    public void adicionarAoEstoque(Item item, Float valor) {
-        estoque.put(item, valor);
+    public void adicionarAoEstoque(Item item) {
+        estoque.add(item);
     }
 
 }

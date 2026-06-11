@@ -1,10 +1,12 @@
 package View;
 
 import Controller.InimigoController;
+import Controller.ItemController;
 import Controller.RodadasController;
 import Controller.Log;
 import Model.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Sistema {
@@ -12,6 +14,12 @@ public class Sistema {
     public static void executar() {
 
         List<Inimigo> inimigos = InimigoController.listarInimigos();
+        List<Item> itensCadastrados = ItemController.carregarItens();
+
+        Loja lojaInicial = new Loja();
+
+        for (Item i : itensCadastrados)
+            lojaInicial.adicionarAoEstoque(i);
 
         Inimigo ender = InimigoController.buscarInimigo("ender",  inimigos);
         Inimigo creeper = InimigoController.buscarInimigo("creeper",  inimigos);
@@ -23,18 +31,12 @@ public class Sistema {
 
         mostrarMenuInicial();
 
-        Item pocao = new Item("Pocao de cura", Item.tipo.CONSUMIVEL);
-        Item espada = new Item("Espada", Item.tipo.EQUIPAVEL);
 
-        Loja loja1 = new Loja();
-
-        loja1.adicionarAoEstoque(pocao, 5f);
-        loja1.adicionarAoEstoque(espada, 10f);
-
-        LojaView.menuLoja(loja1);
 
         String nomePersonagem = InputHelper.lerTexto("Digite o nome do seu personagem: ", 30);
         Personagem jogador = new Personagem(nomePersonagem, 20, 6);
+
+        LojaView.menuLoja(lojaInicial, jogador);
 
         iniciarOnda(jogador, 1, onda1);
 

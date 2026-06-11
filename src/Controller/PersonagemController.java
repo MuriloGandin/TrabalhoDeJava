@@ -2,6 +2,7 @@ package Controller;
 
 import Model.Inimigo;
 import Model.Personagem;
+import View.PersonagemView;
 import View.Sistema;
 import View.OutputHelper;
 
@@ -21,22 +22,12 @@ public class PersonagemController {
 //                System.out.println("\n" + jogador.getNome() + " está se defendendo!"); removi para teste no modo defesa
                 break;
 
-//            case ITEM:
-//                jogador.setDefendendo(false);
-//                if (jogador.getPocoes() > 0) {
-//                    jogador.recuperarVida(30);
-//                    jogador.setPocoes(jogador.getPocoes() - 1);
-//                    System.out.println("\n" + jogador.getNome() + " usou uma poção! (+30 HP)");
-//                    System.out.println("HP atual: " + jogador.getPontosDeVida());
-//                    System.out.println("Poções restantes: " + jogador.getPocoes());
-//                    Log.Registrar(jogador.getNome() + " usou uma pocao.");
-//                } else {
-//                    System.out.println("\nSem poções disponíveis!");
-//                    Log.Registrar(jogador.getNome() + " tentou usar pocao sem possuir nenhuma.");
-//                }
-//                break;
+            case ITEM:
+                PersonagemView.mostrarInventario(jogador);
+                break;
 
             case ATACAR:
+                jogador.setDefendendo(false);
                 Inimigo alvo = Sistema.selecionarAlvo(inimigos);
                 jogador.atacar(alvo);
                 System.out.println("O jogador " + jogador.getNome() + " atacou " + alvo.getNome() + " e causou " + jogador.getDano() + " de dano!");

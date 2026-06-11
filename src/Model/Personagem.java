@@ -7,7 +7,7 @@ public class Personagem extends Entidade {
     private boolean defendendo;
     private int nivel = 1;
     private List<Item> inventario;
-    private int diamante;
+    private int diamantes;
 
     public Personagem(String nome, int pontosDeVida, int dano) {
         super(nome, pontosDeVida, dano);
@@ -32,6 +32,10 @@ public class Personagem extends Entidade {
         inventario.add(item);
     }
 
+    public void removerItem(Item item) {
+        inventario.remove(item);
+    }
+
     public boolean isDefendendo() {
         return defendendo;
     }
@@ -50,5 +54,11 @@ public class Personagem extends Entidade {
         }
     }
 
+    public int getDiamantes() {
+        return diamantes;
+    }
 
+    public void setDiamantes(int diamantes) {
+        this.diamantes = diamantes;
+    }
 }

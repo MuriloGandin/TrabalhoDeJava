@@ -3,15 +3,23 @@ package Model;
 public class Item {
 
     public enum tipo {
-        CONSUMIVEL, EQUIPAVEL
+        CONSUMIVEL_CURA,
+        EQUIPAVEL_ARMA,
+        EQUIPAVEL_ARMADURA
     }
 
+    private int id;
+    private String nome;
     private tipo tipo;
-    private String descricao;
+    private int valorEfeito;
+    private int preco;
 
-    public Item(String descricao,  tipo tipo) {
-        this.descricao = descricao;
+    public Item(int id, String nome, tipo tipo, int valorEfeito, int preco) {
+        this.id = id;
+        this.nome = nome;
         this.tipo = tipo;
+        this.valorEfeito = valorEfeito;
+        this.preco = preco;
     }
 
     public tipo getTipo() {
@@ -22,11 +30,19 @@ public class Item {
         this.tipo = tipo;
     }
 
-    public String getDescricao() {
-        return descricao;
+    public String getNome() {
+        return nome;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public int getPreco() {
+        return preco;
+    }
+
+    public void setPreco(int preco) {
+        this.preco = preco;
     }
 }
