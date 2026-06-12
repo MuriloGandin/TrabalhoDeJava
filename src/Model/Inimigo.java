@@ -25,10 +25,6 @@ public class Inimigo extends Entidade {
         this.moedasMin = moedasMin;
     }
 
-
-
-
-
     public int getAtaquesParaEspecial() {
         return ataquesParaEspecial;
     }

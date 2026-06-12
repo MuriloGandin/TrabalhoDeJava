@@ -22,8 +22,10 @@ public class Personagem extends Entidade {
         int danoAdicional;
         if (equipamento == null) {
             danoAdicional = 0;
+        } else {
+            danoAdicional = this.equipamento.getValorEfeito();
         }
-        danoAdicional = this.equipamento.getValorEfeito();
+
         alvo.receberDano(this.getDano() + danoAdicional);
     }
 
@@ -49,6 +51,17 @@ public class Personagem extends Entidade {
             pontosDeVida = 0;
         }
 
+    }
+
+    @Override
+    public int getDano() {
+        int danoAdicional;
+        if (equipamento != null) {
+            danoAdicional = equipamento.getValorEfeito();
+        } else {
+            danoAdicional = 0;
+        }
+        return this.dano + danoAdicional;
     }
 
     public List<Item> getInventario() {

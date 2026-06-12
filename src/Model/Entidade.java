@@ -5,7 +5,7 @@ public abstract class Entidade implements Combatente {
     private String nome;
     protected int pontosDeVida;
     boolean estaVivo = true;
-    private int dano;
+    protected int dano;
 
     public Entidade(String nome, int pontosDeVida, int dano) {
         this.nome = nome;
