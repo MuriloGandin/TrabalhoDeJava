@@ -5,31 +5,26 @@ import Model.Loja;
 import Model.Personagem;
 
 import java.util.HashMap;
+import java.util.List;
 
 public class LojaView {
 
     public static void menuLoja(Loja loja, Personagem player) {
 
-        String logista = """
+        String logista = OutputHelper.colorirTexto("""
                               _____
                             /       \\
                            |  o   o  |
                            |    >    |
                            |  \\___/  |
                             \\_______/
-                             .----.
-                             |    |
-                           __|____|__
-                          |  ______--|
-                          `-/.::::.\\-'
-                           `--------'
-                """;
+                """, "amarelo");
          String titulo = OutputHelper.colorirTexto("""
                 
                 
-                ╷  ╭─╮ ╭╮╭─╮   ╶┬╮╭─╴   ╷╶┬╴╭─╴╭╮╷╭─╮
-                │  │ │  │├─┤    ││├╴    │ │ ├╴ │╰┤╰─╮
-                ╰─╴╰─╯╰─╯╵ ╵   ╶┴╯╰─╴   ╵ ╵ ╰─╴╵ ╵╰─╯
+                    ╷  ╭─╮ ╭╮╭─╮   ╶┬╮╭─╴   ╷╶┬╴╭─╴╭╮╷╭─╮
+                    │  │ │  │├─┤    ││├╴    │ │ ├╴ │╰┤╰─╮
+                    ╰─╴╰─╯╰─╯╵ ╵   ╶┴╯╰─╴   ╵ ╵ ╰─╴╵ ╵╰─╯
               ┌───────────────────────────────────────────────┐
                 """, "azul");
 
@@ -44,8 +39,38 @@ public class LojaView {
 
         OutputHelper.printGradual(OutputHelper.colorirTexto("└───────────────────────────────────────────────┘\n", "azul"), 1);
 
+        int op;
 
-        OutputHelper.printGradual("Seus diamantes: " + player.getDiamantes() + "\n", "verde");
+        do {
+            OutputHelper.printGradual("Seus diamantes: " + player.getDiamantes() + "\n", "verde");
+            op = InputHelper.lerNumero("""
+                Escolha uma operação:
+                1 - Comprar item; 2 - Vender item; 3 - Sair;
+                """);
 
+            switch (op) {
+                case 1:
+                    menuCompra(loja, player);
+                    break;
+
+                case 2:
+                    menuVenda(loja, player);
+                    break;
+
+                case 3:
+                    OutputHelper.printGradual("Lojista: Volte sempre!", "verde");
+                    break;
+
+                default:
+                    OutputHelper.printGradual("Operação inválida");
+                    break;
+            }
+
+        } while (op < 1 || op > 3);
     }
+
+    public static void menuCompra(Loja loja, Personagem player) {}
+
+    public static void menuVenda(Loja loja, Personagem player) {}
+
 }

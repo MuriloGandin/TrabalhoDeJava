@@ -31,8 +31,6 @@ public class Sistema {
 
         mostrarMenuInicial();
 
-
-
         String nomePersonagem = InputHelper.lerTexto("Digite o nome do seu personagem: ", 30);
         Personagem jogador = new Personagem(nomePersonagem, 20, 6);
 
@@ -109,11 +107,13 @@ public class Sistema {
         for (Inimigo inimigo : inimigos) {
             OutputHelper.printGradual(inimigo.getNome() + "  ❤️: " + inimigo.getPontosDeVida() + "\n");
         }
-        OutputHelper.printGradual("-------------" + "\n");
-        OutputHelper.printGradual("1. Atacar" + "\n");
-        OutputHelper.printGradual("2. Defender" + "\n");
-        OutputHelper.printGradual("3. Usar Item  [pocoes: " + "]" + "\n");
-        OutputHelper.printGradual("-------------" + "\n");
+        OutputHelper.printGradual("""
+                -------------
+                1. Atacar
+                2. Defender
+                3. Usar Item
+                -------------
+                """);
     }
 
     public static void iniciarOnda(Personagem jogador, int numOnda, Inimigo[] inimigos) {
