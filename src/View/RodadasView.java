@@ -1,6 +1,7 @@
 package View;
 
 import Controller.InimigoController;
+import Controller.Log;
 import Controller.PersonagemController;
 import Controller.RodadasController;
 import Model.Inimigo;
@@ -56,6 +57,11 @@ public class RodadasView {
 
                 if (!i.EstaVivo()) {
                     OutputHelper.printGradual( "O inimigo " + i.getNome() + " foi derrotado!","amarelo");
+                   int DiamantesAleatorios = InimigoController.SortearMoedas(i);
+                   jogador.AdicionarDiamantes(DiamantesAleatorios);
+                    Log.Registrar(jogador.getNome() + " Ganhou " +  DiamantesAleatorios + " Diamantes");
+                    OutputHelper.printGradual("\nVoce ganhou 💎 " + DiamantesAleatorios + " Diamantes Apos Derrotar " + i.getNome());
+
                     it.remove();
                 }
             }

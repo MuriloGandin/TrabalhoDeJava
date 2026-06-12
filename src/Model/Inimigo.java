@@ -5,6 +5,29 @@ public class Inimigo extends Entidade {
     private int contadorTurnos;
     private int contadorAtaques;
     private int ataquesParaEspecial;
+    private int moedasMin;
+    private int moedasMax;
+
+
+    public int getMoedasMax() {
+        return moedasMax;
+    }
+
+    public void setMoedasMax(int moedasMax) {
+        this.moedasMax = moedasMax;
+    }
+
+    public int getMoedasMin() {
+        return moedasMin;
+    }
+
+    public void setMoedasMin(int moedasMin) {
+        this.moedasMin = moedasMin;
+    }
+
+
+
+
 
     public int getAtaquesParaEspecial() {
         return ataquesParaEspecial;

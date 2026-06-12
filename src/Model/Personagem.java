@@ -9,6 +9,7 @@ public class Personagem extends Entidade {
     private List<Item> inventario;
     private int diamantes;
 
+
     public Personagem(String nome, int pontosDeVida, int dano) {
         super(nome, pontosDeVida, dano);
     }
@@ -60,5 +61,9 @@ public class Personagem extends Entidade {
 
     public void setDiamantes(int diamantes) {
         this.diamantes = diamantes;
+    }
+
+    public void AdicionarDiamantes(int quantidade) {
+        this.diamantes += quantidade;
     }
 }

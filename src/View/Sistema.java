@@ -23,11 +23,17 @@ public class Sistema {
 
         Inimigo ender = InimigoController.buscarInimigo("ender",  inimigos);
         Inimigo creeper = InimigoController.buscarInimigo("creeper",  inimigos);
+        Inimigo zumbi = InimigoController.buscarInimigo("zumbi",  inimigos);
+        Inimigo guardiao = InimigoController.buscarInimigo("guardiao",  inimigos);
 
         Inimigo[] onda1 = {creeper, ender};
+        Inimigo[] onda2 = {zumbi, guardiao};
+
 
         Onda[] ondas = new Onda[2];
         ondas[0] = new Onda(onda1);
+        ondas[1] = new Onda(onda2);
+
 
         mostrarMenuInicial();
 
@@ -39,6 +45,7 @@ public class Sistema {
         LojaView.menuLoja(lojaInicial, jogador);
 
         iniciarOnda(jogador, 1, onda1);
+        iniciarOnda(jogador, 2, onda2);
 
     }
 
