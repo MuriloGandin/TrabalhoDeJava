@@ -9,6 +9,8 @@ public class Personagem extends Entidade {
     private int nivel = 1;
     private List<Item> inventario = new ArrayList<>();
     private int diamantes = 5;
+    private Item equipamento = null;
+    private Item armadura = null;
 
 
     public Personagem(String nome, int pontosDeVida, int dano) {
@@ -17,13 +19,36 @@ public class Personagem extends Entidade {
 
     @Override
     public void atacar(Entidade alvo) {
-        alvo.receberDano(this.getDano());
+        int danoAdicional;
+        if (equipamento == null) {
+            danoAdicional = 0;
+        }
+        danoAdicional = this.equipamento.getValorEfeito();
+        alvo.receberDano(this.getDano() + danoAdicional);
     }
 
     @Override
     public void recuperarVida(int quantidade) {
         int novoHp = getPontosDeVida() + quantidade;
         setPontosDeVida(novoHp);
+    }
+
+    @Override
+    public void receberDano(int dano) {
+        int defesa;
+        if (armadura != null) {
+            defesa = armadura.getValorEfeito();
+        } else  {
+            defesa = 0;
+        }
+
+        dano += defesa;
+        pontosDeVida -= dano;
+        if (pontosDeVida < 1) {
+            estaVivo = false;
+            pontosDeVida = 0;
+        }
+
     }
 
     public List<Item> getInventario() {
@@ -67,4 +92,14 @@ public class Personagem extends Entidade {
     public void AdicionarDiamantes(int quantidade) {
         this.diamantes += quantidade;
     }
+
+    public void equiparItem(Item item) {
+        equipamento = item;
+    }
+
+    public void equiparArmadura(Item item) {
+        armadura = item;
+    }
+
+
 }

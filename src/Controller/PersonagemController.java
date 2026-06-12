@@ -62,11 +62,15 @@ public class PersonagemController {
                 break;
 
             case EQUIPAVEL_ARMA:
+                jogador.equiparItem(item);
                 break;
 
             case EQUIPAVEL_ARMADURA:
+                jogador.equiparArmadura(item);
                 break;
         }
+
+        PersonagemView.mostrarInventario(jogador);
     }
 
 

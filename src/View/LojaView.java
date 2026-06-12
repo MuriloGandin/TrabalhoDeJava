@@ -82,6 +82,7 @@ public class LojaView {
         Item i = new Item(itemSelecionado.getId(), itemSelecionado.getNome(), itemSelecionado.getTipo(), itemSelecionado.getValorEfeito(), itemSelecionado.getPreco());
 
         if (PersonagemController.comprarItem(i, player)) {
+            OutputHelper.printGradual(i.getNome() + " comprado com sucesso!", "verde");
             return;
         }
         OutputHelper.printGradual("Você não tem diamantes o suficiente para comprar este item!\n", "vermelho");

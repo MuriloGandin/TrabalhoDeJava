@@ -13,6 +13,7 @@ public class Item {
     private tipo tipo;
     private int valorEfeito;
     private int preco;
+    private boolean estaEquipado = false;
 
     public Item(int id, String nome, tipo tipo, int valorEfeito, int preco) {
         this.id = id;
@@ -60,5 +61,13 @@ public class Item {
 
     public void setPreco(int preco) {
         this.preco = preco;
+    }
+
+    public boolean EstaEquipado() {
+        return estaEquipado;
+    }
+
+    public void setEstaEquipado(boolean estaEquipado) {
+        this.estaEquipado = estaEquipado;
     }
 }

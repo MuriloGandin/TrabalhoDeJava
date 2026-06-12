@@ -3,7 +3,7 @@ package Model;
 public abstract class Entidade implements Combatente {
 
     private String nome;
-    private int pontosDeVida;
+    protected int pontosDeVida;
     boolean estaVivo = true;
     private int dano;
 

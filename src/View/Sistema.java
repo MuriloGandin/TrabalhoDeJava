@@ -40,10 +40,11 @@ public class Sistema {
         String nomePersonagem = InputHelper.lerTexto("Digite o nome do seu personagem: ", 30);
         Personagem jogador = new Personagem(nomePersonagem, 20, 6);
 
-        LojaView.menuLoja(lojaInicial, jogador);
 
-        iniciarOnda(jogador, 1, onda1);
-        iniciarOnda(jogador, 2, onda2);
+        for (int i = 0; i < ondas.length; i++) {
+            LojaView.menuLoja(lojaInicial, jogador);
+            iniciarOnda(jogador, (i+1), ondas[i].getInimigos());
+        }
 
     }
 
@@ -123,7 +124,7 @@ public class Sistema {
                 """);
     }
 
-    public static void iniciarOnda(Personagem jogador, int numOnda, Inimigo[] inimigos) {
+    public static void iniciarOnda(Personagem jogador, int numOnda, List<Inimigo> inimigos) {
 
 
         boolean ondaEncerrada;

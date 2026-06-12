@@ -25,4 +25,8 @@ public class Onda {
             addInimigo(inimigo);
         }
     }
+
+    public List<Inimigo> getInimigos() {
+        return inimigos;
+    }
 }
