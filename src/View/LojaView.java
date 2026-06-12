@@ -35,7 +35,8 @@ public class LojaView {
 
         for (int i = 0; i < loja.getEstoque().size(); i++) {
             Item item = loja.getEstoque().get(i);
-            OutputHelper.printGradual( "Item " + (i+1) + ": " + item.getNome() + " - Preço: " + item.getPreco() + " diamantes\n", "azul");
+            OutputHelper.printGradual( "Item " + (i+1) + ": " + item.getNome() + " - " );
+            OutputHelper.printGradual( "Preço: " + item.getPreco() + " diamantes\n", "verde");
         }
 
         OutputHelper.printGradual(OutputHelper.colorirTexto("└───────────────────────────────────────────────┘\n", "azul"), 1);
@@ -43,7 +44,7 @@ public class LojaView {
         int op;
 
         do {
-            OutputHelper.printGradual("Seus diamantes: " + player.getDiamantes() + "\n", "verde");
+            OutputHelper.printGradual("Seus diamantes: " + player.getDiamantes() + "\n", "azul");
             op = InputHelper.lerNumero("""
                 Escolha uma operação:
                 1 - Comprar item; 2 - Vender item; 3 - Sair;
