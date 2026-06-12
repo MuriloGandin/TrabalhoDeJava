@@ -7,6 +7,7 @@ import View.OutputHelper;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class InimigoController {
 
@@ -29,6 +30,7 @@ public class InimigoController {
                 if (jogador.isDefendendo()) {
                     dano = dano / 2;
                     System.out.println("Defesa ativada! Dano do Ataque Especial reduzido em 50%.");
+                    Log.Registrar(jogador.getNome() + " Usou defesa e o dano foi reduzido em 50%");
                 }
 
                 jogador.receberDano(dano);
@@ -56,6 +58,7 @@ public class InimigoController {
             if (jogador.isDefendendo()) {
                 dano = dano / 2;
                 System.out.println("Defesa ativada! Dano reduzido em 50%.");
+                Log.Registrar(jogador.getNome() + " Usou desefa e o dano foi reduzido em 50%");
             }
 
             jogador.receberDano(dano);
@@ -67,6 +70,7 @@ public class InimigoController {
             if (inimigo.getContadorAtaques()
                     >= inimigo.getAtaquesParaEspecial()) {
 
+                Log.Registrar(inimigo.getNome() + " esta preparando um ataque Especial");
                 avisos += "⚠️⚠️" + inimigo.getNome()
                         + " está preparando um ataque especial!\n";
 
@@ -145,14 +149,19 @@ public class InimigoController {
     // Converte uma linha de texto para inimigo no formato: "nome, hp, dano"
     public static Inimigo converterStringParaInimigo(String linha) {
         String[] partes = linha.split(",");
-        if (partes.length == 4) {
+        if (partes.length == 6) {
             String nome = partes[0];
             int hp = Integer.parseInt(partes[1]);
             int dano = Integer.parseInt(partes[2]);
             int ataquesParaEspecial = Integer.parseInt(partes[3]);
+           int moedasMin = Integer.parseInt(partes[4]);
+           int moedasMax = Integer.parseInt(partes[5]);
             Inimigo inimigo = new Inimigo(nome, hp, dano);
 
             inimigo.setAtaquesParaEspecial(ataquesParaEspecial);
+            inimigo.setMoedasMin(moedasMin);
+            inimigo.setMoedasMax(moedasMax);
+
             return inimigo;
 
         } else return null;
@@ -164,6 +173,12 @@ public class InimigoController {
                 return true;
         }
         return false;
+    }
+public static int SortearMoedas(Inimigo inimigo) {
+        int moedasMin = inimigo.getMoedasMin();
+        int moedasMax = inimigo.getMoedasMax();
+
+        return (int)(Math.random() * (moedasMax - moedasMin + 1)) + moedasMin;
     }
 
 }
