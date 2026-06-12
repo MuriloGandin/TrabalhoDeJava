@@ -1,6 +1,7 @@
 package Controller;
 
 import Model.Inimigo;
+import Model.Item;
 import Model.Personagem;
 import View.PersonagemView;
 import View.Sistema;
@@ -24,6 +25,7 @@ public class PersonagemController {
 
             case ITEM:
                 PersonagemView.mostrarInventario(jogador);
+                PersonagemView.operacaoInventario(jogador);
                 break;
 
             case ATACAR:
@@ -40,6 +42,30 @@ public class PersonagemController {
                                 " de dano."
                 );
                 OutputHelper.printGradual(alvo.getNome() + " ficou com " + alvo.getPontosDeVida() + " pontos de vida!\n", "amarelo");
+        }
+    }
+
+    public static boolean comprarItem(Item item, Personagem jogador) {
+        if (jogador.getDiamantes() < item.getPreco()) {
+            return false;
+        }
+        jogador.adicionarItem(item);
+        jogador.setDiamantes(jogador.getDiamantes() - item.getPreco());
+        return true;
+    }
+
+    public static void usarItem(Item item, Personagem jogador) {
+        switch (item.getTipo()) {
+            case CONSUMIVEL_CURA:
+                jogador.recuperarVida(item.getValorEfeito());
+                jogador.removerItem(item);
+                break;
+
+            case EQUIPAVEL_ARMA:
+                break;
+
+            case EQUIPAVEL_ARMADURA:
+                break;
         }
     }
 

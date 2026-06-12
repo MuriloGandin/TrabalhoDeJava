@@ -1,5 +1,6 @@
 package View;
 
+import Controller.PersonagemController;
 import Model.Item;
 import Model.Loja;
 import Model.Personagem;
@@ -58,7 +59,7 @@ public class LojaView {
                     break;
 
                 case 3:
-                    OutputHelper.printGradual("Lojista: Volte sempre!", "verde");
+                    OutputHelper.printGradual("Lojista: Volte sempre!\n", "verde");
                     break;
 
                 default:
@@ -66,10 +67,27 @@ public class LojaView {
                     break;
             }
 
-        } while (op < 1 || op > 3);
+        } while (op != 3);
     }
 
-    public static void menuCompra(Loja loja, Personagem player) {}
+    public static void menuCompra(Loja loja, Personagem player) {
+        int op;
+        do {
+            op = InputHelper.lerNumero("Insira o número do item que deseja comprar: ");
+
+        } while (op < 1 || op > loja.getEstoque().size());
+
+        Item itemSelecionado = loja.getEstoque().get(op-1);
+
+        Item i = new Item(itemSelecionado.getId(), itemSelecionado.getNome(), itemSelecionado.getTipo(), itemSelecionado.getValorEfeito(), itemSelecionado.getPreco());
+
+        if (PersonagemController.comprarItem(i, player)) {
+            return;
+        }
+        OutputHelper.printGradual("Você não tem diamantes o suficiente para comprar este item!\n", "vermelho");
+
+
+    }
 
     public static void menuVenda(Loja loja, Personagem player) {}
 

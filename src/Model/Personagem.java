@@ -1,13 +1,14 @@
 package Model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Personagem extends Entidade {
 
     private boolean defendendo;
     private int nivel = 1;
-    private List<Item> inventario;
-    private int diamantes;
+    private List<Item> inventario = new ArrayList<>();
+    private int diamantes = 5;
 
 
     public Personagem(String nome, int pontosDeVida, int dano) {

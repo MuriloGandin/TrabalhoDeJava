@@ -42,9 +42,12 @@ public class RodadasView {
         }
 
         // Turno do personagem
-        int opcao = menuRodada(jogador);
+        int opcao;
 
-        PersonagemController.executarAcao(opcao, jogador, inimigosEmCombate);
+        do {
+            opcao = menuRodada(jogador);
+            PersonagemController.executarAcao(opcao, jogador, inimigosEmCombate);
+        } while (opcao == 3);
 
         // Ação do inimigo + menu inimigo derrotado
 

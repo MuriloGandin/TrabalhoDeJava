@@ -16,5 +16,4 @@ public class Loja {
     public void adicionarAoEstoque(Item item) {
         estoque.add(item);
     }
-
 }
