@@ -22,6 +22,22 @@ public class Item {
         this.preco = preco;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getValorEfeito() {
+        return valorEfeito;
+    }
+
+    public void setValorEfeito(int valorEfeito) {
+        this.valorEfeito = valorEfeito;
+    }
+
     public tipo getTipo() {
         return tipo;
     }
