@@ -4,12 +4,14 @@ public abstract class Entidade implements Combatente {
 
     private String nome;
     protected int pontosDeVida;
+    protected int vidaMax;
     boolean estaVivo = true;
     protected int dano;
 
-    public Entidade(String nome, int pontosDeVida, int dano) {
+    public Entidade(String nome, int pontosDeVidaMax, int dano) {
         this.nome = nome;
-        this.pontosDeVida = pontosDeVida;
+        this.vidaMax = pontosDeVidaMax;
+        pontosDeVida = vidaMax;
         this.dano = dano;
     }
 

@@ -63,11 +63,11 @@ public class Item {
         this.preco = preco;
     }
 
-    public boolean EstaEquipado() {
+    public boolean estaEquipado() {
         return estaEquipado;
     }
 
-    public void setEstaEquipado(boolean estaEquipado) {
+    public void setEquipado(boolean estaEquipado) {
         this.estaEquipado = estaEquipado;
     }
 }

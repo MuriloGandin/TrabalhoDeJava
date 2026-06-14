@@ -6,19 +6,30 @@ import Model.Personagem;
 
 public class PersonagemView {
 
+    public static void menuInventario(Personagem jogador) {
+        if (jogador.getInventario().isEmpty()){
+            OutputHelper.printColorido("Seu inventário está vazio", "vermelho");
+            return;
+        }
+        mostrarInventario(jogador);
+        operacaoInventario(jogador);
+    }
+
     public static void mostrarInventario(Personagem jogador) {
+
         OutputHelper.printGradual("==== Inventário ====\n", "verde");
 
         for (int i = 0; i < jogador.getInventario().size(); i++) {
 
             Item item = jogador.getInventario().get(i);
             String tipo = "";
+            String equipado = item.estaEquipado() ? " <Equipado > " : "";
             switch (item.getTipo()) {
                 case EQUIPAVEL_ARMA -> tipo = "Equipável";
                 case CONSUMIVEL_CURA -> tipo = "Consumível";
                 case EQUIPAVEL_ARMADURA -> tipo = "Armadura";
             }
-            OutputHelper.printGradual((i+1) + ". " + item.getNome() + " - "+ tipo + "\n");
+            OutputHelper.printGradual((i+1) + ". " + item.getNome() + equipado + " - " + tipo + "\n", "azul");
         }
     }
 
@@ -36,7 +47,7 @@ public class PersonagemView {
                     int op;
 
                     do {
-                        op = InputHelper.lerNumero("Insira o número do item que deseja usar");
+                        op = InputHelper.lerNumero("Insira o número do item que deseja usar: ");
                     } while (op < 1 || op > jogador.getInventario().size());
                     Item item = jogador.getInventario().get(op-1);
 

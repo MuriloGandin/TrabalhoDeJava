@@ -37,7 +37,7 @@ public class Sistema {
 
         mostrarMenuInicial();
 
-        String nomePersonagem = InputHelper.lerTexto("Digite o nome do seu personagem: ", 30);
+        String nomePersonagem = InputHelper.lerTexto("\u001B[36m" + "Digite o nome do seu personagem: " + "\u001B[0m", 30);
         Personagem jogador = new Personagem(nomePersonagem, 20, 6);
 
 
@@ -82,7 +82,6 @@ public class Sistema {
                     OutputHelper.printlnColorido("Operação inválida!", "vermelho");
             }
         } while (op < 1 || op > 2);
-
 
     }
 

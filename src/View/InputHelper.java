@@ -39,6 +39,21 @@ public class InputHelper {
 
         return resultado;
     }
+
+    public static int lerNumero(String texto, int velocidade) {
+        int resultado;
+        while (true) {
+            try {
+                resultado = Integer.parseInt( lerTexto(texto, velocidade) );
+                break;
+
+            } catch (Exception e) {
+                OutputHelper.printGradual("Tipo de dado inválido. Insira um número inteiro\n", 20);
+            }
+        }
+
+        return resultado;
+    }
     // Funciona como a função anterior, mas sem exibir qualquer mensagem
     public static int lerNumero() {
 

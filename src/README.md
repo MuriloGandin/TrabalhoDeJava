@@ -36,11 +36,14 @@ Tema: RPG de aventura
 > Responsável pela definição estrutural das classes e seus métodos e atributos principais
 
 * ### Interface Combatente
-...
+    Esta interface define quais entidades participarão ativamente dos combates, permitindo que elas possam atacar e mostrar dados e estatísticas de combate.
+
 * ### Classe Abstrata Entidade
-...
+    Define atributos e métodos essenciais para o jogador e os inimigos, como pontos de vida, dano e nome (que são atributos comuns entre Personagem e Inimigo)
+
 * ### Classe Inimigo
-...
+    Os inimigos são os antagonistas principais do jogo, eles atacam o jogador, podendo derrota-lo, mas deixam recompensas em diamantes quando derrotados. Os inimigos existentes e em qual onda aparecem são definidos pelos bancos de dados.
+
 * ### Classe Item
 ...
 * ### Classe Onda
@@ -54,6 +57,8 @@ Tema: RPG de aventura
 ## Camada View
 > Camada responsável pelos feedbacks visuais e interações diretas com o usuário (Como prints no terminal)
 * ### Classe Sistema
+    O sistema é o coração do jogo, contendo o fluxo principal de métodos e funções que são executadas assim que o jogo se inicia.
+
 * ### Classe InputHelper
 * ### Classe RodadasView
 * ### Classe OutputHelper

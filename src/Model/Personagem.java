@@ -8,7 +8,7 @@ public class Personagem extends Entidade {
     private boolean defendendo;
     private int nivel = 1;
     private List<Item> inventario = new ArrayList<>();
-    private int diamantes = 5;
+    private int diamantes = 10;
     private Item equipamento = null;
     private Item armadura = null;
 
@@ -19,14 +19,7 @@ public class Personagem extends Entidade {
 
     @Override
     public void atacar(Entidade alvo) {
-        int danoAdicional;
-        if (equipamento == null) {
-            danoAdicional = 0;
-        } else {
-            danoAdicional = this.equipamento.getValorEfeito();
-        }
-
-        alvo.receberDano(this.getDano() + danoAdicional);
+        alvo.receberDano(this.getDano());
     }
 
     @Override
@@ -44,7 +37,7 @@ public class Personagem extends Entidade {
             defesa = 0;
         }
 
-        dano += defesa;
+        dano -= defesa;
         pontosDeVida -= dano;
         if (pontosDeVida < 1) {
             estaVivo = false;
@@ -108,10 +101,12 @@ public class Personagem extends Entidade {
 
     public void equiparItem(Item item) {
         equipamento = item;
+        item.setEquipado(true);
     }
 
     public void equiparArmadura(Item item) {
         armadura = item;
+        item.setEquipado(true);
     }
 
 

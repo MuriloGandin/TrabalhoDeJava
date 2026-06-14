@@ -20,12 +20,11 @@ public class PersonagemController {
             case DEFENDER:
                 jogador.setDefendendo(true);
                 Log.Registrar(jogador.getNome() + "entrou em modo defesa.");
-//                System.out.println("\n" + jogador.getNome() + " está se defendendo!"); removi para teste no modo defesa
+                System.out.println("\n" + jogador.getNome() + " está se defendendo!");
                 break;
 
             case ITEM:
-                PersonagemView.mostrarInventario(jogador);
-                PersonagemView.operacaoInventario(jogador);
+                PersonagemView.menuInventario(jogador);
                 break;
 
             case ATACAR:
