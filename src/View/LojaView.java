@@ -31,7 +31,7 @@ public class LojaView {
             OutputHelper.printGradual("💎\n");
             op = InputHelper.lerNumero("""
                 Escolha uma operação:
-                1 - 💲 Comprar item 💲; 2 - 💎 Vender item 💎; 3 - ⚔️ Ir para o combate ⚔️;
+                1 - 💲 Comprar item 💲; | 2 - 💎 Vender item 💎; | 3 - ⚔️ Ir para o combate ⚔️;
                 """, 2);
 
             switch (op) {

@@ -20,16 +20,33 @@ public class InimigoController {
 
             if (inimigo.isPreparandoAtaqueEspecial()) {
 
-                int dano = inimigo.getDano() * 3;
+                int dano = 0;
+                switch (inimigo.getTipoAtaqueEspecial()){
 
-                OutputHelper.printGradual(
-                        inimigo.getNome() +
-                                " usou um ATAQUE ESPECIAL!\n","vermelho"
-                );
+                    case "EXPLOSÃO":
+                        dano = inimigo.getDano() * 4;
+                        OutputHelper.printGradual(inimigo.getNome() + " Explodiu e causou " + dano + " de dano!! ","vermelho");
+                        break;
+                    case "MORDIDA":
+                        dano = inimigo.getDano() * 2;
+                        OutputHelper.printGradual(inimigo.getNome() + " Mordeu voce e causou " + dano + " de dano!!\n " ,"vermelho");
+                        break;
+                    case "SOMBRIO":
+                        dano = inimigo.getDano() * 3;
+                        OutputHelper.printGradual(inimigo.getNome() + " usou Ataque Sombrio e causou " + dano + " de dano!! " ,"vermelho");
+                        break;
+
+                }
+//                int dano = inimigo.getDano() * 3;
+
+//                OutputHelper.printGradual(
+//                        inimigo.getNome() +
+//                                " usou um ATAQUE ESPECIAL!\n","vermelho"
+//                );
 
                 if (jogador.isDefendendo()) {
                     dano = dano / 2;
-                    System.out.println("Defesa ativada! Dano do Ataque Especial reduzido em 50%.");
+                    System.out.println("\nDefesa ativada! Dano do Ataque Especial reduzido em 50%.");
                     Log.Registrar(jogador.getNome() + " Usou defesa e o dano foi reduzido em 50%");
                 }
 
@@ -57,7 +74,7 @@ public class InimigoController {
             int dano = inimigo.getDano();
             if (jogador.isDefendendo()) {
                 dano = dano / 2;
-                System.out.println("Defesa ativada! Dano reduzido em 50%.");
+                System.out.println("\nDefesa ativada! Dano reduzido em 50%.");
                 Log.Registrar(jogador.getNome() + " Usou desefa e o dano foi reduzido em 50%");
             }
 
@@ -149,18 +166,20 @@ public class InimigoController {
     // Converte uma linha de texto para inimigo no formato: "nome, hp, dano"
     public static Inimigo converterStringParaInimigo(String linha) {
         String[] partes = linha.split(",");
-        if (partes.length == 6) {
+        if (partes.length == 7) {
             String nome = partes[0];
             int hp = Integer.parseInt(partes[1]);
             int dano = Integer.parseInt(partes[2]);
             int ataquesParaEspecial = Integer.parseInt(partes[3]);
            int moedasMin = Integer.parseInt(partes[4]);
            int moedasMax = Integer.parseInt(partes[5]);
+           String TipoAtaqueEspecial = partes[6];
             Inimigo inimigo = new Inimigo(nome, hp, dano);
 
             inimigo.setAtaquesParaEspecial(ataquesParaEspecial);
             inimigo.setMoedasMin(moedasMin);
             inimigo.setMoedasMax(moedasMax);
+            inimigo.setTipoAtaqueEspecial(TipoAtaqueEspecial);
 
             return inimigo;
 

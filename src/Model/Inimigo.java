@@ -2,12 +2,16 @@ package Model;
 
 public class Inimigo extends Entidade {
     private boolean preparandoAtaqueEspecial;
+    private String TipoAtaqueEspecial;
     private int contadorTurnos;
     private int contadorAtaques;
     private int ataquesParaEspecial;
+
+
+
     private int moedasMin;
     private int moedasMax;
-
+    private int multiplicadorEspecial;
 
     public int getMoedasMax() {
         return moedasMax;
@@ -49,7 +53,7 @@ public class Inimigo extends Entidade {
         this.multiplicadorEspecial = multiplicadorEspecial;
     }
 
-    private int multiplicadorEspecial;
+
 
     public boolean isPreparandoAtaqueEspecial() {
         return preparandoAtaqueEspecial;
@@ -69,6 +73,14 @@ public class Inimigo extends Entidade {
 
     public Inimigo(String nome, int pontosDeVida, int dano) {
         super(nome, pontosDeVida, dano);
+    }
+
+    public String getTipoAtaqueEspecial() {
+        return TipoAtaqueEspecial;
+    }
+
+    public void setTipoAtaqueEspecial(String tipoAtaqueEspecial) {
+        TipoAtaqueEspecial = tipoAtaqueEspecial;
     }
 
     @Override
