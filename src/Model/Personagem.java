@@ -7,7 +7,7 @@ public class Personagem extends Entidade {
 
     private boolean defendendo;
     private List<Item> inventario = new ArrayList<>();
-    private int diamantes = 10;
+    private int diamantes = 5;
     private Item equipamento = null;
     private Item armadura = null;
 
@@ -24,6 +24,8 @@ public class Personagem extends Entidade {
     @Override
     public void recuperarVida(int quantidade) {
         int novoHp = getPontosDeVida() + quantidade;
+        if (novoHp >= vidaMax)
+            novoHp = vidaMax;
         setPontosDeVida(novoHp);
     }
 
@@ -98,5 +100,11 @@ public class Personagem extends Entidade {
         item.setEquipado(true);
     }
 
+    public void desequiparItem(Item item) {
+        this.equipamento = null;
+    }
 
+    public void desequiparArmadura(Item item) {
+        this.armadura = null;
+    }
 }

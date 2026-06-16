@@ -23,7 +23,7 @@ public class PersonagemView {
 
             Item item = jogador.getInventario().get(i);
             String tipo = "";
-            String equipado = item.estaEquipado() ? " <Equipado > " : "";
+            String equipado = item.estaEquipado() ? " <Equipado> " : "";
             switch (item.getTipo()) {
                 case EQUIPAVEL_ARMA -> tipo = "Equipável";
                 case CONSUMIVEL_CURA -> tipo = "Consumível";

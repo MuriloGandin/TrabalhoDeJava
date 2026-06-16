@@ -61,11 +61,17 @@ public class PersonagemController {
                 break;
 
             case EQUIPAVEL_ARMA:
-                jogador.equiparItem(item);
+                if (!item.estaEquipado())
+                    jogador.equiparItem(item);
+                else
+                    jogador.desequiparItem(item);
                 break;
 
             case EQUIPAVEL_ARMADURA:
-                jogador.equiparArmadura(item);
+                if (!item.estaEquipado())
+                    jogador.equiparArmadura(item);
+                else
+                    jogador.desequiparItem(item);
                 break;
         }
 

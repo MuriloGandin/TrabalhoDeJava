@@ -81,9 +81,9 @@ public class Sistema {
         boolean temSave = SaveController.existeSave();
         if (temSave) {
             OutputHelper.printGradual("""
-                                              1 - Novo Jogo
-                                              2 - Continuar
-                                              3 - Sair
+                                            1 - Novo Jogo
+                                            2 - Continuar
+                                            3 - Sair
             """, "amarelo");
             int op;
             do {
@@ -98,8 +98,8 @@ public class Sistema {
             return op;
         } else {
             OutputHelper.printGradual("""
-                                              1 - Novo Jogo
-                                              2 - Sair
+                                            1 - Novo Jogo
+                                            2 - Sair
                     """, "amarelo");
             int op;
             do {

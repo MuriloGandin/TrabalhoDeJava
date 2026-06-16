@@ -12,6 +12,7 @@ public class LojaView {
 
     public static void menuLoja(Loja loja, Personagem jogador) {
 
+        int op;
         String logista = OutputHelper.colorirTexto("""
                               _____
                             /       \\
@@ -20,30 +21,9 @@ public class LojaView {
                            |  \\___/  |
                             \\_______/
                 """, "amarelo");
-         String titulo = OutputHelper.colorirTexto("""
-                
-                
-                    ╷  ╭─╮ ╭╮╭─╮   ╶┬╮╭─╴   ╷╶┬╴╭─╴╭╮╷╭─╮
-                    │  │ │  │├─┤    ││├╴    │ │ ├╴ │╰┤╰─╮
-                    ╰─╴╰─╯╰─╯╵ ╵   ╶┴╯╰─╴   ╵ ╵ ╰─╴╵ ╵╰─╯
-              ┌───────────────────────────────────────────────┐
-                """, "azul");
 
         OutputHelper.printGradual(logista, 2);
         OutputHelper.printGradual("Lojista: Seja bem-vindo a loja! ", "verde");
-        OutputHelper.printGradual(titulo, 1);
-
-        for (int i = 0; i < loja.getEstoque().size(); i++) {
-            Item item = loja.getEstoque().get(i);
-            OutputHelper.printGradual( "Item " + (i+1) + ": " + item.getNome() + " - " );
-            OutputHelper.printGradual( "Preço: " + item.getPreco() , "verde");
-            OutputHelper.printGradual( "💎\n");
-
-        }
-
-        OutputHelper.printGradual(OutputHelper.colorirTexto("└───────────────────────────────────────────────┘\n", "azul"), 1);
-
-        int op;
 
         do {
             OutputHelper.printGradual("Você tem: ");
@@ -77,7 +57,30 @@ public class LojaView {
 
     public static void menuCompra(Loja loja, Personagem jogador) {
         int op;
+
+        String titulo = OutputHelper.colorirTexto(""" 
+                    ╷  ╭─╮ ╭╮╭─╮   ╶┬╮╭─╴   ╷╶┬╴╭─╴╭╮╷╭─╮
+                    │  │ │  │├─┤    ││├╴    │ │ ├╴ │╰┤╰─╮
+                    ╰─╴╰─╯╰─╯╵ ╵   ╶┴╯╰─╴   ╵ ╵ ╰─╴╵ ╵╰─╯
+              ┌───────────────────────────────────────────────┐
+                """, "azul");
+
+        OutputHelper.printGradual(titulo, 1);
+
+        for (int i = 0; i < loja.getEstoque().size(); i++) {
+            Item item = loja.getEstoque().get(i);
+            OutputHelper.printGradual( "Item " + (i+1) + ": " + item.getNome() + " - " );
+            OutputHelper.printGradual( "Preço: " + item.getPreco() , "verde");
+            OutputHelper.printGradual( "💎\n");
+
+        }
+
+        OutputHelper.printGradual(OutputHelper.colorirTexto("└───────────────────────────────────────────────┘\n", "azul"), 1);
+
         do {
+            OutputHelper.printGradual("Você tem: ");
+            OutputHelper.printGradual("" + jogador.getDiamantes(), "azul");
+            OutputHelper.printGradual("💎\n");
             op = InputHelper.lerNumero("Insira o número do item que deseja comprar: ");
 
         } while (op < 1 || op > loja.getEstoque().size());
@@ -87,12 +90,10 @@ public class LojaView {
         Item i = new Item(itemSelecionado.getId(), itemSelecionado.getNome(), itemSelecionado.getTipo(), itemSelecionado.getValorEfeito(), itemSelecionado.getPreco());
 
         if (PersonagemController.comprarItem(i, jogador)) {
-            OutputHelper.printGradual(i.getNome() + " comprado com sucesso!", "verde");
+            OutputHelper.printGradual(i.getNome() + " comprado com sucesso!\n", "verde");
             return;
         }
         OutputHelper.printGradual("Você não tem diamantes o suficiente para comprar este item!\n", "vermelho");
-
-
     }
 
     public static void menuVenda(Loja loja, Personagem jogador) {
@@ -128,6 +129,7 @@ public class LojaView {
         Item produto = inventario.get(op-1);
         int preco = (int) Math.round(produto.getPreco() * 0.7);
         jogador.setDiamantes(jogador.getDiamantes() + preco);
+        produto.setEquipado(false);
         OutputHelper.printColorido(produto.getNome() + " vendido com sucesso!\n", "verde");
         jogador.removerItem(produto);
     }

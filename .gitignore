@@ -2,6 +2,7 @@
 ### Logs do programa ###
 data/log.txt
 log.txt
+data/save.dat
 
 ### IntelliJ IDEA ###
 out/
