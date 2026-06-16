@@ -1,6 +1,10 @@
 package Model;
 
-public abstract class Entidade implements Combatente {
+import java.io.Serializable;
+
+public abstract class Entidade implements Combatente, Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     private String nome;
     protected int pontosDeVida;
