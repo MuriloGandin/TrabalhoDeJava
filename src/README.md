@@ -10,9 +10,9 @@ Tema: RPG de aventura
 
 #### A fazer: (Marcar ❌✅)
 - Adicionar lógica de turnos ✅
-- Menus (interatividade) ❌
+- Menus (interatividade) ✅
 - Lógica de ondas ❌
-- Adicionar telas (Apresentação do jogo, Fim de jogo, Tela de vitória) ❌
+- Adicionar telas (Apresentação do jogo, Fim de jogo, Tela de vitória) ✅
 - Tipos de ataque / equipamentos ❌
 - Inventário ❌
 - Separar MVC corretamente ❌

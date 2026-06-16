@@ -62,9 +62,11 @@ public class OutputHelper {
             codigoCor = "\u001B[32m";
         else if (cor.equalsIgnoreCase("amarelo"))
             codigoCor = "\u001B[33m";
-        else if (cor.equalsIgnoreCase("azul")) {
+        else if (cor.equalsIgnoreCase("azul"))
             codigoCor = "\u001B[34m";
-        } else
+        else if (cor.equalsIgnoreCase("ciano"))
+            codigoCor = "\u001B[36m";
+        else
             throw new RuntimeException("Cor inválida para string (apenas vermelho, verde ou amarelo)");
 
         System.out.print(codigoCor + texto + "\u001B[0m");
@@ -79,6 +81,10 @@ public class OutputHelper {
             codigoCor = "\u001B[32m";
         else if (cor.equalsIgnoreCase("amarelo"))
             codigoCor = "\u001B[33m";
+        else if (cor.equalsIgnoreCase("azul"))
+            codigoCor = "\u001B[34m";
+        else if (cor.equalsIgnoreCase("ciano"))
+            codigoCor = "\u001B[36m";
         else
             throw new RuntimeException("Cor inválida para string (apenas vermelho, verde ou amarelo)");
 
@@ -96,10 +102,12 @@ public class OutputHelper {
             codigoCor = "\u001B[32m";
         else if (cor.equalsIgnoreCase("amarelo"))
             codigoCor = "\u001B[33m";
-        else if (cor.equalsIgnoreCase("azul")) {
+        else if (cor.equalsIgnoreCase("azul"))
             codigoCor = "\u001B[34m";
+        else if (cor.equalsIgnoreCase("ciano"))
+            codigoCor = "\u001B[36m";
 
-        } else
+        else
             throw new RuntimeException("Cor inválida para string (apenas vermelho, verde ou amarelo)");
 
         return codigoCor + texto + "\u001B[0m";

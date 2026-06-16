@@ -33,48 +33,11 @@ public class Sistema {
 
         mostrarMenuInicial();
 
-        Personagem jogador;
-
         int opcaoInicial = lerOpcaoInicial();
 
-        int ondaInicial = 0;
+        Personagem jogador = SaveView.menuSave(opcaoInicial);
 
-        if (opcaoInicial == 2 && SaveController.existeSave()) {
-            // Continuar
-            Object[] save = SaveController.carregar();
-            if (save != null) {
-                jogador = (Personagem) save[0];
-                ondaInicial = (int) save[1];
-                OutputHelper.printGradual("Bem-vindo de volta, " + jogador.getNome() + "!\n", "verde");
-            } else {
-                OutputHelper.printGradual("Erro ao carregar save. Iniciando novo jogo...\n", "vermelho");
-                jogador = criarNovoPersonagem();
-            }
-        } else {
-            // Novo jogo
-            SaveController.deletarSave();
-            jogador = criarNovoPersonagem();
-        }
-
-        for (int i = ondaInicial; i < ondas.length; i++) {
-            LojaView.menuLoja(lojaInicial, jogador);
-            boolean continuarJogo = iniciarOnda(jogador, (i + 1), ondas[i].getInimigos());
-
-            if (!jogador.EstaVivo()) {
-                mostrarFimDeJogo();
-                return;
-            }
-
-            // Após cada onda, perguntar se quer salvar e sair
-            if (continuarJogo && i < ondas.length - 1) {
-                int op = InputHelper.lerNumero("O que deseja fazer?\n1 - Continuar\n2 - Salvar e sair\n");
-                if (op == 2) {
-                    SaveController.salvar(jogador, i + 1);
-                    Log.Registrar("Programa encerrado pelo jogador após salvar.");
-                    System.exit(0);
-                }
-            }
-        }
+        SaveView.menuContinuarSave(ondas, lojaInicial, jogador);
 
         if (jogador.EstaVivo()) {
             OutputHelper.printlnColorido("\nParabéns! Você completou o jogo!", "verde");
@@ -89,8 +52,8 @@ public class Sistema {
     }
 
 
-    private static Personagem criarNovoPersonagem() {
-        String nomePersonagem = InputHelper.lerTexto("Digite o nome do seu personagem: ", 30);
+    public static Personagem criarNovoPersonagem() {
+        String nomePersonagem = InputHelper.lerTexto(OutputHelper.colorirTexto("Digite o nome do seu personagem: ", "ciano"), 30);
         return new Personagem(nomePersonagem, 20, 6);
     }
 
@@ -109,32 +72,19 @@ public class Sistema {
                                             ▀▀                                      \s
                                              NULLPOINTER QUEST
                 
-                                              1 - Jogar
-                                              2 - Sair
                 """, "amarelo");
 
         OutputHelper.printGradual(titulo, 3);
-        int op;
-        do {
-            op = InputHelper.lerNumero();
-
-            switch (op) {
-                case 1:
-                    break;
-                case 2:
-                    Log.Registrar("Programa encerrado.");
-                    System.exit(0);
-                default:
-                    OutputHelper.printlnColorido("Operação inválida!", "vermelho");
-            }
-        } while (op < 1 || op > 2);
-
     }
 
     private static int lerOpcaoInicial() {
         boolean temSave = SaveController.existeSave();
         if (temSave) {
-            OutputHelper.printGradual("1 - Novo Jogo\n2 - Continuar\n3 - Sair\n");
+            OutputHelper.printGradual("""
+                                              1 - Novo Jogo
+                                              2 - Continuar
+                                              3 - Sair
+            """, "amarelo");
             int op;
             do {
                 op = InputHelper.lerNumero();
@@ -147,7 +97,10 @@ public class Sistema {
             } while (op < 1 || op > 3);
             return op;
         } else {
-            OutputHelper.printGradual("1 - Novo Jogo\n2 - Sair\n");
+            OutputHelper.printGradual("""
+                                              1 - Novo Jogo
+                                              2 - Sair
+                    """, "amarelo");
             int op;
             do {
                 op = InputHelper.lerNumero();
@@ -199,7 +152,7 @@ public class Sistema {
                 """);
     }
 
-    public static void iniciarOnda(Personagem jogador, int numOnda, List<Inimigo> inimigos) {
+    public static boolean iniciarOnda(Personagem jogador, int numOnda, List<Inimigo> inimigos) {
 
 
         boolean ondaEncerrada;
@@ -237,9 +190,11 @@ public class Sistema {
 
         if (jogador.EstaVivo()) {
             OutputHelper.printlnColorido("Vitória! A onda " + numOnda + " foi derrotada!", "verde");
+            return true;
         } else {
             OutputHelper.printGradual(jogador.getNome() + " foi derrotado...");
             mostrarFimDeJogo();
+            return false;
         }
     }
 
@@ -276,5 +231,4 @@ public class Sistema {
 
         executar();
     }
-
 }
