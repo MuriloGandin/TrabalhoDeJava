@@ -109,10 +109,10 @@ public class Sistema {
 
     public static void mostrarMenuCombate(Personagem jogador, List<Inimigo> inimigos) {
         OutputHelper.printGradual("\n--- TURNO " + RodadasController.rodada + " ---\n");
-        OutputHelper.printGradual(jogador.getNome() + "  ❤️: " + jogador.getPontosDeVida() + "\n");
+        OutputHelper.printGradual(jogador.getNome() + "  ❤️: " + jogador.getPontosDeVida() + "/" + jogador.getVidaMax() +  "\n");
 
         for (Inimigo inimigo : inimigos) {
-            OutputHelper.printGradual(inimigo.getNome() + "  ❤️: " + inimigo.getPontosDeVida() + "\n");
+            OutputHelper.printGradual(inimigo.getNome() + "  ❤️: " + inimigo.getPontosDeVida() + "/" + inimigo.getVidaMax() + "\n");
         }
         OutputHelper.printGradual("""
                 -------------

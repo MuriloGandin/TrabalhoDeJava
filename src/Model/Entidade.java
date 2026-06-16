@@ -58,4 +58,8 @@ public abstract class Entidade implements Combatente {
         System.out.println("Dano: " + dano);
         System.out.println(estaVivo ? "Estado: Vivo" : "Estado: Morto");
     }
+
+    public int getVidaMax() {
+        return vidaMax;
+    }
 }
