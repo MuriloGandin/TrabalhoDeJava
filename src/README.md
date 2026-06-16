@@ -14,19 +14,15 @@ Tema: RPG de aventura
 - Lógica de ondas ❌
 - Adicionar telas (Apresentação do jogo, Fim de jogo, Tela de vitória) ✅
 - Tipos de ataque / equipamentos ❌
-- Inventário ❌
-- Separar MVC corretamente ❌
+- Inventário ✅
+- Separar MVC corretamente ✅
 - Modularizar métodos e funções ❌
-- Modos de obter itens ❌
-- Lógica de níveis ❌
-- Progressão de jogador ❌
+- Modos de obter itens ✅
+- Progressão de jogador ✅
 - Remover Comentários ❌
 
 #### Requisitos a fazer: 
  - CRUD
- - Log
- - Serialização - salvar progresso de um único jogador, criar um txt novo para salvar isso.
-
 
 # Informações gerais sobre o projeto
 

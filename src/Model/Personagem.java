@@ -6,7 +6,6 @@ import java.util.List;
 public class Personagem extends Entidade {
 
     private boolean defendendo;
-    private int nivel = 1;
     private List<Item> inventario = new ArrayList<>();
     private int diamantes = 10;
     private Item equipamento = null;
@@ -75,16 +74,6 @@ public class Personagem extends Entidade {
 
     public void setDefendendo(boolean defendendo) {
         this.defendendo = defendendo;
-    }
-
-    public int getNivel() {
-        return nivel;
-    }
-
-    public void setNivel(int nivel) {
-        if (nivel > 0) {
-            this.nivel = nivel;
-        }
     }
 
     public int getDiamantes() {
