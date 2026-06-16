@@ -40,6 +40,7 @@ public class PersonagemController {
                                 jogador.getDano() +
                                 " de dano."
                 );
+                jogador.danoExtraTemporario = 0;
                 OutputHelper.printGradual(alvo.getNome() + " ficou com " + alvo.getPontosDeVida() + " pontos de vida!\n", "amarelo");
         }
     }
@@ -73,6 +74,10 @@ public class PersonagemController {
                 else
                     jogador.desequiparItem(item);
                 break;
+
+            case CONSUMIVEL_FORCA:
+                jogador.danoExtraTemporario += item.getValorEfeito();
+                jogador.removerItem(item);
         }
 
         PersonagemView.mostrarInventario(jogador);

@@ -182,7 +182,7 @@ public class Sistema {
                 }
             }
 
-            RodadasView.executarRodada(jogador);
+            RodadasController.executarRodada(jogador);
 
         } while (!ondaEncerrada && jogador.EstaVivo());
 

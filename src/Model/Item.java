@@ -8,6 +8,7 @@ public class Item implements Serializable {
 
     public enum tipo {
         CONSUMIVEL_CURA,
+        CONSUMIVEL_FORCA,
         EQUIPAVEL_ARMA,
         EQUIPAVEL_ARMADURA
     }

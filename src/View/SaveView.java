@@ -45,12 +45,12 @@ public class SaveView {
 
             // Após cada onda, perguntar se quer salvar e sair
             if (continuarJogo && i < ondas.length - 1) {
-                int op = InputHelper.lerNumero("O que deseja fazer?\n1 - Continuar\n2 - Salvar e sair\n");
+                int op = InputHelper.lerNumero("O que deseja fazer?\n1 - Salvar e continuar\n2 - Salvar e sair\n");
                 if (op == 2) {
                     SaveController.salvar(jogador, i + 1);
                     Log.Registrar("Programa encerrado pelo jogador após salvar.");
                     System.exit(0);
-                }
+                } else SaveController.salvar(jogador, i+1);
             }
         }
     }

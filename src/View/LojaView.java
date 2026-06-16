@@ -69,8 +69,8 @@ public class LojaView {
 
         for (int i = 0; i < loja.getEstoque().size(); i++) {
             Item item = loja.getEstoque().get(i);
-            OutputHelper.printGradual( "Item " + (i+1) + ": " + item.getNome() + " - " );
-            OutputHelper.printGradual( "Preço: " + item.getPreco() , "verde");
+            OutputHelper.printGradual( "Item " + (i+1) + ": " + item.getNome() + " - " , 2);
+            OutputHelper.printGradual( OutputHelper.colorirTexto("Preço: " + item.getPreco(), "verde") , 2);
             OutputHelper.printGradual( "💎\n");
 
         }

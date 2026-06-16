@@ -17,6 +17,9 @@ public class InputHelper {
         return scan.nextLine();
     }
 
+    public static void insiraEnter() {
+        InputHelper.lerTexto("\nPressione ENTER para continuar...");
+    }
 
     // Retorna o texto digitado sem exibir texto
     public static String lerTexto() {

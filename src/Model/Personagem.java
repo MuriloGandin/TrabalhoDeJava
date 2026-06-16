@@ -7,9 +7,10 @@ public class Personagem extends Entidade {
 
     private boolean defendendo;
     private List<Item> inventario = new ArrayList<>();
-    private int diamantes = 5;
+    private int diamantes = 10;
     private Item equipamento = null;
     private Item armadura = null;
+    public int danoExtraTemporario = 0;
 
 
     public Personagem(String nome, int pontosDeVida, int dano) {
@@ -55,7 +56,7 @@ public class Personagem extends Entidade {
         } else {
             danoAdicional = 0;
         }
-        return this.dano + danoAdicional;
+        return this.dano + danoAdicional + danoExtraTemporario;
     }
 
     public List<Item> getInventario() {
@@ -102,9 +103,11 @@ public class Personagem extends Entidade {
 
     public void desequiparItem(Item item) {
         this.equipamento = null;
+        item.setEquipado(false);
     }
 
     public void desequiparArmadura(Item item) {
         this.armadura = null;
+        item.setEquipado(false);
     }
 }

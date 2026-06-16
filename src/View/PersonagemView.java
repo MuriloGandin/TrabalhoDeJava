@@ -26,10 +26,10 @@ public class PersonagemView {
             String equipado = item.estaEquipado() ? " <Equipado> " : "";
             switch (item.getTipo()) {
                 case EQUIPAVEL_ARMA -> tipo = "Equipável";
-                case CONSUMIVEL_CURA -> tipo = "Consumível";
+                case CONSUMIVEL_CURA, CONSUMIVEL_FORCA -> tipo = "Consumível";
                 case EQUIPAVEL_ARMADURA -> tipo = "Armadura";
             }
-            OutputHelper.printGradual((i+1) + ". " + item.getNome() + equipado + " - " + tipo + "\n", "azul");
+            OutputHelper.printGradual((i+1) + ". " + item.getNome() + " - " + tipo + equipado + "\n", "azul");
         }
     }
 

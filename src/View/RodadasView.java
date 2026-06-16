@@ -13,15 +13,13 @@ import java.util.List;
 
 public class RodadasView {
 
-    public static List<Inimigo> inimigosEmCombate = new ArrayList<>();
-
     public static int menuRodada(Personagem jogador) {
         int opcao;
         while (true) {
 
             // Ação do jogador
 
-            Sistema.mostrarMenuCombate(jogador, inimigosEmCombate);
+            Sistema.mostrarMenuCombate(jogador, RodadasController.inimigosEmCombate);
 
             opcao = InputHelper.lerNumero("Escolha uma ação (1-3): ");
 
@@ -33,50 +31,14 @@ public class RodadasView {
         }
     }
 
-    public static void executarRodada(Personagem jogador) {
-
-        RodadasController.rodada++;
-
-        if (inimigosEmCombate.isEmpty()) {
-            return;
-        }
-
-        // Turno do personagem
-        int opcao;
-
-        do {
-            opcao = menuRodada(jogador);
-            PersonagemController.executarAcao(opcao, jogador, inimigosEmCombate);
-        } while (opcao == 3);
-
-        // Ação do inimigo + menu inimigo derrotado
-
-        if (!inimigosEmCombate.isEmpty()) {
-
-            Iterator<Inimigo> it = inimigosEmCombate.iterator();
-
-            while (it.hasNext()) {
-                Inimigo i = it.next();
-
-                if (!i.EstaVivo()) {
-                    OutputHelper.printGradual( "O inimigo " + i.getNome() + " foi derrotado!","amarelo");
-                   int DiamantesAleatorios = InimigoController.SortearMoedas(i);
-                   jogador.AdicionarDiamantes(DiamantesAleatorios);
-                    Log.Registrar(jogador.getNome() + " Ganhou " +  DiamantesAleatorios + " Diamantes");
-                    OutputHelper.printGradual("\nVoce ganhou 💎 " + DiamantesAleatorios + " Diamantes Apos Derrotar " + i.getNome());
-
-                    it.remove();
-                }
-            }
-        }
-
-        if (!inimigosEmCombate.isEmpty()){
-            InimigoController.executarTurnoInimigos(inimigosEmCombate, jogador);
-        }
-
-        InputHelper.lerTexto("\nPressione ENTER para continuar...");
+    public static void mostrarGanhoDeDiamantes(Personagem jogador, int DiamantesAleatorios, Inimigo i) {
+        Log.Registrar(jogador.getNome() + " Ganhou " + DiamantesAleatorios + " Diamantes");
+        OutputHelper.printGradual("\nVoce ganhou 💎 " + DiamantesAleatorios + " Diamantes Apos Derrotar " + i.getNome());
     }
 
+    public static void mostrarInimigoDerrotado(Inimigo i) {
+        OutputHelper.printGradual( "O inimigo " + i.getNome() + " foi derrotado!","amarelo");
+    }
 
 
 }
