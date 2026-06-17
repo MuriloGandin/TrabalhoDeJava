@@ -18,29 +18,6 @@ public class Sistema {
         for (Item i : itensCadastrados)
             lojaInicial.adicionarAoEstoque(i);
 
-        Inimigo ender = InimigoController.buscarInimigo("ender",  inimigos);
-        Inimigo creeper = InimigoController.buscarInimigo("creeper",  inimigos);
-        Inimigo zumbi = InimigoController.buscarInimigo("zumbi",  inimigos);
-        Inimigo guardiao = InimigoController.buscarInimigo("guardiao",  inimigos);
-        Inimigo morcego = InimigoController.buscarInimigo("morcego", inimigos);
-        Inimigo slime = InimigoController.buscarInimigo("slime", inimigos);
-        Inimigo esqueleto = InimigoController.buscarInimigo("esqueleto", inimigos);
-        Inimigo aranha = InimigoController.buscarInimigo("aranha", inimigos);
-        Inimigo husk = InimigoController.buscarInimigo("husk", inimigos);
-        Inimigo afogado = InimigoController.buscarInimigo("afogado", inimigos);
-        Inimigo bruxa = InimigoController.buscarInimigo("bruxa", inimigos);
-        Inimigo blaze = InimigoController.buscarInimigo("blaze", inimigos);
-        Inimigo vindikator = InimigoController.buscarInimigo("vindikator", inimigos);
-        Inimigo evoker = InimigoController.buscarInimigo("evoker", inimigos);
-        Inimigo dragao = InimigoController.buscarInimigo("dragao", inimigos);
-
-        Inimigo[] onda1 = {morcego, slime};
-        Inimigo[] onda2 = {creeper, zumbi, esqueleto};
-        Inimigo[] onda3 = {aranha, husk, afogado};
-        Inimigo[] onda4 = {ender, bruxa, blaze};
-        Inimigo[] onda5 = {dragao};
-
-
         Onda[] ondas = OndaController.carregarOndas(inimigos);
 
         mostrarMenuInicial();
@@ -168,7 +145,12 @@ public class Sistema {
 
     public static void mostrarMenuCombate(Personagem jogador, List<Inimigo> inimigos) {
         OutputHelper.printGradual("\n--- TURNO " + RodadasController.rodada + " ---\n");
-        OutputHelper.printGradual(jogador.getNome() + "  ❤️: " + jogador.getPontosDeVida() + "/" + jogador.getVidaMax() +  "\n");
+        String equipamento = "";
+        if (jogador.getEquipamento() != null)
+            equipamento += " 🗡️(+" + jogador.getEquipamento().getValorEfeito() + " ATK)";
+        if (jogador.getArmadura() != null)
+            equipamento += " 🛡️(+"  + jogador.getArmadura().getValorEfeito() + " DEF)";
+        OutputHelper.printGradual(jogador.getNome() + "  ❤️: " + jogador.getPontosDeVida() + "/" + jogador.getVidaMax() + equipamento + "\n");
 
         for (Inimigo inimigo : inimigos) {
             OutputHelper.printGradual(inimigo.getNome() + "  ❤️: " + inimigo.getPontosDeVida() + "/" + inimigo.getVidaMax() + "\n");

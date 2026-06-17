@@ -47,8 +47,11 @@ public class PersonagemView {
                     int op;
 
                     do {
-                        op = InputHelper.lerNumero("Insira o número do item que deseja usar: ");
-                    } while (op < 1 || op > jogador.getInventario().size());
+                        op = InputHelper.lerNumero("Insira o número do item que deseja usar (0 para cancelar): ");
+                    } while (op < 0 || op > jogador.getInventario().size());
+                    if (op == 0)
+                        return;
+
                     Item item = jogador.getInventario().get(op-1);
 
                     PersonagemController.usarItem(item, jogador);
@@ -56,6 +59,7 @@ public class PersonagemView {
 
                 case 2:
                     break;
+
             }
 
         } while (opcao != 2);

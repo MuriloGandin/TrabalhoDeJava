@@ -37,15 +37,16 @@ public class ItemController {
 
     public static Item converterStringParaItem(String texto) {
         String[] dados = texto.split(",");
-        if (dados.length == 5) {
+        if (dados.length == 6) {
 
             int id = Integer.parseInt(dados[0]);
             String nome = dados[1];
-            Item.tipo tipo = Item.tipo.valueOf(dados[2]);
-            int efeitoItem = Integer.parseInt(dados[3]);
-            int preco = Integer.parseInt(dados[4]);
+            String descricao = dados[2];
+            Item.tipo tipo = Item.tipo.valueOf(dados[3]);
+            int efeitoItem = Integer.parseInt(dados[4]);
+            int preco = Integer.parseInt(dados[5]);
 
-            Item item = new Item(id, nome, tipo, efeitoItem, preco);
+            Item item = new Item(id, nome, descricao, tipo, efeitoItem, preco);
 
             return item;
         }
