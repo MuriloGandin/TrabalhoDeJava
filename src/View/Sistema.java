@@ -48,8 +48,6 @@ public class Sistema {
         ondas[3] = new Onda(onda4);
         ondas[4] = new Onda(onda5);
 
-
-
         mostrarMenuInicial();
 
         int opcaoInicial = lerOpcaoInicial();

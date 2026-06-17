@@ -29,7 +29,7 @@ public class PersonagemView {
                 case CONSUMIVEL_CURA, CONSUMIVEL_FORCA -> tipo = "Consumível";
                 case EQUIPAVEL_ARMADURA -> tipo = "Armadura";
             }
-            OutputHelper.printGradual((i+1) + ". " + item.getNome() + " - " + tipo + equipado + "\n", "azul");
+            OutputHelper.printGradual(OutputHelper.colorirTexto((i+1) + ". " + item.getNome() + " - " + tipo + equipado + "\n", "azul"), 3);
         }
     }
 

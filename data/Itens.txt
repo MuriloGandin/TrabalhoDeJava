@@ -7,3 +7,4 @@
 7,Armadura de ferro,EQUIPAVEL_ARMADURA,2,11
 8,Armadura de diamante,EQUIPAVEL_ARMADURA,4,25
 9,Poção de força,CONSUMIVEL_FORCA,3,4
+10,Poção de cura grande,CONSUMIVEL_CURA,12,6
