@@ -37,16 +37,11 @@ public class Sistema {
         Inimigo[] onda1 = {morcego, slime};
         Inimigo[] onda2 = {creeper, zumbi, esqueleto};
         Inimigo[] onda3 = {aranha, husk, afogado};
-        Inimigo[] onda4 = {ender, bruxa, blaze,};
+        Inimigo[] onda4 = {ender, bruxa, blaze};
         Inimigo[] onda5 = {dragao};
 
 
-        Onda[] ondas = new Onda[5];
-        ondas[0] = new Onda(onda1);
-        ondas[1] = new Onda(onda2);
-        ondas[2] = new Onda(onda3);
-        ondas[3] = new Onda(onda4);
-        ondas[4] = new Onda(onda5);
+        Onda[] ondas = OndaController.carregarOndas(inimigos);
 
         mostrarMenuInicial();
 
