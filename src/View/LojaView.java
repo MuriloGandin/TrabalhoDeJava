@@ -59,10 +59,10 @@ public class LojaView {
         int op;
 
         String titulo = OutputHelper.colorirTexto(""" 
-                    ╷  ╭─╮ ╭╮╭─╮   ╶┬╮╭─╴   ╷╶┬╴╭─╴╭╮╷╭─╮
-                    │  │ │  │├─┤    ││├╴    │ │ ├╴ │╰┤╰─╮
-                    ╰─╴╰─╯╰─╯╵ ╵   ╶┴╯╰─╴   ╵ ╵ ╰─╴╵ ╵╰─╯
-              ┌───────────────────────────────────────────────┐
+                                ╷  ╭─╮ ╭╮╭─╮   ╶┬╮╭─╴   ╷╶┬╴╭─╴╭╮╷╭─╮
+                                │  │ │  │├─┤    ││├╴    │ │ ├╴ │╰┤╰─╮
+                                ╰─╴╰─╯╰─╯╵ ╵   ╶┴╯╰─╴   ╵ ╵ ╰─╴╵ ╵╰─╯
+              ┌──────────────────────────────────────────────────────────────────────┐
                 """, "azul");
 
         OutputHelper.printGradual(titulo, 1);
@@ -70,24 +70,28 @@ public class LojaView {
         for (int i = 0; i < loja.getEstoque().size(); i++) {
             Item item = loja.getEstoque().get(i);
             OutputHelper.printGradual( "Item " + (i+1) + ": " + item.getNome() + " - " , 2);
-            OutputHelper.printGradual( OutputHelper.colorirTexto("Preço: " + item.getPreco(), "verde") , 2);
-            OutputHelper.printGradual( "💎\n");
+            OutputHelper.printGradual( OutputHelper.colorirTexto("Preço: " + item.getPreco(), "verde") + " 💎", 2);
+            OutputHelper.printGradual( OutputHelper.colorirTexto(" - " + item.getDescricao() + "\n", "amarelo") , 2);
+
 
         }
 
-        OutputHelper.printGradual(OutputHelper.colorirTexto("└───────────────────────────────────────────────┘\n", "azul"), 1);
+        OutputHelper.printGradual(OutputHelper.colorirTexto("└──────────────────────────────────────────────────────────────────────┘\n", "azul"), 1);
 
         do {
             OutputHelper.printGradual("Você tem: ");
             OutputHelper.printGradual("" + jogador.getDiamantes(), "azul");
             OutputHelper.printGradual("💎\n");
-            op = InputHelper.lerNumero("Insira o número do item que deseja comprar: ");
+            op = InputHelper.lerNumero("Insira o número do item que deseja comprar (0 para cancelar): ");
 
-        } while (op < 1 || op > loja.getEstoque().size());
+        } while (op < 0 || op > loja.getEstoque().size());
+
+        if (op == 0)
+            return;
 
         Item itemSelecionado = loja.getEstoque().get(op-1);
 
-        Item i = new Item(itemSelecionado.getId(), itemSelecionado.getNome(), itemSelecionado.getTipo(), itemSelecionado.getValorEfeito(), itemSelecionado.getPreco());
+        Item i = new Item(itemSelecionado.getId(), itemSelecionado.getNome(), itemSelecionado.getDescricao(), itemSelecionado.getTipo(), itemSelecionado.getValorEfeito(), itemSelecionado.getPreco());
 
         if (PersonagemController.comprarItem(i, jogador)) {
             OutputHelper.printGradual(i.getNome() + " comprado com sucesso!\n", "verde");

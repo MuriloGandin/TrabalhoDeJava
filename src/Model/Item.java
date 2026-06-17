@@ -15,14 +15,16 @@ public class Item implements Serializable {
 
     private int id;
     private String nome;
+    private String descricao;
     private tipo tipo;
     private int valorEfeito;
     private int preco;
     private boolean estaEquipado = false;
 
-    public Item(int id, String nome, tipo tipo, int valorEfeito, int preco) {
+    public Item(int id, String nome, String descricao,tipo tipo, int valorEfeito, int preco) {
         this.id = id;
         this.nome = nome;
+        this.descricao = descricao;
         this.tipo = tipo;
         this.valorEfeito = valorEfeito;
         this.preco = preco;
@@ -58,6 +60,14 @@ public class Item implements Serializable {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
     public int getPreco() {
