@@ -7,11 +7,50 @@ public class Personagem extends Entidade {
 
     private boolean defendendo;
     private List<Item> inventario = new ArrayList<>();
-    private int diamantes = 10;
+    private int diamantes = 5;
     private Item equipamento = null;
     private Item armadura = null;
     public int danoExtraTemporario = 0;
+    private int turnosEnvenenado;
+    private int turnosQueimado;
+    private int turnosLentidao;
+    private int turnosPegajoso;
 
+    public void setInventario(List<Item> inventario) {
+        this.inventario = inventario;
+    }
+
+    public int getTurnosPegajoso() {
+        return turnosPegajoso;
+    }
+
+    public void setTurnosPegajoso(int turnosPegajoso) {
+        this.turnosPegajoso = turnosPegajoso;
+    }
+
+    public int getTurnosLentidao() {
+        return turnosLentidao;
+    }
+
+    public void setTurnosLentidao(int turnosLentidao) {
+        this.turnosLentidao = turnosLentidao;
+    }
+
+    public int getTurnosQueimado() {
+        return turnosQueimado;
+    }
+
+    public void setTurnosQueimado(int turnosQueimado) {
+        this.turnosQueimado = turnosQueimado;
+    }
+
+    public int getTurnosEnvenenado() {
+        return turnosEnvenenado;
+    }
+
+    public void setTurnosEnvenenado(int turnosEnvenenado) {
+        this.turnosEnvenenado = turnosEnvenenado;
+    }
 
     public Personagem(String nome, int pontosDeVida, int dano) {
         super(nome, pontosDeVida, dano);
@@ -32,16 +71,17 @@ public class Personagem extends Entidade {
 
     @Override
     public void receberDano(int dano) {
-        int defesa;
+        int defesa = 0;
+
         if (armadura != null) {
             defesa = armadura.getValorEfeito();
-        } else  {
-            defesa = 0;
         }
 
-        dano -= defesa;
-        pontosDeVida -= dano;
-        if (pontosDeVida < 1) {
+        int danoFinal = Math.max(1, dano - defesa);
+
+        pontosDeVida -= danoFinal;
+
+        if (pontosDeVida <= 0) {
             estaVivo = false;
             pontosDeVida = 0;
         }
