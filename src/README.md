@@ -19,6 +19,32 @@ Tema: RPG de aventura
 - Progressão de jogador ✅
 - Remover Comentários ❌
 
+### O que cada um irá falar
+- InimigoController: Erick
+- ItemController: Murilo
+- Log: Erick
+- OndaController: Clara
+- PersonagemController: Murilo
+- RodadasController: Murilo
+- SaveController: Clara
+---
+- Combatente: Clara
+- Entidade: Clara
+- Inimigo: Erick 
+- Item: Murilo
+- Loja: Murilo
+- Onda: Erick
+- Personagem: Erick
+---
+- InputHelper/OutputHelper: Murilo
+- LojaView: Murilo
+- PersonagemView: Erick
+- RodadasView: Clara
+- SaveView: Clara
+- Sistema: Clara, Erick e Murilo
+
+
+
 #### Requisitos a fazer: 
  - CRUD
 

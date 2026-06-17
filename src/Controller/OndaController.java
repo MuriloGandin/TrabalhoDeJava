@@ -28,8 +28,7 @@ public class OndaController {
                 // Começa em 1 porque partes[0] é o número da onda
                 for (int i = 1; i < partes.length; i++) {
                     int indiceInimigo = Integer.parseInt(partes[i]);
-                    if (indiceInimigo >= 1 &&
-                            indiceInimigo <= inimigosDisponiveis.size()) {
+                    if (indiceInimigo >= 1 && indiceInimigo <= inimigosDisponiveis.size()) {
                         inimigosOnda.add(inimigosDisponiveis.get(indiceInimigo - 1));
                     }
                 }
