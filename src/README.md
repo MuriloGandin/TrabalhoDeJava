@@ -3,21 +3,9 @@
 **Integrantes:** Erick, Clara Pujol, Murilo Gandin  
 **Tema:** RPG de aventura
 
-Integrantes: Erick, Clara Pujol, Murilo Gandin
-Tema: RPG de aventura
 
-#### A fazer: (Marcar ❌✅)
-- Adicionar lógica de turnos ✅
-- Menus (interatividade) ✅
-- Lógica de ondas ❌
-- Adicionar telas (Apresentação do jogo, Fim de jogo, Tela de vitória) ✅
-- Equipamentos ❌
-- Inventário ✅
-- Separar MVC corretamente ✅
-- Modularizar métodos e funções ❌
-- Modos de obter itens ✅
-- Progressão de jogador ✅
-- Remover Comentários ❌
+#### A fazer:
+- Remover Comentários 
 
 ### O que cada um irá falar
 - InimigoController: Erick
@@ -42,11 +30,6 @@ Tema: RPG de aventura
 - RodadasView: Clara
 - SaveView: Clara
 - Sistema: Clara, Erick e Murilo
-
-
-
-#### Requisitos a fazer: 
- - CRUD
 
 # Informações gerais sobre o projeto
 
