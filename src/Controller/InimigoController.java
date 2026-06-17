@@ -238,15 +238,16 @@ public class InimigoController {
     // Converte uma linha de texto para inimigo no formato: "nome, hp, dano"
     public static Inimigo converterStringParaInimigo(String linha) {
         String[] partes = linha.split(",");
-        if (partes.length == 7) {
-            String nome = partes[0];
-            int hp = Integer.parseInt(partes[1]);
-            int dano = Integer.parseInt(partes[2]);
-            int ataquesParaEspecial = Integer.parseInt(partes[3]);
-           int moedasMin = Integer.parseInt(partes[4]);
-           int moedasMax = Integer.parseInt(partes[5]);
-           String TipoAtaqueEspecial = partes[6];
-            Inimigo inimigo = new Inimigo(nome, hp, dano);
+        if (partes.length == 8) {
+            int id = Integer.parseInt(partes[0]);
+            String nome = partes[1];
+            int hp = Integer.parseInt(partes[2]);
+            int dano = Integer.parseInt(partes[3]);
+            int ataquesParaEspecial = Integer.parseInt(partes[4]);
+           int moedasMin = Integer.parseInt(partes[5]);
+           int moedasMax = Integer.parseInt(partes[6]);
+           String TipoAtaqueEspecial = partes[7];
+            Inimigo inimigo = new Inimigo(id, nome, hp, dano);
 
             inimigo.setAtaquesParaEspecial(ataquesParaEspecial);
             inimigo.setMoedasMin(moedasMin);

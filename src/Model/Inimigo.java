@@ -1,6 +1,7 @@
 package Model;
 
 public class Inimigo extends Entidade {
+    private int id;
     private boolean preparandoAtaqueEspecial;
     private String TipoAtaqueEspecial;
     private int contadorTurnos;
@@ -71,8 +72,9 @@ public class Inimigo extends Entidade {
         this.contadorTurnos = contadorTurnos;
     }
 
-    public Inimigo(String nome, int pontosDeVida, int dano) {
+    public Inimigo(int id, String nome, int pontosDeVida, int dano) {
         super(nome, pontosDeVida, dano);
+        this.id = id;
     }
 
     public String getTipoAtaqueEspecial() {
