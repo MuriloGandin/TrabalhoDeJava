@@ -71,6 +71,7 @@ public class Inimigo extends Entidade {
         this.contadorTurnos = contadorTurnos;
     }
 
+
     public Inimigo(String nome, int pontosDeVida, int dano) {
         super(nome, pontosDeVida, dano);
     }

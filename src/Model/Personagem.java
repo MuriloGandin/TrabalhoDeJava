@@ -96,6 +96,14 @@ public class Personagem extends Entidade {
         item.setEquipado(true);
     }
 
+    public void setEquipamento(Item equipamento) {
+        this.equipamento = equipamento;
+    }
+
+    public void setArmadura(Item armadura) {
+        this.armadura = armadura;
+    }
+
     public void equiparArmadura(Item item) {
         armadura = item;
         item.setEquipado(true);
@@ -110,4 +118,15 @@ public class Personagem extends Entidade {
         this.armadura = null;
         item.setEquipado(false);
     }
+
+    public Item getEquipamento() {
+        return equipamento;
+    }
+
+    public Item getArmadura() {
+        return armadura;
+    }
+
+
+
 }

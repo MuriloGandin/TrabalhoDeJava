@@ -127,6 +127,15 @@ public class InimigoController {
         return null;
     }
 
+    public static Inimigo buscarInimigo(int inimigoId, List<Inimigo> listaInimigos) {
+        for (Inimigo i :  listaInimigos) {
+            if (i.ge) {
+                return i;
+            }
+        }
+        return null;
+    }
+
     public static void createInimigo(Inimigo inimigo) {
         try (FileWriter fw = new FileWriter(pathInimigos, true)) {
 
