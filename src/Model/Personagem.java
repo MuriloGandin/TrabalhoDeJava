@@ -7,7 +7,7 @@ public class Personagem extends Entidade {
 
     private boolean defendendo;
     private List<Item> inventario = new ArrayList<>();
-    private int diamantes = 5;
+    private int diamantes = 10;
     private Item equipamento = null;
     private Item armadura = null;
     public int danoExtraTemporario = 0;

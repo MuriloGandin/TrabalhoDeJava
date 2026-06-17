@@ -29,7 +29,7 @@ public class InimigoController {
                         break;
 
                     case "PULO":
-                        dano = inimigo.getDano() * 2;
+                        dano = inimigo.getDano() * 3;
                         jogador.setTurnosPegajoso(1);
                         OutputHelper.printGradual(inimigo.getNome() + " pulou em você e causou " + dano + " de dano!!\n", "vermelho");
                         break;

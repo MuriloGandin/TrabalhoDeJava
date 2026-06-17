@@ -9,9 +9,9 @@ Tema: RPG de aventura
 #### A fazer: (Marcar ❌✅)
 - Adicionar lógica de turnos ✅
 - Menus (interatividade) ✅
-- Lógica de ondas ❌
+- Lógica de ondas ✅
 - Adicionar telas (Apresentação do jogo, Fim de jogo, Tela de vitória) ✅
-- Equipamentos ❌
+- Equipamentos ✅
 - Inventário ✅
 - Separar MVC corretamente ✅
 - Modularizar métodos e funções ❌

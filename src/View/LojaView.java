@@ -29,6 +29,7 @@ public class LojaView {
             OutputHelper.printGradual("Você tem: ");
             OutputHelper.printGradual("" + jogador.getDiamantes(), "azul");
             OutputHelper.printGradual("💎\n");
+            OutputHelper.printGradual("Dica: comprar poções pode salvar sua vida!\n","azul");
             op = InputHelper.lerNumero("""
                 Escolha uma operação:
                 1 - 💲 Comprar item 💲; | 2 - 💎 Vender item 💎; | 3 - ⚔️ Ir para o combate ⚔️;

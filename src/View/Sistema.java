@@ -220,6 +220,8 @@ public class Sistema {
 
         if (jogador.EstaVivo()) {
             OutputHelper.printlnColorido("Vitória! A onda " + numOnda + " foi derrotada!", "verde");
+            jogador.setPontosDeVida(Math.min(jogador.getPontosDeVida() + 5, jogador.getVidaMax()));
+            OutputHelper.printGradual("Voce ganhou 5 pontos de vida! por derrotar a onda " +  numOnda + ".","verde");
             return true;
         } else {
             OutputHelper.printGradual(jogador.getNome() + " foi derrotado...");
