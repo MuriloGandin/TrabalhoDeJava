@@ -23,18 +23,90 @@ public class InimigoController {
                 int dano = 0;
                 switch (inimigo.getTipoAtaqueEspecial()){
 
-                    case "EXPLOSÃO":
-                        dano = inimigo.getDano() * 4;
-                        OutputHelper.printGradual(inimigo.getNome() + " Explodiu e causou " + dano + " de dano!! ","vermelho");
+                    case "GRITO":
+                        dano = inimigo.getDano() * 2;
+                        OutputHelper.printGradual(inimigo.getNome() + " soltou um grito assustador e causou " + dano + " de dano!!\n", "vermelho");
                         break;
+
+                    case "PULO":
+                        dano = inimigo.getDano() * 2;
+                        jogador.setTurnosPegajoso(1);
+                        OutputHelper.printGradual(inimigo.getNome() + " pulou em você e causou " + dano + " de dano!!\n", "vermelho");
+                        break;
+
                     case "MORDIDA":
                         dano = inimigo.getDano() * 2;
-                        OutputHelper.printGradual(inimigo.getNome() + " Mordeu voce e causou " + dano + " de dano!!\n " ,"vermelho");
+                        OutputHelper.printGradual(inimigo.getNome() + " mordeu você e causou " + dano + " de dano!!\n", "vermelho");
                         break;
+
+                    case "FLECHADA":
+                        dano = inimigo.getDano() * 2;
+                        OutputHelper.printGradual(inimigo.getNome() + " acertou uma flechada e causou " + dano + " de dano!!\n", "vermelho");
+                        break;
+
+                    case "VENENO":
+                        dano = inimigo.getDano() * 2;
+                        jogador.setTurnosEnvenenado(3);
+                        OutputHelper.printGradual(inimigo.getNome() + " envenenou você e causou " + dano + " de dano!!\n", "vermelho");
+                        break;
+
+                    case "DESIDRATACAO":
+                        dano = inimigo.getDano() * 2;
+                        OutputHelper.printGradual(inimigo.getNome() + " causou desidratação e deu " + dano + " de dano!!\n", "vermelho");
+                        break;
+
+                    case "TRIDENTE":
+                        dano = inimigo.getDano() * 3;
+                        OutputHelper.printGradual(inimigo.getNome() + " lançou um tridente e causou " + dano + " de dano!!\n", "vermelho");
+                        break;
+
                     case "SOMBRIO":
                         dano = inimigo.getDano() * 3;
-                        OutputHelper.printGradual(inimigo.getNome() + " usou Ataque Sombrio e causou " + dano + " de dano!! " ,"vermelho");
+                        OutputHelper.printGradual(inimigo.getNome() + " usou ataque sombrio e causou " + dano + " de dano!!\n", "vermelho");
                         break;
+
+                    case "EXPLOSAO":
+                        dano = inimigo.getDano() * 4;
+                        OutputHelper.printGradual(inimigo.getNome() + " explodiu e causou " + dano + " de dano!!\n", "vermelho");
+                        break;
+
+                    case "POCAO":
+                        dano = inimigo.getDano() * 3;
+                        OutputHelper.printGradual(inimigo.getNome() + " lançou uma poção e causou " + dano + " de dano!!\n", "vermelho");
+                        break;
+
+                    case "BOLA_DE_FOGO":
+                        dano = inimigo.getDano() * 3;
+                        jogador.setTurnosQueimado(2);
+                        OutputHelper.printGradual(inimigo.getNome() + " lançou uma bola de fogo e causou " + dano + " de dano!!\n", "vermelho");
+                        break;
+
+                    case "MACHADADA":
+                        dano = inimigo.getDano() * 3;
+                        OutputHelper.printGradual(inimigo.getNome() + " deu uma machadada e causou " + dano + " de dano!!\n", "vermelho");
+                        break;
+
+                    case "MAGIA":
+                        dano = inimigo.getDano() * 3;
+                        OutputHelper.printGradual(inimigo.getNome() + " usou magia e causou " + dano + " de dano!!\n", "vermelho");
+                        break;
+
+                    case "LENTIDAO":
+                        dano = inimigo.getDano() * 2;
+                        jogador.setTurnosLentidao(1);
+                        OutputHelper.printGradual(inimigo.getNome() + " usou lentidão e causou " + dano + " de dano!!\n", "vermelho");
+                        break;
+
+                    case "BAFORADA_DO_DRAGAO":
+                        dano = inimigo.getDano() * 3;
+                        OutputHelper.printGradual(inimigo.getNome() + " soltou uma baforada de dragão e causou " + dano + " de dano!!\n", "vermelho");
+                        break;
+                    default:
+                        dano = inimigo.getDano() * 2;
+                        OutputHelper.printGradual(
+                                inimigo.getNome() + " usou um ataque especial!\n",
+                                "vermelho"
+                        );
 
                 }
 //                int dano = inimigo.getDano() * 3;

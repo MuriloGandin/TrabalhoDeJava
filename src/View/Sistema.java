@@ -22,14 +22,33 @@ public class Sistema {
         Inimigo creeper = InimigoController.buscarInimigo("creeper",  inimigos);
         Inimigo zumbi = InimigoController.buscarInimigo("zumbi",  inimigos);
         Inimigo guardiao = InimigoController.buscarInimigo("guardiao",  inimigos);
+        Inimigo morcego = InimigoController.buscarInimigo("morcego", inimigos);
+        Inimigo slime = InimigoController.buscarInimigo("slime", inimigos);
+        Inimigo esqueleto = InimigoController.buscarInimigo("esqueleto", inimigos);
+        Inimigo aranha = InimigoController.buscarInimigo("aranha", inimigos);
+        Inimigo husk = InimigoController.buscarInimigo("husk", inimigos);
+        Inimigo afogado = InimigoController.buscarInimigo("afogado", inimigos);
+        Inimigo bruxa = InimigoController.buscarInimigo("bruxa", inimigos);
+        Inimigo blaze = InimigoController.buscarInimigo("blaze", inimigos);
+        Inimigo vindikator = InimigoController.buscarInimigo("vindikator", inimigos);
+        Inimigo evoker = InimigoController.buscarInimigo("evoker", inimigos);
+        Inimigo dragao = InimigoController.buscarInimigo("dragao", inimigos);
 
-        Inimigo[] onda1 = {creeper, ender};
-        Inimigo[] onda2 = {zumbi, guardiao};
+        Inimigo[] onda1 = {morcego, slime};
+        Inimigo[] onda2 = {creeper, zumbi, esqueleto};
+        Inimigo[] onda3 = {aranha, husk, afogado};
+        Inimigo[] onda4 = {ender, bruxa, blaze,};
+        Inimigo[] onda5 = {dragao};
 
 
-        Onda[] ondas = new Onda[2];
+        Onda[] ondas = new Onda[5];
         ondas[0] = new Onda(onda1);
         ondas[1] = new Onda(onda2);
+        ondas[2] = new Onda(onda3);
+        ondas[3] = new Onda(onda4);
+        ondas[4] = new Onda(onda5);
+
+
 
         mostrarMenuInicial();
 
@@ -46,6 +65,24 @@ public class Sistema {
 
         for (int i = 0; i < ondas.length; i++) {
             LojaView.menuLoja(lojaInicial, jogador);
+            if (i == 4) {
+
+                OutputHelper.printGradual(
+                        "\n⚠️⚠️⚠️ CHEFE FINAL ⚠️⚠️⚠️\n",
+                        "vermelho"
+                );
+
+                OutputHelper.printGradual(
+                        "\nO Dragão do End apareceu!\n",
+                        "vermelho"
+                );
+
+                OutputHelper.printGradual(
+                        "Prepare-se para a batalha final...\n\n",
+                        "amarelo"
+                );
+            }
+
             iniciarOnda(jogador, (i+1), ondas[i].getInimigos());
         }
 

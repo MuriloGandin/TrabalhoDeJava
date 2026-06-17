@@ -3,7 +3,7 @@
 3,Espada de pedra,EQUIPAVEL_ARMA,4,8
 4,Espada de ferro,EQUIPAVEL_ARMA,6,11
 5,Espada de diamante,EQUIPAVEL_ARMA,8,16
-6,Armadura de couro,EQUIPAVEL_ARMADURA,2,7
-7,Armadura de ferro,EQUIPAVEL_ARMADURA,4,11
-8,Armadura de diamante,EQUIPAVEL_ARMADURA,9,20
-9,Poção de força,CONSUMIVEL_FORCA,3,2
+6,Armadura de couro,EQUIPAVEL_ARMADURA,1,7
+7,Armadura de ferro,EQUIPAVEL_ARMADURA,2,11
+8,Armadura de diamante,EQUIPAVEL_ARMADURA,4,25
+9,Poção de força,CONSUMIVEL_FORCA,3,4
