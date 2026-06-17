@@ -112,4 +112,20 @@ public class OutputHelper {
 
         return codigoCor + texto + "\u001B[0m";
     }
+    // Criei outro print para conseguir colocar cor e mudar a velocidade de exibição ao mesmo tempo, usei para a mensagem do dragao
+    public static void printGradualD(String texto, String cor, int velocidade) {
+        for (char c : texto.toCharArray()) {
+            if (c != ' ') {
+                try {
+                    printColorido(Character.toString(c), cor);
+                    Thread.sleep(velocidade);
+
+                } catch (InterruptedException e) {
+                    return;
+                }
+            } else {
+                printColorido(Character.toString(c), cor);
+            }
+        }
+    }
 }

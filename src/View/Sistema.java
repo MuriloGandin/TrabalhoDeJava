@@ -33,23 +33,50 @@ public class Sistema {
             SaveController.deletarSave();
         }
 
-        for (int i = 0; i < ondas.length; i++) {
+        int ondainicial = 1;
+        for (int i = ondainicial - 1; i < ondas.length; i++) {
+            int numOnda = i + 1;
             LojaView.menuLoja(lojaInicial, jogador);
-            if (i == 4) {
+            if (numOnda == 5) {
 
-                OutputHelper.printGradual(
-                        "\n⚠️⚠️⚠️ CHEFE FINAL ⚠️⚠️⚠️\n",
-                        "vermelho"
+                String boss = OutputHelper.colorirTexto("""
+                    
+                                     ██████╗  ██████╗ ███████╗███████╗
+                                     ██╔══██╗██╔═══██╗██╔════╝██╔════╝
+                                     ██████╔╝██║   ██║███████╗███████╗
+                                     ██╔══██╗██║   ██║╚════██║╚════██║
+                                     ██████╔╝╚██████╔╝███████║███████║
+                                     ╚═════╝  ╚═════╝ ╚══════╝╚══════╝
+                    
+                                 ╔════════════════════════════════════════════╗
+                                 ║              ⚠️  CHEFE FINAL  ⚠️           ║
+                                 ╠════════════════════════════════════════════╣
+                                 ║        O DRAGÃO DO END APARECEU!           ║
+                                 ╚════════════════════════════════════════════╝
+                    
+                    """, "vermelho");
+
+                OutputHelper.printGradual(boss, 15);
+
+                OutputHelper.printGradualD(
+                        "\n                O céu escurece...\n",
+                        "amarelo", 39
                 );
 
-                OutputHelper.printGradual(
-                        "\nO Dragão do End apareceu!\n",
-                        "vermelho"
+                OutputHelper.printGradualD(
+                        "                As chamas iluminam o campo de batalha...\n",
+                        "amarelo", 39
                 );
 
-                OutputHelper.printGradual(
-                        "Prepare-se para a batalha final...\n\n",
-                        "amarelo"
+                System.out.print("                🐉 ");
+                OutputHelper.printGradualD(
+                        "O Dragão abre suas asas e solta um rugido ensurdecedor!\n",
+                        "vermelho", 39
+                );
+
+                OutputHelper.printGradualD(
+                        "\n                ⚔️ Esta é sua última batalha. Derrote o Dragão ou seja destruído!\n\n",
+                        "amarelo", 39
                 );
             }
 
