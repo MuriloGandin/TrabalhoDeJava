@@ -187,20 +187,23 @@ public class Sistema {
         RodadasController.iniciarCombate(inimigos);
 
         do {
+            RodadasController.executarRodada(jogador);
             ondaEncerrada = true;
             for (Inimigo i : inimigos) {
                 if (i.EstaVivo()) {
                     ondaEncerrada = false;
+                    break;
                 }
             }
 
-            RodadasController.executarRodada(jogador);
+
 
         } while (!ondaEncerrada && jogador.EstaVivo());
 
         RodadasController.encerrarCombate(inimigos);
 
         if (jogador.EstaVivo()) {
+            jogador.limparEfeitosNegativos();
             OutputHelper.printlnColorido("Vitória! A onda " + numOnda + " foi derrotada!", "verde");
             jogador.setPontosDeVida(Math.min(jogador.getPontosDeVida() + 5, jogador.getVidaMax()));
             OutputHelper.printGradual("Voce ganhou 5 pontos de vida! por derrotar a onda " +  numOnda + ".","verde");

@@ -167,6 +167,10 @@ public class Personagem extends Entidade {
         return armadura;
     }
 
-
+    public void limparEfeitosNegativos() {
+        setTurnosEnvenenado(0);
+        setTurnosQueimado(0);
+        setTurnosPegajoso(0);
+    }
 
 }
