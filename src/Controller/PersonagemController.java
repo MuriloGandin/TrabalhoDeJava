@@ -118,17 +118,28 @@ public class PersonagemController {
                 break;
 
             case EQUIPAVEL_ARMA:
-                if (!item.estaEquipado())
+                if (!item.estaEquipado() && jogador.getEquipamento() != null) {
+                    jogador.getEquipamento().setEquipado(false);
+                    jogador.setEquipamento(null);
                     jogador.equiparItem(item);
-                else
+                }
+                else if (item.estaEquipado() && jogador.getEquipamento() != null)
                     jogador.desequiparItem(item);
+                else
+                    jogador.equiparItem(item);
+
                 break;
 
             case EQUIPAVEL_ARMADURA:
-                if (!item.estaEquipado())
+                if (!item.estaEquipado() && jogador.getArmadura() != null) {
+                    jogador.getArmadura().setEquipado(false);
+                    jogador.setArmadura(null);
                     jogador.equiparArmadura(item);
+                } else if (item.estaEquipado() && jogador.getArmadura() != null)
+                    jogador.desequiparArmadura(item);
                 else
-                    jogador.desequiparItem(item);
+                    jogador.equiparArmadura(item);
+
                 break;
 
             case CONSUMIVEL_FORCA:
