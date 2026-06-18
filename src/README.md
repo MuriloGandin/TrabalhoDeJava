@@ -26,6 +26,7 @@
 ---
 - InputHelper/OutputHelper: Murilo
 - LojaView: Murilo
+- OndaView: Clara
 - PersonagemView: Erick
 - RodadasView: Clara
 - SaveView: Clara
