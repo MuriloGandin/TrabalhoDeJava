@@ -2,16 +2,16 @@ package Controller;
 
 import Model.Item;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ItemController {
 
     final static String pathItens = "data/Itens.txt";
+
+    public static List<Item> itensCadastrados = ItemController.carregarItens();
+
 
 
     public static List<Item> carregarItens() {
@@ -26,7 +26,6 @@ public class ItemController {
             }
 
         } catch (IOException e) {
-
             System.out.println("Nenhum item cadastrado");
         } catch (Exception e) {
             System.out.println("Erro ao ler inimigos " + e.getMessage());
@@ -46,11 +45,24 @@ public class ItemController {
             int efeitoItem = Integer.parseInt(dados[4]);
             int preco = Integer.parseInt(dados[5]);
 
-            Item item = new Item(id, nome, descricao, tipo, efeitoItem, preco);
-
-            return item;
+            return new Item(id, nome, descricao, tipo, efeitoItem, preco);
         }
         else return null;
+    }
+
+    public static void registrarItem(Item novoItem) {
+        try (FileWriter bf = new FileWriter(pathItens, true)){
+            String resultado = novoItem.getId() + "," +
+                    novoItem.getNome() + "," +
+                    novoItem.getDescricao() + "," +
+                    novoItem.getTipo() + "," +
+                    novoItem.getValorEfeito() + "," +
+                    novoItem.getPreco();
+
+            bf.write('\n' + resultado);
+        } catch (Exception ignored){
+            return;
+        }
     }
 
 }

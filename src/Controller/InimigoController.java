@@ -13,6 +13,9 @@ public class InimigoController {
 
     final static String pathInimigos = "data/inimigos.txt";
 
+
+    public static List<Inimigo> inimigos = InimigoController.listarInimigos();
+
     public static void executarTurnoInimigos(List<Inimigo> inimigos, Personagem jogador) {
         String avisos = "";
         for (Inimigo inimigo : inimigos) {

@@ -11,6 +11,8 @@ import java.util.List;
 
 public class OndaController {
 
+
+    public static Onda[] ondas = OndaController.carregarOndas(InimigoController.inimigos);
     private static final String PATH = "data/onda.txt";
 
     public static Onda[] carregarOndas(List<Inimigo> inimigosDisponiveis) {

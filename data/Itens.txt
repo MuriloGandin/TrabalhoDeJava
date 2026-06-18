@@ -1,10 +1,10 @@
 1,Poção de cura pequena,Cura 5HP,CONSUMIVEL_CURA,5,3
 2,Espada de madeira,Causa +2 de dano de ataque,EQUIPAVEL_ARMA,2,5
 3,Espada de pedra,Causa +4 de dano de ataque,EQUIPAVEL_ARMA,4,8
-4,Espada de ferro,Causa +6 de dano de ataque,EQUIPAVEL_ARMA,6,11
-5,Espada de diamante,Causa +8 de dano de ataque,EQUIPAVEL_ARMA,8,16
+4,Espada de ferro,Causa +6 de dano de ataque,EQUIPAVEL_ARMA,6,13
+5,Espada de diamante,Causa +8 de dano de ataque,EQUIPAVEL_ARMA,8,20
 6,Armadura de couro,Aumenta a defesa em 1,EQUIPAVEL_ARMADURA,1,7
 7,Armadura de ferro,Aumenta a defesa em 2,EQUIPAVEL_ARMADURA,2,11
 8,Armadura de diamante,Aumenta a defesa em 4,EQUIPAVEL_ARMADURA,4,23
-9,Poção de força,Aumenta o dano em 2 (acumulável) durante um turno,CONSUMIVEL_FORCA,3,4
+9,Poção de força,Aumenta o dano em 3 (acumulável) durante um turno,CONSUMIVEL_FORCA,3,2
 10,Poção de cura grande,Cura 12HP,CONSUMIVEL_CURA,12,6

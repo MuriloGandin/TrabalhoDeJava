@@ -10,15 +10,10 @@ public class Sistema {
 
     public static void executar() {
 
-        List<Inimigo> inimigos = InimigoController.listarInimigos();
-        List<Item> itensCadastrados = ItemController.carregarItens();
-
         Loja lojaInicial = new Loja();
 
-        for (Item i : itensCadastrados)
+        for (Item i : ItemController.itensCadastrados)
             lojaInicial.adicionarAoEstoque(i);
-
-        Onda[] ondas = OndaController.carregarOndas(inimigos);
 
         mostrarMenuInicial();
 
@@ -26,7 +21,7 @@ public class Sistema {
 
         Personagem jogador = SaveView.menuSave(opcaoInicial);
 
-        SaveView.menuContinuarSave(ondas, lojaInicial, jogador);
+        SaveView.menuContinuarSave(OndaController.ondas, lojaInicial, jogador);
 
         if (jogador.EstaVivo()) {
             OutputHelper.printlnColorido("\nParabéns! Você completou o jogo!", "verde");
@@ -34,7 +29,7 @@ public class Sistema {
         }
 
         int ondainicial = 1;
-        for (int i = ondainicial - 1; i < ondas.length; i++) {
+        for (int i = ondainicial - 1; i < OndaController.ondas.length; i++) {
             int numOnda = i + 1;
             LojaView.menuLoja(lojaInicial, jogador);
             if (numOnda == 5) {
@@ -80,7 +75,7 @@ public class Sistema {
                 );
             }
 
-            iniciarOnda(jogador, (i+1), ondas[i].getInimigos());
+            iniciarOnda(jogador, (i+1), OndaController.ondas[i].getInimigos());
         }
 
     }
