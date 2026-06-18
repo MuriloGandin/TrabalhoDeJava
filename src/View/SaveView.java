@@ -83,4 +83,16 @@ public class SaveView {
 
         OutputHelper.printGradual("Jogo salvo! Boa sorte na próxima onda!\n", "verde");
     }
+
+    public static void exibirSalvoComSucesso() {
+        OutputHelper.printGradual("Jogo salvo com sucesso!\n", "verde");
+    }
+
+    public static void exibirErroSalvar(String mensagem) {
+        OutputHelper.printGradual("Erro ao salvar jogo: " + mensagem + "\n", "vermelho");
+    }
+
+    public static void exibirErroCarregar(String mensagem) {
+        OutputHelper.printGradual("Erro ao carregar save: " + mensagem + "\n", "vermelho");
+    }
 }
