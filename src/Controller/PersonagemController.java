@@ -24,10 +24,8 @@ public class PersonagemController {
                     jogador.getTurnosEnvenenado() - 1
             );
 
-            OutputHelper.printGradual(
-                    "☠ Você sofreu 2 de dano de veneno!\n",
-                    "vermelho"
-            );
+            PersonagemView.dadosDeEfeitos("veneno");
+
         }
 
         if (jogador.getTurnosQueimado() > 0) {
@@ -38,45 +36,24 @@ public class PersonagemController {
                     jogador.getTurnosQueimado() - 1
             );
 
-            OutputHelper.printGradual(
-                    "🔥 Você sofreu 3 de dano de queimadura!\n",
-                    "vermelho"
-            );
-        }
+            PersonagemView.dadosDeEfeitos("queimadura");
 
-        if (jogador.getTurnosPegajoso() > 0 &&
-                opcao == DEFENDER) {
-
-            jogador.setTurnosPegajoso(0);
-
-            OutputHelper.printGradual(
-                    "🟢 Você está pegajoso e não conseguiu se defender!\n",
-                    "amarelo"
-            );
-
-            opcao = ATACAR;
         }
 
         if (jogador.getTurnosPegajoso() > 0) {
-
 
             jogador.setTurnosPegajoso(
                     jogador.getTurnosPegajoso() - 1
             );
 
-            OutputHelper.printGradual(
-                    "🟢 Você está coberto de gosma e perdeu o turno!\n",
-                    "amarelo"
-            );
-
+            PersonagemView.dadosDeEfeitos("pegajoso");
             return;
         }
 
         switch (opcao) {
             case DEFENDER:
                 jogador.setDefendendo(true);
-                Log.Registrar(jogador.getNome() + " entrou em modo defesa.");
-                System.out.println("\n" + jogador.getNome() + " está se defendendo!");
+                PersonagemView.feedbackDeDefesa(jogador);
                 break;
 
             case ITEM:
@@ -87,18 +64,9 @@ public class PersonagemController {
                 jogador.setDefendendo(false);
                 Inimigo alvo = Sistema.selecionarAlvo(inimigos);
                 jogador.atacar(alvo);
-                System.out.println("O jogador " + jogador.getNome() + " atacou " + alvo.getNome() + " e causou " + jogador.getDano() + " de dano!");
-                Log.Registrar(
-                        jogador.getNome() +
-                                " atacou " +
-                                alvo.getNome() +
-                                " causando " +
-                                jogador.getDano() +
-                                " de dano."
-                );
+                PersonagemView.feedbackDeAtaque(jogador, alvo);
                 jogador.danoExtraTemporario = 0;
-                OutputHelper.printGradual(alvo.getNome() + " ficou com " + alvo.getPontosDeVida() + " pontos de vida!\n", "amarelo");
-        }
+         }
     }
 
     public static boolean comprarItem(Item item, Personagem jogador) {

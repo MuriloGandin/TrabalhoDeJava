@@ -179,7 +179,8 @@ public class Sistema {
         }
         OutputHelper.printGradual("""
                 -------------
-                1. Atacar
+                1. Atacar (""" + jogador.getDano() +  " de dano)" + """
+                
                 2. Defender
                 3. Usar Item
                 -------------

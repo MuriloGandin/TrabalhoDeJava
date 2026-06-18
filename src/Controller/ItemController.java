@@ -12,8 +12,6 @@ public class ItemController {
 
     public static List<Item> itensCadastrados = ItemController.carregarItens();
 
-
-
     public static List<Item> carregarItens() {
         List<Item> resultado = new ArrayList<>();
 
@@ -26,9 +24,9 @@ public class ItemController {
             }
 
         } catch (IOException e) {
-            System.out.println("Nenhum item cadastrado");
+            resultado = null;
         } catch (Exception e) {
-            System.out.println("Erro ao ler inimigos " + e.getMessage());
+            return null;
         }
 
         return resultado;

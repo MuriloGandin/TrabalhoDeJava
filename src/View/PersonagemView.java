@@ -1,6 +1,8 @@
 package View;
 
+import Controller.Log;
 import Controller.PersonagemController;
+import Model.Inimigo;
 import Model.Item;
 import Model.Personagem;
 
@@ -63,5 +65,49 @@ public class PersonagemView {
             }
 
         } while (opcao != 2);
+    }
+
+    public static void dadosDeEfeitos(String efeito) {
+
+        switch (efeito) {
+            case "veneno":
+                OutputHelper.printGradual(
+                        "☠ Você sofreu 2 de dano de veneno!\n",
+                        "vermelho"
+                );
+                break;
+
+            case "queimadura":
+                OutputHelper.printGradual(
+                    "🔥 Você sofreu 3 de dano de queimadura!\n",
+                    "vermelho"
+                );
+                break;
+
+            case "pegajoso":
+                OutputHelper.printGradual(
+                        "🟢 Você está coberto de gosma e perdeu o turno!\n",
+                        "amarelo"
+                );
+        }
+
+    }
+
+    public static void feedbackDeDefesa(Personagem jogador) {
+                Log.Registrar(jogador.getNome() + " entrou em modo defesa.");
+                System.out.println("\n" + jogador.getNome() + " está se defendendo!");
+    }
+
+    public static void feedbackDeAtaque(Personagem jogador, Inimigo alvo) {
+        System.out.println("O jogador " + jogador.getNome() + " atacou " + alvo.getNome() + " e causou " + jogador.getDano() + " de dano!");
+        Log.Registrar(
+                jogador.getNome() +
+                        " atacou " +
+                        alvo.getNome() +
+                        " causando " +
+                        jogador.getDano() +
+                        " de dano."
+        );
+        OutputHelper.printGradual(alvo.getNome() + " ficou com " + alvo.getPontosDeVida() + " pontos de vida!\n", "amarelo");
     }
 }
