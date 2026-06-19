@@ -3,7 +3,7 @@ package Model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Personagem extends Entidade {
+public class Personagem extends Entidade implements Combatente {
 
     private boolean defendendo;
     private List<Item> inventario = new ArrayList<>();

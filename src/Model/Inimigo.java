@@ -1,6 +1,6 @@
 package Model;
 
-public class Inimigo extends Entidade {
+public class Inimigo extends Entidade implements Combatente {
     private int id;
     private boolean preparandoAtaqueEspecial;
     private String TipoAtaqueEspecial;

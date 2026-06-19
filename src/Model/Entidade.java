@@ -2,7 +2,7 @@ package Model;
 
 import java.io.Serializable;
 
-public abstract class Entidade implements Combatente, Serializable {
+public abstract class Entidade implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -55,7 +55,7 @@ public abstract class Entidade implements Combatente, Serializable {
         this.nome = nome;
     }
 
-    @Override
+    
     public void exibirInfo() {
         System.out.println("Nome: " + nome);
         System.out.println("Pontos de Vida: " + pontosDeVida);
