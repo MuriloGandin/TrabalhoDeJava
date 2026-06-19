@@ -14,7 +14,7 @@ public class OutputHelper {
         for (char c : texto.toCharArray()) {
             try {
                 System.out.print(c);
-                Thread.sleep(10);
+                Thread.sleep(8);
             } catch (InterruptedException e) {
                 return;
             }

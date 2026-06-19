@@ -8,7 +8,7 @@ public class InputHelper {
 
     // Mostra uma mensagem no terminal e retorna o texto digitado pelo usuario
     public static String lerTexto(String texto) {
-        OutputHelper.printGradual(texto, 20);
+        OutputHelper.printGradual(texto, 10);
         return scan.nextLine();
     }
 
@@ -36,7 +36,7 @@ public class InputHelper {
                 break;
 
             } catch (Exception e) {
-                OutputHelper.printGradual("Tipo de dado inválido. Insira um número inteiro\n", 20);
+                OutputHelper.printGradual("Tipo de dado inválido. Insira um número inteiro\n", 10);
             }
         }
 

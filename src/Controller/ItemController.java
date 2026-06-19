@@ -58,6 +58,7 @@ public class ItemController {
                     novoItem.getPreco();
 
             bf.write('\n' + resultado);
+            itensCadastrados.add(novoItem);
         } catch (Exception ignored){
             return;
         }
