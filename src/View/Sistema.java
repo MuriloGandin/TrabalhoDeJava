@@ -24,6 +24,7 @@ public class Sistema {
         SaveView.menuContinuarSave(OndaController.ondas, lojaInicial, jogador);
 
         if (jogador.EstaVivo()) {
+            jogoConcluido();
             OutputHelper.printlnColorido("\nParabéns! Você completou o jogo!", "verde");
             SaveController.deletarSave();
         }
@@ -54,6 +55,18 @@ public class Sistema {
                 """, "amarelo");
 
         OutputHelper.printGradual(titulo, 3);
+    }
+
+    private static void jogoConcluido() {
+        String fim = OutputHelper.colorirTexto("""
+                    _______                  __          _                \s
+                   / ____(_)___ ___     ____/ /__       (_)___  ____ _____\s
+                  / /_  / / __ `__ \\   / __  / _ \\     / / __ \\/ __ `/ __ \\
+                 / __/ / / / / / / /  / /_/ /  __/    / / /_/ / /_/ / /_/ /
+                /_/   /_/_/ /_/ /_/   \\__,_/\\___/  __/ /\\____/\\__, /\\____/\s
+                                                  /___/      /____/       \s
+                """, "verde");
+        OutputHelper.printGradual(fim, 3);
     }
 
     private static int lerOpcaoInicial() {
