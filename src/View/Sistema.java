@@ -141,6 +141,7 @@ public class Sistema {
         else
             equipamento = "";
         OutputHelper.printGradual(jogador.getNome() + "  ❤️: " + jogador.getPontosDeVida() + "/" + jogador.getVidaMax() + equipamento + "\n");
+        Log.Registrar(jogador.getNome() + " ficou com " + jogador.getPontosDeVida() + " de vida ❤️");
 
         for (Inimigo inimigo : inimigos) {
             OutputHelper.printGradual(inimigo.getNome() + "  ❤️: " + inimigo.getPontosDeVida() + "/" + inimigo.getVidaMax() + "\n");
