@@ -8,7 +8,7 @@ import Model.Personagem;
 
 public class SaveView {
 
-    private static int ondaInicial = 0; // privado — só esta classe acessa
+    private static int ondaInicial = 0;
 
     public static int getOndaInicial() { return ondaInicial; }
 
