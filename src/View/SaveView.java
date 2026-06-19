@@ -12,7 +12,6 @@ public class SaveView {
 
     public static int getOndaInicial() { return ondaInicial; }
 
-    // ── Carrega ou cria personagem dependendo da opção do menu ────────────────
 
     public static Personagem menuSave(int opcaoInicial) {
         if (opcaoInicial == 2 && SaveController.existeSave()) {
@@ -56,7 +55,6 @@ public class SaveView {
 
             if (!venceuOnda || !jogador.EstaVivo()) return;
 
-            // Não pergunta na última onda
             boolean ultimaOnda = (i == ondas.length - 1);
             if (!ultimaOnda) {
                 menuPosSave(jogador, i);
