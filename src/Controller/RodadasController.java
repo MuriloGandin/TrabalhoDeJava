@@ -30,7 +30,6 @@ public class RodadasController {
             return;
         }
 
-        // Turno do personagem
         int opcao;
 
         do {
@@ -38,7 +37,6 @@ public class RodadasController {
             PersonagemController.executarAcao(opcao, jogador, inimigosEmCombate);
         } while (opcao == 3);
 
-        // Ação do inimigo + menu inimigo derrotado
 
         if (!inimigosEmCombate.isEmpty()) {
 

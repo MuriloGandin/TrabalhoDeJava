@@ -177,8 +177,7 @@ public class InimigoController {
         return inimigos;
     }
 
-    // Converte uma linha de texto para inimigo no formato: "nome, hp, dano"
-    public static Inimigo converterStringParaInimigo(String linha) {
+     public static Inimigo converterStringParaInimigo(String linha) {
         String[] partes = linha.split(",");
         if (partes.length == 8) {
             int id = Integer.parseInt(partes[0]);
