@@ -17,8 +17,6 @@ public class RodadasView {
         int opcao;
         while (true) {
 
-            // Ação do jogador
-
             Sistema.mostrarMenuCombate(jogador, RodadasController.inimigosEmCombate);
 
             opcao = InputHelper.lerNumero("Escolha uma ação (1-3): ");

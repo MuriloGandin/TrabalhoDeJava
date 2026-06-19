@@ -2,14 +2,12 @@ package View;
 
 public class OutputHelper {
 
-    // Limpa as ultimas 50 linhas do terminal para uma exibição mais limpa
     public static void limparTela() {
         for (int i = 0; i < 50; i++) {
             System.out.println();
         }
     }
 
-    // Exibe o texto recebido gradualmente para um efeito de "suavidade", com um intervalo de 3 milessegundos entre os prints
     public static void printGradual(String texto) {
         for (char c : texto.toCharArray()) {
             try {
@@ -21,7 +19,6 @@ public class OutputHelper {
         }
     }
 
-    // Funciona como a função anterior, mas permite que a velocidade de impressão do texto seja especificada (ms)
     public static void printGradual(String texto, int velocidade) {
         for (char c : texto.toCharArray()) {
             try {
@@ -34,8 +31,7 @@ public class OutputHelper {
         }
     }
 
-    // Funciona como o metodo anterior, mas pode receber as cores vermelho, verde ou amarelo para colorir o texto.
-    public static void printGradual(String texto, String cor) {
+     public static void printGradual(String texto, String cor) {
         for (char c : texto.toCharArray()) {
             if (c != ' ') {
                 try {
@@ -49,9 +45,6 @@ public class OutputHelper {
 
         }
     }
-
-    // Exibe o texto informado no terminal com uma cor recebida (vermelho, azul, verde)
-    // Exemplo: TerminalView.printColorido("Olá", "vermelho"); - Resultado: "Olá" pintado em vermelho no terminal
 
     public static void printColorido(String texto, String cor) {
         String codigoCor;
@@ -91,8 +84,6 @@ public class OutputHelper {
         System.out.println(codigoCor + texto + "\u001B[0m");
     }
 
-    // Retorna uma String Colorida para uso externo. Pode ser visualizada somente no terminal.
-    // Exemplo: System.out.println(TerminalView.colorirTexto("Olá", "Vermelho")) - funcionará como o exemplo do metodo "printColorido"
     public static String colorirTexto(String texto, String cor) {
         String codigoCor;
 
@@ -112,7 +103,7 @@ public class OutputHelper {
 
         return codigoCor + texto + "\u001B[0m";
     }
-    // Criei outro print para conseguir colocar cor e mudar a velocidade de exibição ao mesmo tempo, usei para a mensagem do dragao
+
     public static void printGradualD(String texto, String cor, int velocidade) {
         for (char c : texto.toCharArray()) {
             if (c != ' ') {
