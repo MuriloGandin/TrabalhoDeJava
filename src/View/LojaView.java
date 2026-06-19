@@ -14,6 +14,7 @@ public class LojaView {
 
         int op;
         String logista = OutputHelper.colorirTexto("""
+                            Oswaldinho
                               _____
                             /       \\
                            |  o   o  |
@@ -23,13 +24,13 @@ public class LojaView {
                 """, "amarelo");
 
         OutputHelper.printGradual(logista, 2);
-        OutputHelper.printGradual("Lojista: Seja bem-vindo a loja! ", "verde");
+        OutputHelper.printGradual("Oswaldinho: Seja bem-vindo a loja! ", "verde");
 
         do {
             OutputHelper.printGradual("Você tem: ");
             OutputHelper.printGradual("" + jogador.getDiamantes(), "azul");
             OutputHelper.printGradual("💎\n");
-            OutputHelper.printGradual("Dica: comprar poções pode salvar sua vida!\n","azul");
+            OutputHelper.printGradual("Oswaldinho: comprar poções pode salvar sua vida!\n","azul");
             op = InputHelper.lerNumero("""
                 Escolha uma operação:
                 1 - 💲 Comprar item 💲; | 2 - 💎 Vender item 💎; | 3 - ⚔️ Ir para o combate ⚔️;
@@ -45,7 +46,7 @@ public class LojaView {
                     break;
 
                 case 3:
-                    OutputHelper.printGradual("Lojista: Volte sempre!\n", "verde");
+                    OutputHelper.printGradual("Oswaldihno: Volte sempre!\n", "verde");
                     break;
 
                 default:
@@ -98,16 +99,16 @@ public class LojaView {
             OutputHelper.printGradual(i.getNome() + " comprado com sucesso!\n", "verde");
             return;
         }
-        OutputHelper.printGradual("Você não tem diamantes o suficiente para comprar este item!\n", "vermelho");
+        OutputHelper.printGradual("Oswaldinho: Você não tem diamantes o suficiente para comprar este item!\n", "vermelho");
     }
 
     public static void menuVenda(Loja loja, Personagem jogador) {
         List<Item> inventario = jogador.getInventario();
         if (inventario.isEmpty()) {
-            OutputHelper.printColorido("Seu inventário está vazio!\n", "vermelho");
+            OutputHelper.printColorido("Oswaldinho: Seu inventário está vazio!\n", "vermelho");
             return;
         }
-        OutputHelper.printColorido("Itens só podem ser vendidos a 60% do preço original\n", "amarelo");
+        OutputHelper.printColorido("Oswaldinho: Itens só podem ser vendidos a 60% do preço original\n", "amarelo");
         OutputHelper.printGradual("=== Inventário ===\n", "azul");
         for (int i = 0; i < jogador.getInventario().size(); i++) {
             Item item = inventario.get(i);
