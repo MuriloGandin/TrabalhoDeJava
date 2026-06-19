@@ -185,9 +185,9 @@ public class InimigoController {
             int hp = Integer.parseInt(partes[2]);
             int dano = Integer.parseInt(partes[3]);
             int ataquesParaEspecial = Integer.parseInt(partes[4]);
-           int moedasMin = Integer.parseInt(partes[5]);
-           int moedasMax = Integer.parseInt(partes[6]);
-           String TipoAtaqueEspecial = partes[7];
+            int moedasMin = Integer.parseInt(partes[5]);
+            int moedasMax = Integer.parseInt(partes[6]);
+            String TipoAtaqueEspecial = partes[7];
             Inimigo inimigo = new Inimigo(id, nome, hp, dano);
 
             inimigo.setAtaquesParaEspecial(ataquesParaEspecial);

@@ -59,6 +59,7 @@ public class Sistema {
 
     private static void jogoConcluido() {
         String fim = OutputHelper.colorirTexto("""
+                    \n
                     _______                  __          _                \s
                    / ____(_)___ ___     ____/ /__       (_)___  ____ _____\s
                   / /_  / / __ `__ \\   / __  / _ \\     / / __ \\/ __ `/ __ \\
@@ -133,8 +134,12 @@ public class Sistema {
         String equipamento = "";
         if (jogador.getEquipamento() != null)
             equipamento += " 🗡️(+" + jogador.getEquipamento().getValorEfeito() + " ATK)";
+        else
+            equipamento = "";
         if (jogador.getArmadura() != null)
             equipamento += " 🛡️(+"  + jogador.getArmadura().getValorEfeito() + " DEF)";
+        else
+            equipamento = "";
         OutputHelper.printGradual(jogador.getNome() + "  ❤️: " + jogador.getPontosDeVida() + "/" + jogador.getVidaMax() + equipamento + "\n");
 
         for (Inimigo inimigo : inimigos) {
