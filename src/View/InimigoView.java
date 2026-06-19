@@ -7,11 +7,19 @@ import Model.Personagem;
 public class InimigoView {
 
     public static void feedbackAtaqueNormal(Inimigo inimigo, Personagem jogador, int dano) {
+
         OutputHelper.printGradual(
                 "\n" + inimigo.getNome() + " atacou " + jogador.getNome() +
                         " e causou " + dano + " de dano!\n",
                 "vermelho"
         );
+        String defesa = "";
+        if (jogador.getArmadura() != null){
+            defesa += "🛡️ " + OutputHelper.colorirTexto("Mas sua armadura defende " + jogador.getArmadura().getValorEfeito() + " de dano!\n", "azul");
+        }
+
+        OutputHelper.printGradual(defesa, 3);
+
 
         Log.Registrar(
                 inimigo.getNome() +
