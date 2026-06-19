@@ -63,6 +63,9 @@ public class PersonagemView {
                     break;
 
             }
+            if (!jogador.EstaVivo()) {
+                return;
+            }
 
         } while (opcao != 2);
     }
@@ -78,15 +81,17 @@ public class PersonagemView {
                 break;
 
             case "queimadura":
+                System.out.println("🔥 ");
                 OutputHelper.printGradual(
-                    "🔥 Você sofreu 3 de dano de queimadura!\n",
+                    "Você sofreu 3 de dano de queimadura!\n",
                     "vermelho"
                 );
                 break;
 
             case "pegajoso":
+                System.out.println("🟢 ");
                 OutputHelper.printGradual(
-                        "🟢 Você está coberto de gosma e perdeu o turno!\n",
+                        "Você está coberto de gosma e perdeu o turno!\n",
                         "amarelo"
                 );
         }

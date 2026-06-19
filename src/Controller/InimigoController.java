@@ -2,24 +2,21 @@ package Controller;
 
 import Model.Inimigo;
 import Model.Personagem;
-import View.OutputHelper;
+import View.InimigoView;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class InimigoController {
 
     final static String pathInimigos = "data/inimigos.txt";
-
 
     public static List<Inimigo> inimigos = InimigoController.listarInimigos();
 
     public static void executarTurnoInimigos(List<Inimigo> inimigos, Personagem jogador) {
         String avisos = "";
         for (Inimigo inimigo : inimigos) {
-
 
             if (inimigo.isPreparandoAtaqueEspecial()) {
 
@@ -28,114 +25,80 @@ public class InimigoController {
 
                     case "GRITO":
                         dano = inimigo.getDano() * 2;
-                        OutputHelper.printGradual(inimigo.getNome() + " soltou um grito assustador e causou " + dano + " de dano!!\n", "vermelho");
                         break;
 
                     case "PULO":
                         dano = inimigo.getDano() * 3;
                         jogador.setTurnosPegajoso(1);
-                        OutputHelper.printGradual(inimigo.getNome() + " pulou em você e causou " + dano + " de dano!!\n", "vermelho");
                         break;
 
                     case "MORDIDA":
                         dano = inimigo.getDano() * 2;
-                        OutputHelper.printGradual(inimigo.getNome() + " mordeu você e causou " + dano + " de dano!!\n", "vermelho");
                         break;
 
                     case "FLECHADA":
                         dano = inimigo.getDano() * 2;
-                        OutputHelper.printGradual(inimigo.getNome() + " acertou uma flechada e causou " + dano + " de dano!!\n", "vermelho");
                         break;
 
                     case "VENENO":
                         dano = inimigo.getDano() * 2;
                         jogador.setTurnosEnvenenado(3);
-                        OutputHelper.printGradual(inimigo.getNome() + " envenenou você e causou " + dano + " de dano!!\n", "vermelho");
                         break;
 
                     case "DESIDRATACAO":
                         dano = inimigo.getDano() * 2;
-                        OutputHelper.printGradual(inimigo.getNome() + " causou desidratação e deu " + dano + " de dano!!\n", "vermelho");
                         break;
 
                     case "TRIDENTE":
                         dano = inimigo.getDano() * 3;
-                        OutputHelper.printGradual(inimigo.getNome() + " lançou um tridente e causou " + dano + " de dano!!\n", "vermelho");
                         break;
 
                     case "SOMBRIO":
                         dano = inimigo.getDano() * 3;
-                        OutputHelper.printGradual(inimigo.getNome() + " usou ataque sombrio e causou " + dano + " de dano!!\n", "vermelho");
                         break;
 
                     case "EXPLOSAO":
                         dano = inimigo.getDano() * 4;
-                        OutputHelper.printGradual(inimigo.getNome() + " explodiu e causou " + dano + " de dano!!\n", "vermelho");
                         break;
 
                     case "POCAO":
                         dano = inimigo.getDano() * 3;
-                        OutputHelper.printGradual(inimigo.getNome() + " lançou uma poção e causou " + dano + " de dano!!\n", "vermelho");
                         break;
 
                     case "BOLA_DE_FOGO":
                         dano = inimigo.getDano() * 3;
                         jogador.setTurnosQueimado(2);
-                        OutputHelper.printGradual(inimigo.getNome() + " lançou uma bola de fogo e causou " + dano + " de dano!!\n", "vermelho");
                         break;
 
                     case "MACHADADA":
                         dano = inimigo.getDano() * 3;
-                        OutputHelper.printGradual(inimigo.getNome() + " deu uma machadada e causou " + dano + " de dano!!\n", "vermelho");
                         break;
 
                     case "MAGIA":
                         dano = inimigo.getDano() * 3;
-                        OutputHelper.printGradual(inimigo.getNome() + " usou magia e causou " + dano + " de dano!!\n", "vermelho");
                         break;
 
                     case "LENTIDAO":
                         dano = inimigo.getDano() * 2;
                         jogador.setTurnosLentidao(1);
-                        OutputHelper.printGradual(inimigo.getNome() + " usou lentidão e causou " + dano + " de dano!!\n", "vermelho");
                         break;
 
                     case "BAFORADA_DO_DRAGAO":
                         dano = inimigo.getDano() * 3;
-                        OutputHelper.printGradual(inimigo.getNome() + " soltou uma baforada de dragão e causou " + dano + " de dano!!\n", "vermelho");
                         break;
                     default:
                         dano = inimigo.getDano() * 2;
-                        OutputHelper.printGradual(
-                                inimigo.getNome() + " usou um ataque especial!\n",
-                                "vermelho"
-                        );
+                       break;
 
                 }
-//                int dano = inimigo.getDano() * 3;
-
-//                OutputHelper.printGradual(
-//                        inimigo.getNome() +
-//                                " usou um ATAQUE ESPECIAL!\n","vermelho"
-//                );
 
                 if (jogador.isDefendendo()) {
                     dano = dano / 2;
-                    System.out.println("\nDefesa ativada! Dano do Ataque Especial reduzido em 50%.");
-                    Log.Registrar(jogador.getNome() + " Usou defesa e o dano foi reduzido em 50%");
+                   InimigoView.feedbackDefesaEspecial(jogador);
                 }
 
+                InimigoView.feedbackAtaqueEspecial(inimigo,dano);
                 jogador.receberDano(dano);
-
-
-                Log.Registrar(
-                        inimigo.getNome() +
-                                " usou ataque especial em " +
-                                jogador.getNome() +
-                                " causando " +
-                                dano +
-                                " de dano."
-                );
 
                 inimigo.setPreparandoAtaqueEspecial(false);
                 inimigo.setContadorAtaques(0);
@@ -143,17 +106,15 @@ public class InimigoController {
                 continue;
             }
 
-
-            System.out.println("\n" + inimigo.getNome() + " atacou " + jogador.getNome() + "!");
-
             int dano = inimigo.getDano();
             if (jogador.isDefendendo()) {
                 dano = dano / 2;
-                System.out.println("\nDefesa ativada! Dano reduzido em 50%.");
-                Log.Registrar(jogador.getNome() + " Usou desefa e o dano foi reduzido em 50%");
+               InimigoView.feedbackDefesaNormal(jogador);
             }
 
             jogador.receberDano(dano);
+            InimigoView.feedbackAtaqueNormal(inimigo,jogador,dano);
+
 
             inimigo.setContadorAtaques(
                     inimigo.getContadorAtaques() + 1
@@ -161,35 +122,13 @@ public class InimigoController {
 
             if (inimigo.getContadorAtaques()
                     >= inimigo.getAtaquesParaEspecial()) {
-
-                Log.Registrar(inimigo.getNome() + " esta preparando um ataque Especial");
-                avisos += "⚠️⚠️" + inimigo.getNome()
-                        + " está preparando um ataque especial!\n";
-
+                avisos += InimigoView.mensagemPreparandoEspecial(inimigo);
                 inimigo.setPreparandoAtaqueEspecial(true);
             }
 
-
-            Log.Registrar(
-                    inimigo.getNome() +
-                            " atacou " +
-                            jogador.getNome() +
-                            " causando " +
-                            dano +
-                            " de dano."
-            );
-
         }
-        System.out.println(
-                jogador.getNome() +
-                        " ficou com " +
-                        jogador.getPontosDeVida() +
-                        " HP."
-        );
-
-        if (!avisos.isEmpty()) {
-            OutputHelper.printGradual(avisos, "vermelho");
-        }
+        InimigoView.mostrarHpJogador(jogador);
+        InimigoView.mostrarAvisos(avisos);
         jogador.setDefendendo(false);
     }
 

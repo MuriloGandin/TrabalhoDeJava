@@ -46,6 +46,12 @@ public class SaveView {
         for (int i = ondaInicial; i < ondas.length; i++) {
             LojaView.menuLoja(lojaInicial, jogador);
 
+            int numOnda = i + 1;
+
+            if (numOnda == 5) {
+                InimigoView.mostrarEntradaBoss();
+            }
+
             boolean venceuOnda = Sistema.iniciarOnda(jogador, (i + 1), ondas[i].getInimigos());
 
             if (!venceuOnda || !jogador.EstaVivo()) return;

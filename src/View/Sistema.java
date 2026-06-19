@@ -28,56 +28,6 @@ public class Sistema {
             SaveController.deletarSave();
         }
 
-        int ondainicial = 1;
-        for (int i = ondainicial - 1; i < OndaController.ondas.length; i++) {
-            int numOnda = i + 1;
-            LojaView.menuLoja(lojaInicial, jogador);
-            if (numOnda == 5) {
-
-                String boss = OutputHelper.colorirTexto("""
-                    
-                                     ██████╗  ██████╗ ███████╗███████╗
-                                     ██╔══██╗██╔═══██╗██╔════╝██╔════╝
-                                     ██████╔╝██║   ██║███████╗███████╗
-                                     ██╔══██╗██║   ██║╚════██║╚════██║
-                                     ██████╔╝╚██████╔╝███████║███████║
-                                     ╚═════╝  ╚═════╝ ╚══════╝╚══════╝
-                    
-                                 ╔════════════════════════════════════════════╗
-                                 ║              ⚠️  CHEFE FINAL  ⚠️           ║
-                                 ╠════════════════════════════════════════════╣
-                                 ║        O DRAGÃO DO END APARECEU!           ║
-                                 ╚════════════════════════════════════════════╝
-                    
-                    """, "vermelho");
-
-                OutputHelper.printGradual(boss, 15);
-
-                OutputHelper.printGradualD(
-                        "\n                O céu escurece...\n",
-                        "amarelo", 39
-                );
-
-                OutputHelper.printGradualD(
-                        "                As chamas iluminam o campo de batalha...\n",
-                        "amarelo", 39
-                );
-
-                System.out.print("                🐉 ");
-                OutputHelper.printGradualD(
-                        "O Dragão abre suas asas e solta um rugido ensurdecedor!\n",
-                        "vermelho", 39
-                );
-
-                OutputHelper.printGradualD(
-                        "\n                ⚔️ Esta é sua última batalha. Derrote o Dragão ou seja destruído!\n\n",
-                        "amarelo", 39
-                );
-            }
-
-            iniciarOnda(jogador, (i+1), OndaController.ondas[i].getInimigos());
-        }
-
     }
 
 

@@ -200,7 +200,7 @@ public class InimigoView {
             
             """, "vermelho");
 
-        OutputHelper.printGradual(boss, 15);
+        OutputHelper.printGradual(boss, 6);
 
         OutputHelper.printGradualD(
                 "\n                O céu escurece...\n",

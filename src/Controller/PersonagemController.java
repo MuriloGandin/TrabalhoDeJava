@@ -16,40 +16,42 @@ public class PersonagemController {
     public static final int ITEM     = 3;
 
     public static void executarAcao(int opcao, Personagem jogador, List<Inimigo> inimigos) {
-        if (jogador.getTurnosEnvenenado() > 0) {
+        if (opcao != ITEM) {
+            if (jogador.getTurnosEnvenenado() > 0) {
 
-            jogador.receberDano(2);
+                jogador.receberDano(2);
 
-            jogador.setTurnosEnvenenado(
-                    jogador.getTurnosEnvenenado() - 1
-            );
+                jogador.setTurnosEnvenenado(
+                        jogador.getTurnosEnvenenado() - 1
+                );
 
-            PersonagemView.dadosDeEfeitos("veneno");
+                PersonagemView.dadosDeEfeitos("veneno");
 
+            }
+
+            if (jogador.getTurnosQueimado() > 0) {
+
+                jogador.receberDano(3);
+
+                jogador.setTurnosQueimado(
+                        jogador.getTurnosQueimado() - 1
+                );
+
+                PersonagemView.dadosDeEfeitos("queimadura");
+            }
+            if (!jogador.EstaVivo()) {
+                return;
+            }
+            if (jogador.getTurnosPegajoso() > 0) {
+
+                jogador.setTurnosPegajoso(
+                        jogador.getTurnosPegajoso() - 1
+                );
+
+                PersonagemView.dadosDeEfeitos("pegajoso");
+                return;
+            }
         }
-
-        if (jogador.getTurnosQueimado() > 0) {
-
-            jogador.receberDano(3);
-
-            jogador.setTurnosQueimado(
-                    jogador.getTurnosQueimado() - 1
-            );
-
-            PersonagemView.dadosDeEfeitos("queimadura");
-
-        }
-
-        if (jogador.getTurnosPegajoso() > 0) {
-
-            jogador.setTurnosPegajoso(
-                    jogador.getTurnosPegajoso() - 1
-            );
-
-            PersonagemView.dadosDeEfeitos("pegajoso");
-            return;
-        }
-
         switch (opcao) {
             case DEFENDER:
                 jogador.setDefendendo(true);
