@@ -4,9 +4,6 @@
 **Tema:** RPG de aventura
 
 
-#### A fazer:
-- Remover Comentários 
-
 ### O que cada um irá falar
 - InimigoController: Erick
 - ItemController: Murilo
@@ -105,20 +102,7 @@ Registra todos os eventos relevantes do jogo (ataques, saves, encerramentos) em 
 
 ---
 
-## 🚀 Como Executar
 
-```bash
-# Compilar (na pasta raiz do projeto)
-mkdir out
-javac -d out -sourcepath src src/Main.java
-
-# Executar
-java -cp out Main
-```
-
-> A pasta `data/` deve existir antes de rodar. Crie-a manualmente se necessário.
-
----
 
 ## 🤖 Uso de IA
 As IAs Claude, Gemini e ChatGPT foram utilizadas para fornecer ideias de estruturas de classes, tema e relações entre as camadas MVC, além de terem tirado dúvidas sobre a utilização de ferramentas como Git e bibliotecas como `Iterator`.
