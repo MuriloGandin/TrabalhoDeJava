@@ -126,4 +126,4 @@ As IAs Claude, Gemini e ChatGPT foram utilizadas para fornecer ideias de estrutu
 ---
 
 ## 📚 Referências
-- Criação de ASCII arts a partir de texto: https://patorjk.com/software/taag/
+- <a href="https://patorjk.com/software/taag/">Criação de ASCII arts a partir de texto</a>
