@@ -4,32 +4,8 @@
 **Tema:** RPG de aventura
 
 
-### O que cada um irá falar
-- InimigoController: Erick
-- ItemController: Murilo
-- Log: Erick
-- OndaController: Clara
-- PersonagemController: Murilo
-- RodadasController: Murilo
-- SaveController: Clara
----
-- Combatente: Clara
-- Entidade: Clara
-- Inimigo: Erick 
-- Item: Murilo
-- Loja: Murilo
-- Onda: Erick
-- Personagem: Erick
----
-- InputHelper/OutputHelper: Murilo
-- LojaView: Murilo
-- OndaView: Clara
-- PersonagemView: Erick
-- RodadasView: Clara
-- SaveView: Clara
-- Sistema: Clara, Erick e Murilo
-
 # Informações gerais sobre o projeto
+Trabalho desenvolvido para a disciplina de Desenvolvimento de Software, com o objetivo de consolidar conceitos como herança, polimorfismo, encapsulamento e padrões de arquitetura de software.
 
 
 ## 🗂️ Informações sobre as Classes
